@@ -36,6 +36,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'pry-rails'
+  gem "quiet_assets"
 end
 
 group :development do
@@ -46,7 +47,9 @@ group :development do
   gem 'spring'
 end
 
-
+gem 'react-rails', '~> 1.7.0'
+gem "rails-erd"
+gem 'clearance'
 gem 'materialize-sass'
 gem 'faker'
 gem 'kaminari'
