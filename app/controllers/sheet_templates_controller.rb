@@ -1,0 +1,2 @@
+class SheetTemplatesController < ApplicationController
+end
