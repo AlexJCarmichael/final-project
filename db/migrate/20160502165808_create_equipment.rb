@@ -1,9 +1,9 @@
 class CreateEquipment < ActiveRecord::Migration
   def change
     create_table :equipment do |t|
-      t.string :name
+      t.string :name, null: false
       t.string :damage
-      t.string :type
+      t.string :type, null: false
       t.string :sub_type
       t.string :armor
       t.string :weight
