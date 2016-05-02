@@ -1,9 +1,9 @@
-<div class="text-field">
-  <%= form.label :email %>
-  <%= form.text_field :email, type: 'email' %>
-</div>
-
-<div class="password-field">
-  <%= form.label :password %>
-  <%= form.password_field :password %>
-</div>
+<%= form_for @user do |f| %>
+  <p>Username: <%= f.text_field :user_name %></p>
+  <p>Email address: <%= f.text_field :email %></p>
+  <p>Name: <%= f.text_field :name %></p>
+  <p>Phone nuber(for text reminders):<%= f.text_field :phone_number %></p>
+  <p>Password: <%= f.password_field :password %></p>
+  <p>Confirm Password: <%= f.password_field :password_confirmation %></p>
+  <%= f.submit "Create User"%>
+<% end %>
