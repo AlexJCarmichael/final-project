@@ -1,4 +1,4 @@
 class Equipment < ActiveRecord::Base
-  validates :name, pressence: true
-  validates :type, pressence: true
+  validates :name, presence: true
+  validates :category, presence: true
 end

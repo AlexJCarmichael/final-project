@@ -6,5 +6,5 @@ class GameSession < ActiveRecord::Base
   has_one :sheet_template
   has_one :chat
 
-  validates :session_name, pressence: true
+  validates :session_name, presence: true
 end
