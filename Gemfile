@@ -37,6 +37,7 @@ group :development, :test do
   gem 'byebug'
   gem 'pry-rails'
   gem "quiet_assets"
+  gem "bullet"
 end
 
 group :development do
