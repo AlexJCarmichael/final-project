@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160502170808) do
+ActiveRecord::Schema.define(version: 20160502172713) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,20 +47,21 @@ ActiveRecord::Schema.define(version: 20160502170808) do
   add_index "char_stats", ["stat_id"], name: "index_char_stats_on_stat_id", using: :btree
 
   create_table "characters", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",              null: false
     t.integer  "user_id"
     t.integer  "sheet_template_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.text     "bio"
   end
 
   add_index "characters", ["sheet_template_id"], name: "index_characters_on_sheet_template_id", using: :btree
   add_index "characters", ["user_id"], name: "index_characters_on_user_id", using: :btree
 
   create_table "equipment", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",       null: false
     t.string   "damage"
-    t.string   "type"
+    t.string   "type",       null: false
     t.string   "sub_type"
     t.string   "armor"
     t.string   "weight"
@@ -71,7 +72,7 @@ ActiveRecord::Schema.define(version: 20160502170808) do
   end
 
   create_table "game_sessions", force: :cascade do |t|
-    t.string   "session_name"
+    t.string   "session_name", null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
@@ -113,14 +114,14 @@ ActiveRecord::Schema.define(version: 20160502170808) do
   end
 
   create_table "skills", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",       null: false
     t.integer  "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "stats", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",       null: false
     t.integer  "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
