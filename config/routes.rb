@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :skills
   resources :sheet_templates
   resources :game_sessions
-  root 'welcome#index'
+
+  root 'dashboard#index'
 
 end
