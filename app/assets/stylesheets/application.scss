@@ -14,4 +14,13 @@
  *= require_self
  */
 
+@import "materialize";
 @import url(https://fonts.googleapis.com/css?family=Inknut+Antiqua|Alegreya+Sans:400,700);
+
+h1, h2, h3, h4, h5, h6, .btn {
+  font-family: 'Inknut Antiqua', serif;
+}
+
+p, span, div {
+  font-family: 'Alegreya SC', serif;
+}
