@@ -16,7 +16,7 @@
 
 $primary-color: #1C2528;
 $secondary-color: #1F1A37;
-$tertiary-color: #E7D32E;
+$tertiary-color: #DFD6A7;
 
 @import "materialize";
 @import url(https://fonts.googleapis.com/css?family=Inknut+Antiqua|Alegreya+Sans:400,700);
@@ -32,4 +32,8 @@ p, span, div {
 .dash-display {
   border: 1px solid $secondary-color;
   max-width: 20em;
+  background-color: $tertiary-color;
+  p {
+    margin-left: 1em;
+  }
 }

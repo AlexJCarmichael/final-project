@@ -1,9 +1,31 @@
 <h1>Dashboard for <%= current_user.user_name %></h1>
 
-<div class='dash-display'>
-  <h4 id='clicky-button'>Characters</h4>
-  <div class='hide-on-small-only' id='expand-me'>
-    <p><%= @character.first.name %></p>
-    <p><%= @character.first.stats.first.name %> | <%= @character.first.stats.first.value %></p>
-    <p><%= @character.first.stats.second.name %> | <%= @character.first.stats.second.value %></p>
+<div class='row'>
+  <div class='dash-display s12 m4'>
+    <h4 id='clicky-button'>Characters</h4>
+    <div class='hide-on-small-only' id='expand-me'>
+      <p><%= @character.first.name %></p>
+      <p><%= @character.first.stats.first.name %> | <%= @character.first.stats.first.value %></p>
+      <p><%= @character.first.stats.second.name %> | <%= @character.first.stats.second.value %></p>
+    </div>
+  </div>
+
+
+  <div class='dash-display s12 m4'>
+    <h4 id='clicky-button'>Games</h4>
+    <div class='hide-on-small-only' id='expand-me'>
+      <p><%= @character.first.name %></p>
+      <p><%= @character.first.stats.first.name %> | <%= @character.first.stats.first.value %></p>
+      <p><%= @character.first.stats.second.name %> | <%= @character.first.stats.second.value %></p>
+    </div>
+  </div>
+
+  <div class='dash-display s12 m4'>
+    <h4 id='clicky-button'>Friends</h4>
+    <div class='hide-on-small-only' id='expand-me'>
+      <p><%= @character.first.name %></p>
+      <p><%= @character.first.stats.first.name %> | <%= @character.first.stats.first.value %></p>
+      <p><%= @character.first.stats.second.name %> | <%= @character.first.stats.second.value %></p>
+    </div>
+  </div>
 </div>
