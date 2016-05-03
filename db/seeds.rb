@@ -63,4 +63,4 @@ characters.each do |char|
   CharEquip.create( character_id: char.id, equipment_id: armorArr.sample.id )
 end
 
-GameSession.create(name: "Dane's Cool Game", user_id: user.id)
+GameSession.create(session_name: "Dane's Cool Game", user_id: user.id)
