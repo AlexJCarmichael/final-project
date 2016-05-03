@@ -1,5 +1,7 @@
 class Character < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :player
+  has_one :user, through: :player
+
   belongs_to :sheet_template
 
   has_many :char_stats

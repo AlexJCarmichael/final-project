@@ -1,7 +1,7 @@
 class DashboardController < ApplicationController
   def index
     @user = current_user
-    @character = @user.characters.first
+    @characters = @user.characters
     @session = @user.game_sessions.first
   end
 end

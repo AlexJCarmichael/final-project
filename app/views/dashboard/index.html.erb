@@ -4,9 +4,11 @@
   <div class='dash-display col s12 m3'>
     <h4 id='clicky-button'>Characters</h4>
     <div class='hide-on-small-only' id='expand-me'>
-      <p><%= @character.name %></p>
-      <p><%= @character.stats.first.name %> | <%= @character.stats.first.value %></p>
-      <p><%= @character.stats.second.name %> | <%= @character.stats.second.value %></p>
+      <% @characters.each do |char| %>
+        <p><%= char.name %></p>
+        <p><%= char.stats.first.name %> | <%= char.stats.first.value %></p>
+        <p><%= char.stats.second.name %> | <%= char.stats.second.value %></p>
+      <% end %>
     </div>
   </div>
 
@@ -24,9 +26,11 @@
   <div class='dash-display col s12 m3 offset-m1'>
     <h4 id='clicky-button3'>Friends</h4>
     <div class='hide-on-small-only' id='expand-me3'>
-      <p><%= @character.name %></p>
-      <p><%= @character.stats.first.name %> | <%= @character.stats.first.value %></p>
-      <p><%= @character.stats.second.name %> | <%= @character.stats.second.value %></p>
+      <% @characters.each do |char| %>
+        <p><%= char.name %></p>
+        <p><%= char.stats.first.name %> | <%= char.stats.first.value %></p>
+        <p><%= char.stats.second.name %> | <%= char.stats.second.value %></p>
+      <% end %>
     </div>
   </div>
 </div>
