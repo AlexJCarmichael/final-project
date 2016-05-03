@@ -8,11 +8,17 @@
 user = User.create( user_name: "Jaxom555", name: "Dane", email: "test@test.test", password: "password" )
 user2 = User.create( user_name: "Vpatel90", name: "Vivek", email: "vivek@test.test", password: "password" )
 user3 = User.create( user_name: "Vanderson", name: "Van", email: "van@test.test", password: "password" )
+user4 = User.create( user_name: "Tiffosan", name: "Tiffo", email: "tiffo@test.test", password: "password" )
+
+Friend.create( user_id: user.id, to_user_id: user2.id, status: "accepted" )
+Friend.create( user_id: user.id, to_user_id: user3.id, status: "accepted" )
+Friend.create( user_id: user.id, to_user_id: user4.id, status: "pending" )
+
 sheet = SheetTemplate.create( game_name: "Danes and Dragons" )
 
 session = GameSession.create(session_name: "Dane's Cool Game", user_id: user.id)
 
-player1 =Player.create( user_id: user.id, game_session_id: session.id )
+player1 = Player.create( user_id: user.id, game_session_id: session.id )
 player2 = Player.create( user_id: user2.id, game_session_id: session.id )
 player3 = Player.create( user_id: user3.id, game_session_id: session.id )
 
