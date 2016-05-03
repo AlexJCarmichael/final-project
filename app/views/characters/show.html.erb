@@ -1,5 +1,6 @@
 <div class='character-sheet'>
   <h4><%= @character.name %></h4>
+  <p>"<%= @character.bio %>"</p>
   <h6>Attributes</h6>
   <% @character.stats.each do |stat| %>
     <p><%= stat.name %>: <%= stat.value %></p>
