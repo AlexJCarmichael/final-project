@@ -31,8 +31,8 @@ p, span, div {
 
 .dash-display {
   border: 1px solid $secondary-color;
-  max-width: 20em;
   background-color: $tertiary-color;
+  min-height: 30em;
   p {
     margin-left: 1em;
   }
