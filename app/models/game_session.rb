@@ -1,6 +1,8 @@
 class GameSession < ActiveRecord::Base
-  has_many :users
-  has_many :characters
+  has_many :players
+  has_many :actors, through: :players, source: :user
+  has_many :characters, through: :players
+  has_many :session_items
   has_many :items, through: :session_items, source: :equipment
 
   has_one :sheet_template

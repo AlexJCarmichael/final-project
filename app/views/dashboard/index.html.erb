@@ -4,9 +4,9 @@
   <div class='dash-display col s12 m3'>
     <h4 id='clicky-button'>Characters</h4>
     <div class='hide-on-small-only' id='expand-me'>
-      <p><%= @character.first.name %></p>
-      <p><%= @character.first.stats.first.name %> | <%= @character.first.stats.first.value %></p>
-      <p><%= @character.first.stats.second.name %> | <%= @character.first.stats.second.value %></p>
+      <p><%= @character.name %></p>
+      <p><%= @character.stats.first.name %> | <%= @character.stats.first.value %></p>
+      <p><%= @character.stats.second.name %> | <%= @character.stats.second.value %></p>
     </div>
   </div>
 
@@ -14,18 +14,19 @@
   <div class='dash-display col s12 m3 offset-m1'>
     <h4 id='clicky-button2'>Games</h4>
     <div class='hide-on-small-only' id='expand-me2'>
-      <p><%= @character.first.name %></p>
-      <p><%= @character.first.stats.first.name %> | <%= @character.first.stats.first.value %></p>
-      <p><%= @character.first.stats.second.name %> | <%= @character.first.stats.second.value %></p>
+      <p><%= @session.session_name %></p>
+      <% @session.actors.each do |act| %>
+        <p><%= act.name %> playing as <%= act.characters.first.name %></p>
+      <% end %>
     </div>
   </div>
 
   <div class='dash-display col s12 m3 offset-m1'>
     <h4 id='clicky-button3'>Friends</h4>
     <div class='hide-on-small-only' id='expand-me3'>
-      <p><%= @character.first.name %></p>
-      <p><%= @character.first.stats.first.name %> | <%= @character.first.stats.first.value %></p>
-      <p><%= @character.first.stats.second.name %> | <%= @character.first.stats.second.value %></p>
+      <p><%= @character.name %></p>
+      <p><%= @character.stats.first.name %> | <%= @character.stats.first.value %></p>
+      <p><%= @character.stats.second.name %> | <%= @character.stats.second.value %></p>
     </div>
   </div>
 </div>

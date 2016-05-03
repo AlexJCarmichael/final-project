@@ -1,5 +1,7 @@
 class DashboardController < ApplicationController
   def index
-    @character = Character.where("user_id = 1")
+    @user = current_user
+    @character = @user.characters.first
+    @session = @user.game_sessions.first
   end
 end
