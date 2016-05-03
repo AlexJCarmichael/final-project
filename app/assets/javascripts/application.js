@@ -1,3 +1,4 @@
+/* globals $ */
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -18,3 +19,13 @@
 //= require react_ujs
 //= require components
 //= require_tree .
+
+var ready;
+ready = function() {
+    $("#clicky-button").on("click", function () {
+        $("#expand-me").toggleClass("hide-on-small-only");
+    });
+};
+
+$(document).ready(ready);
+$(document).on("page:load", ready);
