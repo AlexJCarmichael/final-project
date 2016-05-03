@@ -7,5 +7,8 @@ class Character < ActiveRecord::Base
   has_many :char_stats
   has_many :stats, through: :char_stats
 
+  has_many :char_skills
+  has_many :skills, through: :char_skills
+
   validates :name, presence: true
 end

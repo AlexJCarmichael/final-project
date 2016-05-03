@@ -42,4 +42,19 @@ p, span, div {
   p {
     margin-left: 1em;
   }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.character-sheet {
+  margin-top: 3em;
+  background-color: $tertiary-color;
+  h6 {
+    margin: 1em 0 0 .5em;
+  }
+  p {
+    margin-left: 1em;
+  }
 }
