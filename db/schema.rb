@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160502201520) do
+ActiveRecord::Schema.define(version: 20160503132343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,7 +75,20 @@ ActiveRecord::Schema.define(version: 20160502201520) do
     t.string   "session_name", null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "user_id"
   end
+
+  add_index "game_sessions", ["user_id"], name: "index_game_sessions_on_user_id", using: :btree
+
+  create_table "players", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "game_session_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "players", ["game_session_id"], name: "index_players_on_game_session_id", using: :btree
+  add_index "players", ["user_id"], name: "index_players_on_user_id", using: :btree
 
   create_table "session_items", force: :cascade do |t|
     t.integer  "game_session_id"
@@ -152,6 +165,8 @@ ActiveRecord::Schema.define(version: 20160502201520) do
   add_foreign_key "char_stats", "stats"
   add_foreign_key "characters", "sheet_templates"
   add_foreign_key "characters", "users"
+  add_foreign_key "players", "game_sessions"
+  add_foreign_key "players", "users"
   add_foreign_key "session_items", "equipment"
   add_foreign_key "session_items", "game_sessions"
   add_foreign_key "sheet_skills", "sheet_templates"
