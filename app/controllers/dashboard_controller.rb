@@ -6,7 +6,7 @@ class DashboardController < ApplicationController
     @user = current_user
     @characters = @user.characters
     @session = @user.players.first.game_session
-    @friends = @user.friendships
-    @pending = @user.pending_friendships
+    @friends = @user.my_friends
+    @pending = @user.my_pending_friends
   end
 end

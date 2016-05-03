@@ -30,6 +30,7 @@ class User < ActiveRecord::Base
     self.pending_friendships | self.awaiting_friendships
   end
 
+  private
   def haters
     self.declined_friendships
   end
