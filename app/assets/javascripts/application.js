@@ -22,14 +22,8 @@
 
 var ready;
 ready = function() {
-    $("#clicky-button").on("click", function () {
-        $("#expand-me").toggleClass("hide-on-small-only");
-    }),
-    $("#clicky-button2").on("click", function () {
-        $("#expand-me2").toggleClass("hide-on-small-only");
-    }),
-    $("#clicky-button3").on("click", function () {
-        $("#expand-me3").toggleClass("hide-on-small-only");
+    $(".clicky-button").on("click", function () {
+        $(this).parent().find(".expand-me").toggleClass("hide-on-small-only");
     });
 };
 

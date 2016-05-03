@@ -2,20 +2,18 @@
 
 <div class='row'>
   <div class='dash-display col s12 m3'>
-    <h4 id='clicky-button'>Characters</h4>
-    <div class='hide-on-small-only' id='expand-me'>
+    <h5 class='clicky-button'>Characters</h5>
+    <div class='hide-on-small-only expand-me'>
       <% @characters.each do |char| %>
-        <p><%= char.name %></p>
-        <p><%= char.stats.first.name %> | <%= char.stats.first.value %></p>
-        <p><%= char.stats.second.name %> | <%= char.stats.second.value %></p>
+        <p><%= link_to "#{char.name}", character_path("#{char.id}") %></p>
       <% end %>
     </div>
   </div>
 
 
   <div class='dash-display col s12 m3 offset-m1'>
-    <h4 id='clicky-button2'>Games</h4>
-    <div class='hide-on-small-only' id='expand-me2'>
+    <h5 class='clicky-button'>Games</h5>
+    <div class='hide-on-small-only expand-me'>
       <p><%= @session.session_name %></p>
       <% @session.actors.each do |act| %>
         <p><%= act.name %> playing as <%= act.characters.first.name %></p>
@@ -24,13 +22,12 @@
   </div>
 
   <div class='dash-display col s12 m3 offset-m1'>
-    <h4 id='clicky-button3'>Friends</h4>
-    <div class='hide-on-small-only' id='expand-me3'>
-      <h4>Friends:</h4>
+    <h5 class='clicky-button'>Friends</h5>
+    <div class='hide-on-small-only expand-me'>
       <% @friends.each do |friend| %>
         <p><%= friend.name %></p>
       <% end %>
-      <h4>Pending Friends:</h4>
+      <h5>Pending Friends</h5>
       <% @pending.each do |pend| %>
         <p><%= pend.name %></p>
       <% end %>

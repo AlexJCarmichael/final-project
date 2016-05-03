@@ -29,6 +29,13 @@ p, span, div {
   font-family: 'Alegreya SC', serif;
 }
 
+.clicky-button {
+  &:hover {
+      cursor: pointer;
+      color: inherit;
+    }
+}
+
 .dash-display {
   background-color: $tertiary-color;
   border: 1px solid $secondary-color;
