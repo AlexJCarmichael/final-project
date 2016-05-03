@@ -10,9 +10,14 @@ user2 = User.create( user_name: "Vpatel90", name: "Vivek", email: "vivek@test.te
 user3 = User.create( user_name: "Vanderson", name: "Van", email: "van@test.test", password: "password" )
 sheet = SheetTemplate.create( game_name: "Danes and Dragons" )
 
-jaxom = Character.create( name: "Jaxom Vanee", bio: "You know Jaxom", user_id: user.id, sheet_template_id: sheet.id )
-a_random_hero = Character.create( name: "A Random Hero", bio: "You know A Random Hero", user_id: user2.id, sheet_template_id: sheet.id )
-morales = Character.create( name: "Morales", bio: "You know Morales", user_id: user3.id, sheet_template_id: sheet.id )
+session = GameSession.create(session_name: "Dane's Cool Game", user_id: user.id)
+
+Player.create( user_id: user2.id, game_session_id: session.id )
+Player.create( user_id: user3.id, game_session_id: session.id )
+
+jaxom = Character.create( name: "Jaxom Vanee", bio: "You know Jaxom", player_id: user.id, sheet_template_id: sheet.id )
+a_random_hero = Character.create( name: "A Random Hero", bio: "You know A Random Hero", player_id: user2.id, sheet_template_id: sheet.id )
+morales = Character.create( name: "Morales", bio: "You know Morales", player_id: user3.id, sheet_template_id: sheet.id )
 
 characters = [jaxom, a_random_hero, morales]
 
@@ -62,8 +67,3 @@ characters.each do |char|
   CharEquip.create( character_id: char.id, equipment_id: weaponArr.sample.id )
   CharEquip.create( character_id: char.id, equipment_id: armorArr.sample.id )
 end
-
-session = GameSession.create(session_name: "Dane's Cool Game", user_id: user.id)
-
-Player.create( user_id: user2.id, game_session_id: session.id )
-Player.create( user_id: user3.id, game_session_id: session.id )

@@ -52,10 +52,10 @@ ActiveRecord::Schema.define(version: 20160503155929) do
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.text     "bio"
-    t.integer  "players_id"
+    t.integer  "player_id"
   end
 
-  add_index "characters", ["players_id"], name: "index_characters_on_players_id", using: :btree
+  add_index "characters", ["player_id"], name: "index_characters_on_player_id", using: :btree
   add_index "characters", ["sheet_template_id"], name: "index_characters_on_sheet_template_id", using: :btree
 
   create_table "equipment", force: :cascade do |t|
