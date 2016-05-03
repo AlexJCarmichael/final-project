@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160503132343) do
+ActiveRecord::Schema.define(version: 20160503155929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,15 +48,15 @@ ActiveRecord::Schema.define(version: 20160503132343) do
 
   create_table "characters", force: :cascade do |t|
     t.string   "name",              null: false
-    t.integer  "user_id"
     t.integer  "sheet_template_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.text     "bio"
+    t.integer  "players_id"
   end
 
+  add_index "characters", ["players_id"], name: "index_characters_on_players_id", using: :btree
   add_index "characters", ["sheet_template_id"], name: "index_characters_on_sheet_template_id", using: :btree
-  add_index "characters", ["user_id"], name: "index_characters_on_user_id", using: :btree
 
   create_table "equipment", force: :cascade do |t|
     t.string   "name",         null: false
@@ -164,7 +164,6 @@ ActiveRecord::Schema.define(version: 20160503132343) do
   add_foreign_key "char_stats", "characters"
   add_foreign_key "char_stats", "stats"
   add_foreign_key "characters", "sheet_templates"
-  add_foreign_key "characters", "users"
   add_foreign_key "players", "game_sessions"
   add_foreign_key "players", "users"
   add_foreign_key "session_items", "equipment"
