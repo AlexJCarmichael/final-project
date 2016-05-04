@@ -1,7 +1,9 @@
 class GameSessionsController < ApplicationController
 
   def show
-    get_game
+    @game = get_game
+    @characters = get_game.characters
+    @users = @game.actors
   end
 
   def new
@@ -25,7 +27,7 @@ class GameSessionsController < ApplicationController
 
   private
   def get_game
-    @game = GameSession.find(params.fetch(:id))
+    GameSession.find(params.fetch(:id))
   end
 
   def game_params

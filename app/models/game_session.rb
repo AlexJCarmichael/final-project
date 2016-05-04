@@ -9,4 +9,5 @@ class GameSession < ActiveRecord::Base
   has_one :chat
 
   validates :session_name, presence: true
+
 end

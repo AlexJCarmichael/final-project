@@ -1,1 +1,23 @@
 <h3><%= @game.session_name %></h3>
+
+<div class='row'>
+  <div class='dash-display col s12 m3'>
+    <h5 class='clicky-button'>Characters in this game</h5>
+    <div class='hide-on-small-only expand-me'>
+      <% @characters.each do |char| %>
+        <p><%= link_to "#{char.name}", character_path("#{char.id}") %></p>
+      <% end %>
+      <strong><%= link_to "Create character", new_character_path %></strong>
+    </div>
+  </div>
+
+  <div class='dash-display col s12 m3 offset-m1'>
+    <h5 class='clicky-button'>Users</h5>
+    <div class='hide-on-small-only expand-me'>
+      <% @users.each do |user| %>
+        <p><%= user.name %></p>
+      <% end %>
+    </div>
+      <strong>Invite a user to the game</strong>
+  </div>
+</div>
