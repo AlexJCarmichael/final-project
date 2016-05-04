@@ -5,7 +5,7 @@ class DashboardController < ApplicationController
   def index
     @user = current_user
     @characters = @user.characters
-    @sessions = @user.game_sessions
+    @sessions = @user.my_games
     @friends = @user.my_friends
     @pending = @user.my_pending_friends
   end

@@ -22,6 +22,13 @@ class User < ActiveRecord::Base
   validates :email, presence: true
   validates :name, presence: true
 
+  def my_games
+    joined_games = self.players.map do |player|
+      player.game_session
+    end
+    self.game_sessions | joined_games
+  end
+
   def my_friends
     self.friendships | self.accepted_friendships
   end
