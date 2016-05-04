@@ -1,6 +1,6 @@
 var UserCard = React.createClass({
   propType: {
-    users: React.PropTypes.array
+    characters: React.PropTypes.array
   },
 
   getInitialState: function (){
@@ -23,13 +23,13 @@ var UserCard = React.createClass({
         <div className="dash-display col s12 m3 offset-m1">
           <h5 onClick={this.handleClick} className="clicky-button">Actors in this game</h5>
           <div className={this.state.divClass + " expand-me"}>
-            {this.props.users.map(function(user) {
+            {this.props.characters.map(function(character) {
               return (
                 <IndividualUser
-                  userId={user.id}
-                  key={user.id}
-                  name={user.name}
-                  characters={user.characters}
+                  characterId={character.id}
+                  key={character.id}
+                  name={character.name}
+                  user={character.user}
                   />
               );
             })}

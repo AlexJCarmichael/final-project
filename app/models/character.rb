@@ -14,4 +14,9 @@ class Character < ActiveRecord::Base
   has_many :equipment, through: :char_equips
 
   validates :name, presence: true
+
+  def as_json(_ = nil)
+    super(include: [:user])
+  end
+
 end

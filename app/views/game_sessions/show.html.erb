@@ -1,5 +1,5 @@
 <h3><%= @game.session_name %></h3>
 
 <div class='row'>
-  <%= react_component('UserCard', users: @users, session_id: @game.id) %>
+  <%= react_component('UserCard', characters: @characters, session_id: @game.id) %>
 </div>

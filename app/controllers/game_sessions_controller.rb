@@ -2,8 +2,7 @@ class GameSessionsController < ApplicationController
 
   def show
     @game = get_game
-    @characters = get_game.characters
-    @users = @game.actors
+    @characters = @game.characters
   end
 
   def new
@@ -15,10 +14,10 @@ class GameSessionsController < ApplicationController
     if @game.save
       respond_to do |format|
         format.html do
-          binding.pry
           redirect_to game_session_path
         end
         format.json do
+          Player.create!( user_id: current_user.id, game_session_id: @game.id )
           render json: { message: "Game created!", game_id: @game.id }
         end
       end
