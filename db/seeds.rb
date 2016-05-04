@@ -16,7 +16,7 @@ Friend.create( user_id: user.id, to_user_id: user4.id, status: "pending" )
 
 sheet = SheetTemplate.create( game_name: "Danes and Dragons" )
 
-session = GameSession.create(session_name: "Dane's Cool Game", user_id: user.id)
+session = GameSession.create(session_name: "Dane's Cool Game", user_id: user.id, sheet_template_id: sheet.id)
 
 player1 = Player.create( user_id: user.id, game_session_id: session.id )
 player2 = Player.create( user_id: user2.id, game_session_id: session.id )

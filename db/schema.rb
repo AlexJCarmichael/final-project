@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160503182216) do
+ActiveRecord::Schema.define(version: 20160504192303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,12 +83,14 @@ ActiveRecord::Schema.define(version: 20160503182216) do
   add_index "friends", ["user_id"], name: "index_friends_on_user_id", using: :btree
 
   create_table "game_sessions", force: :cascade do |t|
-    t.string   "session_name", null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "session_name",      null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
     t.integer  "user_id"
+    t.integer  "sheet_template_id"
   end
 
+  add_index "game_sessions", ["sheet_template_id"], name: "index_game_sessions_on_sheet_template_id", using: :btree
   add_index "game_sessions", ["user_id"], name: "index_game_sessions_on_user_id", using: :btree
 
   create_table "players", force: :cascade do |t|
@@ -132,10 +134,13 @@ ActiveRecord::Schema.define(version: 20160503182216) do
   add_index "sheet_stats", ["stat_id"], name: "index_sheet_stats_on_stat_id", using: :btree
 
   create_table "sheet_templates", force: :cascade do |t|
-    t.string   "game_name",  null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "game_name",       null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "game_session_id"
   end
+
+  add_index "sheet_templates", ["game_session_id"], name: "index_sheet_templates_on_game_session_id", using: :btree
 
   create_table "skills", force: :cascade do |t|
     t.string   "name",       null: false

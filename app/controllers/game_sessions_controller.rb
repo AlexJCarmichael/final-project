@@ -31,6 +31,6 @@ class GameSessionsController < ApplicationController
   end
 
   def game_params
-    params.require(:game_session).permit(:session_name, :user_id)
+    params.require(:game_session).permit(:session_name, :user_id, :sheet_template_id)
   end
 end
