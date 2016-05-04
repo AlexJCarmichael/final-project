@@ -22,11 +22,14 @@ var NewGame = React.createClass({
     var that = this;
     $.ajax({
       method: "POST",
-      url: "/game_session",
+      url: "/game_sessions.json",
       data: {
         game_session: {
-          body: this.state.gameText
+          session_name: this.state.gameText
         }
+      },
+      success: function(response) {
+        window.location.replace("/game_sessions/" + response.game_id);
       }
     }).done(function(response) {
       that.setState({
