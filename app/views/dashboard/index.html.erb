@@ -17,8 +17,8 @@
     <div class='hide-on-small-only expand-me'>
       <% @sessions.each do |session| %>
       <h6><%= link_to "#{session.session_name}", game_session_path("#{session.id}") %></h6>
-        <% session.actors.each do |act| %>
-          <p><%= act.name %> playing as <%= act.characters.first.name %></p>
+        <% session.characters.each do |char| %>
+          <p><%= char.user.name %> playing as <%= char.name %></p>
         <% end %>
       <% end %>
       <strong id='click-me'>Create a Game</strong>
