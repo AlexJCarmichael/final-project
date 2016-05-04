@@ -24,6 +24,9 @@ var ready;
 ready = function() {
     $(".clicky-button").on("click", function () {
         $(this).parent().find(".expand-me").toggleClass("hide-on-small-only");
+    }),
+    $("#click-me").on("click", function () {
+        $(".hidden-form").toggleClass("hide");
     });
 };
 

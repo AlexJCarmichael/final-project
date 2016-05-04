@@ -10,5 +10,8 @@ class Character < ActiveRecord::Base
   has_many :char_skills
   has_many :skills, through: :char_skills
 
+  has_many :char_equips
+  has_many :equipment, through: :char_equips
+
   validates :name, presence: true
 end

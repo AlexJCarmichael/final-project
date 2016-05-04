@@ -9,4 +9,8 @@
   <% @character.skills.each do |skill| %>
     <p><%= skill.name %>: <%= skill.value %></p>
   <% end %>
+  <h6>Equipment</h6>
+  <% @character.equipment.each do |equip| %>
+    <p><%= equip.category %>: <%= equip.name %></p>
+  <% end %>
 </div>

@@ -29,6 +29,11 @@ p, span, div {
   font-family: 'Alegreya SC', serif;
 }
 
+strong {
+  font-family: 'Alegreya SC', serif;
+  font-weight: bold;
+}
+
 .clicky-button {
   &:hover {
       cursor: pointer;
@@ -46,6 +51,11 @@ p, span, div {
     color: inherit;
     text-decoration: none;
   }
+  strong {
+    margin-bottom: 2em;
+    display: block;
+    text-align: center;
+  }
 }
 
 .character-sheet {
@@ -57,4 +67,8 @@ p, span, div {
   p {
     margin-left: 1em;
   }
+}
+
+.hide {
+  display: hidden;
 }
