@@ -18,6 +18,7 @@ var UserCard = React.createClass({
   },
 
   render: function() {
+    var url = "/characters/new?session_id=" + this.props.session_id;
     return (
         <div className="dash-display col s12 m3 offset-m1">
           <h5 onClick={this.handleClick} className="clicky-button">Actors in this game</h5>
@@ -32,6 +33,7 @@ var UserCard = React.createClass({
                   />
               );
             })}
+              <a href={url} className='btn'>Create a character for this game</a>
               <strong>Invite a user to the game</strong>
           </div>
         </div>

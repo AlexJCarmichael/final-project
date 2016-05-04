@@ -3,6 +3,15 @@ class CharactersController < ApplicationController
     get_character
   end
 
+  def new
+    @game = GameSession.find(params.fetch(:session_id))
+    @character = Character.new
+  end
+
+  def create
+    @character = current_user.characters.build(character_params)
+  end
+
   private
   def get_character
     @character = Character.find(params.fetch(:id))

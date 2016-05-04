@@ -21,12 +21,16 @@ $tertiary-color:  #F9F0C1;
 @import "materialize";
 @import url(https://fonts.googleapis.com/css?family=Inknut+Antiqua|Alegreya+Sans:400,700);
 
-h1, h2, h3, h4, h5, h6, .btn {
+h1, h2, h3, h4, h5, h6 {
   font-family: 'Inknut Antiqua', serif;
 }
 
-p, span, div {
+p, span, div, .btn {
   font-family: 'Alegreya SC', serif;
+}
+
+.btn {
+  color: white;
 }
 
 strong {
