@@ -4,7 +4,6 @@ class GameSessionsController < ApplicationController
     @game = get_game
     @characters = get_game.characters
     @users = @game.actors
-    binding.pry
   end
 
   def new

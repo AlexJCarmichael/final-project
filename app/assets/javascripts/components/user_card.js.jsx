@@ -18,7 +18,6 @@ var UserCard = React.createClass({
   },
 
   render: function() {
-    console.log(this.props.users)
     return (
         <div className="dash-display col s12 m3 offset-m1">
           <h5 onClick={this.handleClick} className="clicky-button">Actors in this game</h5>
@@ -26,8 +25,10 @@ var UserCard = React.createClass({
             {this.props.users.map(function(user) {
               return (
                 <IndividualUser
+                  userId={user.id}
                   key={user.id}
                   name={user.name}
+                  characters={user.characters}
                   />
               );
             })}

@@ -37,6 +37,10 @@ class User < ActiveRecord::Base
     self.pending_friendships | self.awaiting_friendships
   end
 
+  def as_json(_ = nil)
+    super(include: [:characters])
+  end
+
   private
   def haters
     self.declined_friendships
