@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :characters
   resources :equipment
   resources :skills
+  resources :stats
   resources :sheet_templates
   resources :game_sessions
 

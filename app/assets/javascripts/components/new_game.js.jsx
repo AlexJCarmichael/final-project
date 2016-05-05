@@ -19,7 +19,7 @@ var NewGame = React.createClass({
 
   handlePost: function () {
     var that = this;
-    var dataToSend = {};
+    var dataToSend = {sheet: this.props.sheet_id};
     dataToSend[this.props.controller] = {};
     dataToSend[this.props.controller][this.props.name] = this.state.postText;
     $.ajax({
