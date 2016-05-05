@@ -5,12 +5,12 @@
   <% @sheet.skills.each do |skill| %>
     <p><%= skill.name %></p>
   <% end %>
-  <%= react_component('NewGame', controller: "skills", redirect_controller: "sheet_templates", name: "name", sheet_id: @sheet.id) %>
+  <%= react_component('NewGame', controller: "skills", redirect_controller: "sheet_templates", name: "name",
+                      sheet_id: @sheet.id, display_name: "Add a skill", placeholder: "Type in a skill name") %>
   <h5>Stats for <%= @sheet.game_name %></h5>
   <% @sheet.stats.each do |stat| %>
     <p><%= stat.name %></p>
   <% end %>
-    <%= react_component('NewGame', controller: "stats", redirect_controller: "sheet_templates", name: "name", sheet_id: @sheet.id) %>
+    <%= react_component('NewGame', controller: "stats", redirect_controller: "sheet_templates", name: "name",
+                        sheet_id: @sheet.id, display_name: "Add a stat",  placeholder: "Type in a stat name") %>
 </div>
-
-<!-- window.location.pathname.split('/')[2] -->

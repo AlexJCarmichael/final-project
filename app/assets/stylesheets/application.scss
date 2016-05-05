@@ -80,3 +80,19 @@ strong {
 .hide {
   display: hidden;
 }
+
+::-webkit-input-placeholder {
+   color: #5E5E5E;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #5E5E5E;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #5E5E5E;
+}
+
+:-ms-input-placeholder {
+   color: #5E5E5E;  
+}

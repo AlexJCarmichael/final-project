@@ -21,8 +21,9 @@
           <p><%= char.user.name %> playing as <%= char.name %></p>
         <% end %>
       <% end %>
-      <strong class='click-me'>Create a Game</strong>
-      <%= react_component('NewGame', controller: "game_sessions", redirect_controller: "game_sessions", name: "session_name", sheet_id: 1) %>
+      <%= react_component('NewGame', controller: "game_sessions", redirect_controller: "game_sessions",
+                          name: "session_name", sheet_id: 1, display_name: "Create a new game",
+                          placeholder: "Type in a game name") %>
     </div>
   </div>
 

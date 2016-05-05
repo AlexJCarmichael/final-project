@@ -46,12 +46,14 @@ var NewGame = React.createClass({
   },
 
   render: function () {
+    var header = this.props.display_name;
+    var place = this.props.placeholder;
     return (
       <div>
-        <h6 onClick={this.handleClick} className="clicky-button">Add a stat</h6>
+        <h6 onClick={this.handleClick} className="clicky-button">{header}</h6>
         <div className={this.state.divClass}>
           <input className="center"
-            placeholder="Name your game"
+            placeholder={place}
             value={this.state.postText}
             onKeyDown={this.handleDown}
             onChange={this.handleChange}/>
