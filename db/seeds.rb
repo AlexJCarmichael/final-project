@@ -17,6 +17,16 @@ Friend.create( user_id: user.id, to_user_id: user4.id, status: "pending" )
 
 sheet = SheetTemplate.create( game_name: "Danes and Dragons" )
 
+sheet_skill1 = Skill.create( name: "Acrobatics" )
+sheet_skill2 = Skill.create( name: "Sword" )
+sheet_stat1 = Stat.create( name: "Strength" )
+sheet_stat2 = Stat.create( name: "Dexterity" )
+
+SheetSkill.create( sheet_template_id: sheet.id, skill_id: sheet_skill1.id )
+SheetSkill.create( sheet_template_id: sheet.id, skill_id: sheet_skill2.id )
+SheetStat.create( sheet_template_id: sheet.id, stat_id: sheet_stat1.id )
+SheetStat.create( sheet_template_id: sheet.id, stat_id: sheet_stat2.id )
+
 session = GameSession.create( session_name: "Dane's Cool Game", user_id: user.id )
 
 GameSheet.create( game_session_id: session.id, sheet_template_id: sheet.id )
