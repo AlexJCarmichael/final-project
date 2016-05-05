@@ -1,4 +1,5 @@
 <h3><%= @game.session_name %></h3>
+<%= link_to "Sheet Template", sheet_template_path(@game.sheet_template.id) %>
 
 <div class='row'>
   <%= react_component('UserCard', characters: @characters, session_id: @game.id) %>

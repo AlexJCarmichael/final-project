@@ -1,1 +1,12 @@
 <h3><%= @sheet.game_name%></h3>
+
+<div class='dash-display'>
+  <h5>Skills for <%= @sheet.game_name %></h5>
+  <% @sheet.skills.each do |skill| %>
+    <p><%= skill.name %></p>
+  <% end %>
+  <h5>Stats for <%= @sheet.game_name %></h5>
+  <% @sheet.stats.each do |stat| %>
+    <p><%= stat.name %></p>
+  <% end %>
+</div>
