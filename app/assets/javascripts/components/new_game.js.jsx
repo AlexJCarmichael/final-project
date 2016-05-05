@@ -1,38 +1,37 @@
 var NewGame = React.createClass({
   getInitialState: function (){
     return {
-      gameText: ''
+      postText: ''
     };
   },
 
   handleChange: function (event) {
       this.setState({
-        gameText: event.target.value
+        postText: event.target.value
     });
   },
 
   handleDown: function (event) {
     if (event.keyCode === 13) {
-      this.handlePostGame();
+      this.handlePost();
     }
   },
 
-  handlePostGame: function () {
+  handlePost: function () {
     var that = this;
+    var dataToSend = {};
+    dataToSend[this.props.controller] = {};
+    dataToSend[this.props.controller][this.props.name] = this.state.postText;
     $.ajax({
       method: "POST",
-      url: "/game_sessions.json",
-      data: {
-        game_session: {
-          session_name: this.state.gameText
-        }
-      },
+      url: "/" + this.props.controller + ".json",
+      data: dataToSend,
       success: function(response) {
-        window.location.replace("/game_sessions/" + response.game_id);
+        window.location.replace("/" + that.props.redirect_controller + "/" + response.redirect_id);
       }
     }).done(function(response) {
       that.setState({
-        gameText: ''
+        postText: ''
       });
     });
   },
@@ -40,11 +39,11 @@ var NewGame = React.createClass({
   render: function () {
     return (
       <div className="hidden-form hide">
-        <textarea row={40} cols={40}
-                placeholder="Name your game"
-                value={this.state.gameText}
-                onKeyDown={this.handleDown}
-                onChange={this.handleChange}/>
+        <input
+          placeholder="Name your game"
+          value={this.state.postText}
+          onKeyDown={this.handleDown}
+          onChange={this.handleChange}/>
       </div>
     );
   }

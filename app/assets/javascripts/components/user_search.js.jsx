@@ -4,8 +4,17 @@ var UserSearch = React.createClass({
       return {
         allUsers: [],
         filteredUsers: [],
-        search: ""
+        search: "",
+        divClass: "hide"
       };
+    },
+
+    handleClick: function (){
+      if (this.state.divClass === "hide") {
+        this.setState({divClass: ""});
+      }else {
+        this.setState({divClass: "hide"});
+      }
     },
 
     filterList: function(event){
@@ -53,8 +62,8 @@ var UserSearch = React.createClass({
     render: function() {
       return (
         <div>
-          <h6 className="clicky-button">Request a friend</h6>
-          <div>
+          <h6 onClick={this.handleClick} className="clicky-button">Request a friend</h6>
+          <div className={this.state.divClass}>
             <input className="form-control" type="text"
             onChange={this.filterList} value={this.state.search}
             placeholder="Username or User's name" />

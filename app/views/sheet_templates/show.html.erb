@@ -5,6 +5,8 @@
   <% @sheet.skills.each do |skill| %>
     <p><%= skill.name %></p>
   <% end %>
+  <strong id='click-me'>Add a skill</strong>
+  <%= react_component('NewGame', controller: "skills", redirect_controller: "sheet_templates", name: "name") %>
   <h5>Stats for <%= @sheet.game_name %></h5>
   <% @sheet.stats.each do |stat| %>
     <p><%= stat.name %></p>

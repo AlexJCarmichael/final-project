@@ -19,7 +19,7 @@ class GameSessionsController < ApplicationController
         end
         format.json do
           Player.create!( user_id: current_user.id, game_session_id: @game.id )
-          render json: { message: "Game created!", game_id: @game.id }
+          render json: { message: "Game created!", redirect_id: @game.id }
         end
       end
     end
@@ -31,6 +31,6 @@ class GameSessionsController < ApplicationController
   end
 
   def game_params
-    params.require(:game_session).permit(:session_name, :user_id, :sheet_template_id)
+    params.require(:game_sessions).permit(:session_name, :user_id, :sheet_template_id)
   end
 end
