@@ -36,6 +36,8 @@
       <% @pending.each do |pend| %>
         <p><%= pend.name %></p>
       <% end %>
+      <%#TODO: Change this to react ajax after project, currenly an a-tag that redirect_to back%>
+      <%= react_component('UserSearch') %>
     </div>
   </div>
 </div>

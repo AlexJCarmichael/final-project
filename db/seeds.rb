@@ -9,6 +9,7 @@ user = User.create( user_name: "Jaxom555", name: "Dane", email: "test@test.test"
 user2 = User.create( user_name: "Vpatel90", name: "Vivek", email: "vivek@test.test", password: "password" )
 user3 = User.create( user_name: "Vanderson", name: "Van", email: "van@test.test", password: "password" )
 user4 = User.create( user_name: "Tiffosan", name: "Tiffo", email: "tiffo@test.test", password: "password" )
+User.create( user_name: "Reicht", name: "Jordanidiah", email: "jordan@test.test", password: "password" )
 
 Friend.create( user_id: user.id, to_user_id: user2.id, status: "accepted" )
 Friend.create( user_id: user.id, to_user_id: user3.id, status: "accepted" )
