@@ -3,6 +3,7 @@ class GameSessionsController < ApplicationController
   def show
     @game = get_game
     @characters = @game.characters
+    @players = @game.players
   end
 
   def new
