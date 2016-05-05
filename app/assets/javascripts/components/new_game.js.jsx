@@ -1,8 +1,17 @@
 var NewGame = React.createClass({
   getInitialState: function (){
     return {
-      postText: ''
+      postText: '',
+      divClass: "hide"
     };
+  },
+
+  handleClick: function (){
+    if (this.state.divClass === "hide") {
+      this.setState({divClass: ""});
+    }else {
+      this.setState({divClass: "hide"});
+    }
   },
 
   handleChange: function (event) {
@@ -38,12 +47,15 @@ var NewGame = React.createClass({
 
   render: function () {
     return (
-      <div className="hidden-form hide">
-        <input
-          placeholder="Name your game"
-          value={this.state.postText}
-          onKeyDown={this.handleDown}
-          onChange={this.handleChange}/>
+      <div>
+        <h6 onClick={this.handleClick} className="clicky-button">Add a stat</h6>
+        <div className={this.state.divClass}>
+          <input
+            placeholder="Name your game"
+            value={this.state.postText}
+            onKeyDown={this.handleDown}
+            onChange={this.handleChange}/>
+        </div>
       </div>
     );
   }
