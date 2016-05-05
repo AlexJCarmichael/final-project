@@ -33,8 +33,7 @@ var UserCard = React.createClass({
                   />
               );
             })}
-              <a href={url} className='btn'>Create a character for this game</a>
-              <strong>Invite a user to the game</strong>
+              <a href={url}>Create a character</a>
           </div>
         </div>
     );

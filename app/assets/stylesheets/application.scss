@@ -54,6 +54,9 @@ strong {
   a {
     color: inherit;
     text-decoration: none;
+    &:hover {
+      cursor: pointer;
+    }
   }
   strong {
     margin-bottom: 2em;

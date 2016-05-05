@@ -2,4 +2,7 @@
 
 <div class='row'>
   <%= react_component('UserCard', characters: @characters, session_id: @game.id) %>
+  <div class='dash-display col s12 m3 offset-m1"'>
+    <%= react_component('UserSearch', userInvite: false, game: @game.id) %>
+  </div>
 </div>

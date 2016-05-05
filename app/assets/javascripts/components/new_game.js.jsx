@@ -12,7 +12,6 @@ var NewGame = React.createClass({
   },
 
   handleDown: function (event) {
-
     if (event.keyCode === 13) {
       this.handlePostGame();
     }

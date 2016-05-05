@@ -34,10 +34,17 @@ var UserSearch = React.createClass({
     },
 
     userNames: function(user){
-      if (this.state.search.length > 1) {
-        return this.state.filteredUsers.map(function (user){
-            return (<UserInvite key={user.id} user={user}/>);
-        });
+      var that = this
+      if (this.state.search.length > 1)
+       { if (this.props.userInvite === true)
+          return this.state.filteredUsers.map(function (user){
+              return (<UserInvite key={user.id} user={user}/>);
+          });
+          else {
+            return this.state.filteredUsers.map(function (user){
+                return (<CreatePlayer key={user.id} user={user} game={that.props.game}/>);
+            });
+          }
       } else {
         return (<span></span>);
       }
@@ -46,6 +53,7 @@ var UserSearch = React.createClass({
     render: function() {
       return (
         <div>
+          <h6 className="clicky-button">Request a friend</h6>
           <div>
             <input className="form-control" type="text"
             onChange={this.filterList} value={this.state.search}

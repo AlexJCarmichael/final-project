@@ -6,14 +6,21 @@ class UsersController < Clearance::UsersController
   end
 
   def friendship
-    @friend = Friend.new
-    @friend.user_id = current_user.id
-    @friend.to_user_id = params[:to_user_id]
-    @friend.status = "pending"
-    if @friend.save!
+    @friend = Friend.new(to_user_id: params[:to_user_id], status: "pending")
+    @friend.user = current_user
+    if @friend.save
       redirect_to :back
     else
       flash[:alert] = "Couldn't initiate friendship"
+    end
+  end
+
+  def player
+    @player = Player.new(player_params)
+    if @player.save
+      redirect_to :back
+    else
+      flash[:alert] = "Couldn't invite player"
     end
   end
 
@@ -41,5 +48,9 @@ class UsersController < Clearance::UsersController
   private
   def user_params
     params.require(:user).permit(:user_name, :email, :password, :password_confirmation, :name, :phone_number, :profile_pic)
+  end
+
+  def player_params
+      params.require(:player).permit(:user_id, :game_session_id)
   end
 end

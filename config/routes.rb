@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :users, controller: "users", only: [:create, :index] do
     collection do
       post "friendship"
+      post "player"
     end
     resource :password,
       controller: "clearance/passwords",
