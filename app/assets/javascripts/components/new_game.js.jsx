@@ -50,7 +50,7 @@ var NewGame = React.createClass({
       <div>
         <h6 onClick={this.handleClick} className="clicky-button">Add a stat</h6>
         <div className={this.state.divClass}>
-          <input
+          <input className="center"
             placeholder="Name your game"
             value={this.state.postText}
             onKeyDown={this.handleDown}
