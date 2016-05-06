@@ -9,10 +9,14 @@ class CharactersController < ApplicationController
     @character = Character.new
   end
 
+  def edit
+    get_character
+  end
+
   def create
     @character = current_user.characters.build(char_params)
       if @character.save!
-        redirect_to game_session_path(@character.player.game_session_id)
+        redirect_to edit_character_path(@character)
       else
         flash[:alert] = "Character could not be created"
       end

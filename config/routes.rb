@@ -20,7 +20,11 @@ Rails.application.routes.draw do
   resources :equipment
   resources :skills
   resources :stats
-  resources :sheet_templates
+  resources :sheet_templates do
+    member do
+      get "grabber"
+    end
+  end
   resources :game_sessions
 
   root 'dashboard#index'
