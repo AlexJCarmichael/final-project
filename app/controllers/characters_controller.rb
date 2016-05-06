@@ -5,7 +5,7 @@ class CharactersController < ApplicationController
 
   def new
     @game = GameSession.find(params.fetch(:session_id))
-    @player = current_user.players.where(game_session_id: @game.id)
+    @player = current_user.players.where(game_session_id: @game.id).first
     @character = Character.new
   end
 
@@ -14,7 +14,6 @@ class CharactersController < ApplicationController
   end
 
   def create
-    # character = current_user.characters.build(char_params)
     character = current_user.characters.build(char_params)
       if character.save!
         assign_defaults(character)

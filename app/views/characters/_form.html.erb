@@ -3,7 +3,7 @@
     <p> Character name: <%= f.text_field :name %></p>
     <p> Bio: <%= f.text_area :bio %></p>
     <%= f.hidden_field :player_id, value: @player.id %>
-    <%= f.hidden_field :sheet_template_id, value: @game.game_sheet.id %>
+    <%= f.hidden_field :sheet_template_id, value: @game.game_sheet.sheet_template_id %>
     <%= f.submit "Create Character", class: "form-submit" %>
   <% end %>
 </div>

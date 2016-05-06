@@ -14,3 +14,7 @@
     <p><%= equip.category %>: <%= equip.name %></p>
   <% end %>
 </div>
+
+<div class='character-sheet'>
+  <%= react_component('CharacterSheet', stats: @character.stats, skill: @character.skills) %>
+</div>
