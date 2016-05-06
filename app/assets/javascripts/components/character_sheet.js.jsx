@@ -6,7 +6,7 @@ var CharacterSheet = React.createClass({
     };
   },
 
-  componentDidMount: function () {
+  componentDidMount: function() {
     var that = this
     $.ajax({
       url: "/sheet_templates/" + this.props.sheet + "/grabber",
@@ -20,10 +20,19 @@ var CharacterSheet = React.createClass({
     })
   },
 
-  render: function () {
-    console.log(this.state.charSkills)
+  render: function() {
     return (
-      <span></span>
+      <div>
+        <h6>Atributes</h6>
+        {this.state.charStats.map(function(stat) {
+          return (
+          <MakeStats
+            key={stat.id}
+            name={stat.name}
+            />
+          );
+        })}
+      </div>
     );
   },
 });
