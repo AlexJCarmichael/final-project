@@ -149,14 +149,14 @@ ActiveRecord::Schema.define(version: 20160505133429) do
 
   create_table "skills", force: :cascade do |t|
     t.string   "name",                   null: false
-    t.integer  "rank",      default: 0
+    t.integer  "rank",       default: 0
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
 
   create_table "stats", force: :cascade do |t|
     t.string   "name",                   null: false
-    t.integer  "rank",      default: 0
+    t.integer  "rank",       default: 0
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end

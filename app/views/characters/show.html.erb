@@ -1,20 +1,4 @@
 <div class='character-sheet'>
-  <h4><%= @character.name %></h4>
-  <p>"<%= @character.bio %>"</p>
-  <h6>Attributes</h6>
-  <% @character.stats.each do |stat| %>
-    <p><%= stat.name %>: <%= stat.rank %></p>
-  <% end %>
-  <h6>Skills</h6>
-  <% @character.skills.each do |skill| %>
-    <p><%= skill.name %>: <%= skill.rank %></p>
-  <% end %>
-  <h6>Equipment</h6>
-  <% @character.equipment.each do |equip| %>
-    <p><%= equip.category %>: <%= equip.name %></p>
-  <% end %>
-</div>
-
-<div class='character-sheet'>
-  <%= react_component('CharacterSheet', stats: @character.stats, skills: @character.skills) %>
+    <%= react_component('CharacterSheet', stats: @character.stats, skills: @character.skills, equipment: @character.equipment,
+                        name: @character.name, bio: @character.bio) %>
 </div>
