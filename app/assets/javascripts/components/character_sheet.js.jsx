@@ -32,6 +32,15 @@ var CharacterSheet = React.createClass({
             />
           );
         })}
+        <h6>Skills</h6>
+        {this.state.charStats.map(function(skill) {
+          return (
+          <MakeSkills
+            key={skill.id}
+            name={skill.name}
+            />
+          );
+        })}
       </div>
     );
   },
