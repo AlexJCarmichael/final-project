@@ -2,8 +2,8 @@
 
 one:
   name: MyString
-  value: 1
+  rank: 1
 
 two:
   name: MyString
-  value: 1
+  rank: 1

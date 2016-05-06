@@ -3,11 +3,11 @@
   <p>"<%= @character.bio %>"</p>
   <h6>Attributes</h6>
   <% @character.stats.each do |stat| %>
-    <p><%= stat.name %>: <%= stat.value %></p>
+    <p><%= stat.name %>: <%= stat.rank %></p>
   <% end %>
   <h6>Skills</h6>
   <% @character.skills.each do |skill| %>
-    <p><%= skill.name %>: <%= skill.value %></p>
+    <p><%= skill.name %>: <%= skill.rank %></p>
   <% end %>
   <h6>Equipment</h6>
   <% @character.equipment.each do |equip| %>
@@ -16,5 +16,5 @@
 </div>
 
 <div class='character-sheet'>
-  <%= react_component('CharacterSheet', stats: @character.stats, skill: @character.skills) %>
+  <%= react_component('CharacterSheet', stats: @character.stats, skills: @character.skills) %>
 </div>

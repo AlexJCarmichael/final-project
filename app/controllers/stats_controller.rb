@@ -18,6 +18,6 @@ class StatsController < ApplicationController
 
   private
   def stat_params
-    params.require(:stats).permit(:name, :value)
+    params.require(:stats).permit(:name, :rank)
   end
 end
