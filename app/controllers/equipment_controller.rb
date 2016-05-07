@@ -1,6 +1,7 @@
 class EquipmentController < ApplicationController
   def index
     @items = Equipment.all
+    render json: @items
   end
 
   def character
@@ -15,6 +16,7 @@ class EquipmentController < ApplicationController
   end
 
   def gameequip
+    binding.pry
     SessionItem.create(game_session_id: params.fetch(:game_id), equipment_id: params.fetch(:id))
     redirect_to :back
   end

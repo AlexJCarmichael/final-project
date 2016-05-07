@@ -1,7 +1,6 @@
 class StatsController < ApplicationController
 
   def update
-    binding.pry
     stat = Stat.find(params.fetch(:id))
     stat.update(stat_params)
     render json: { message: "Stat updated"}
