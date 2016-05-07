@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     member do
       get "character"
       post "charequip"
+      post "gameequip"
     end
   end
   resources :skills

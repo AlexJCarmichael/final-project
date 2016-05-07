@@ -16,7 +16,8 @@
 </div>
 
 <% if @game.user_id == current_user.id %>
-  <%= react_component('EqupimentSearch') %>
+  <%= react_component('EquipmentSearch', gameId: @game.id) %>
+<% end %>
 
 
 <% else %>
