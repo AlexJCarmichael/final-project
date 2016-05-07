@@ -10,15 +10,15 @@ var CharacterSheet = React.createClass({
         <p>This character has no equipment</p>
       );
     } else {
-      {this.props.equipment.map(function(equip) {
+      return this.props.equipment.map(function(equip) {
         return (
-        <MakeEquip
-          key={equip.id}
-          name={equip.name}
-          rank={equip.type}
-          />
+          <ShowEquip
+            key={equip.id}
+            name={equip.name}
+            category={equip.category}
+            />
         );
-      })}
+      });
     }
   },
 
