@@ -2,22 +2,34 @@
 <% if @game.sheet_template %>
   <%= link_to "Sheet Template", sheet_template_path(@game.sheet_template.id) %>
 
-<div class='row'>
-  <%= react_component('UserCard', characters: @characters, session_id: @game.id) %>
-  <div class='dash-display col s12 m3 offset-m1'>
-    <h5 class='clicky-button'>Invited to game</h5>
-    <div class='hide-on-small-only expand-me'>
-      <% @players.each do |player| %>
-        <p><%= link_to "#{player.user.user_name}", user_path(player.user.id) %>: <%= player.user.name %></p>
-        <% end %>
-      <%= react_component('UserSearch', userInvite: false, game: @game.id) %>
+  <div class='row'>
+    <%= react_component('UserCard', characters: @characters, session_id: @game.id) %>
+    <div class='dash-display col s12 m3 offset-m1'>
+      <h5 class='clicky-button'>Invited to game</h5>
+      <div class='hide-on-small-only expand-me'>
+        <% @players.each do |player| %>
+          <p><%= link_to "#{player.user.user_name}", user_path(player.user.id) %>: <%= player.user.name %></p>
+          <% end %>
+        <%= react_component('UserSearch', userInvite: false, game: @game.id) %>
+      </div>
     </div>
   </div>
-</div>
 
-<% if @game.user_id == current_user.id %>
-  <%= react_component('EquipmentSearch', gameId: @game.id) %>
-<% end %>
+  <div class='row'>
+    <div class='dash-display col s12 m3 offset-m1'>
+      <h5 class='clicky-button'>Equipment</h5>
+      <div class='hide-on-small-only expand-me'>
+        <% if @game.user_id == current_user.id %>
+          <% game_master = true %>
+          <%= react_component('EquipmentSearch', gameId: @game.id, isGM: game_master) %>
+        <% else %>
+          <% game_master = false %>
+
+          <%= react_component('EquipmentSearch', gameId: @game.id, isGM: game_master) %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
 
 <% else %>

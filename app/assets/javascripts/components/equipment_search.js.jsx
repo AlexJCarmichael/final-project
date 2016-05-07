@@ -49,6 +49,7 @@ var EquipmentSearch = React.createClass({
             return (<Equipment
                       key={equip.id}
                       equip={equip}
+                      isGM={that.props.isGM}
                       game_id = {that.props.gameId}/>);
         });
     } else {
@@ -56,15 +57,32 @@ var EquipmentSearch = React.createClass({
     }
   },
 
+  headerText: function () {
+    if (this.props.isGM === true) {
+      return ("Add an item");
+    } else {
+      return ("View this  game's items");
+    }
+  },
+
+  addAnItem: function () {
+    if (this.props.isGM === true) {
+      return (<p className="center-text"><strong>Click on an item to add it</strong></p>);
+    } else {
+      return (<p className="center-text"><strong>Search for items</strong></p>);
+    }
+  },
+
   render: function() {
     return (
       <div>
-        <h6 onClick={this.handleClick} className="clicky-button">Add equipment</h6>
+        <h6 onClick={this.handleClick} className="clicky-button">{this.headerText()}</h6>
         <div className={this.state.divClass}>
           <input className= "upper-margin" type="text"
-          onChange={this.filterList} value={this.state.search}
-          placeholder="Equipment Name or Category or Sub Category" />
-          <p className="center-text"><strong>Click on an item to add it</strong></p>
+                onChange={this.filterList}
+                value={this.state.search}
+                placeholder="Equipment Name or Category or Sub Category" />
+          {this.addAnItem()}
         </div>
         <div>
           {this.equipmentDisplay()}
