@@ -43,10 +43,13 @@ var GameEquipmentSearch = React.createClass({
   },
 
   equipmentDisplay: function(user){
-    var that = this
+    var that = this;
     if (this.state.search.length > 1) {
         return this.state.filteredEquipment.map(function (equip){
-            return (<GameEquipment key={equip.id} equip={equip}/>);
+            return (<GameEquipment
+                      key={equip.id}
+                      equip={equip}
+                      char_id = {that.props.characterId}/>);
         });
     } else {
       return (<span></span>);
@@ -58,9 +61,10 @@ var GameEquipmentSearch = React.createClass({
       <div>
         <h6 onClick={this.handleClick} className="clicky-button">Add equipment</h6>
         <div className={this.state.divClass}>
-          <input type="text"
+          <input className= "upper-margin" type="text"
           onChange={this.filterList} value={this.state.search}
           placeholder="Equipment Name or Category or Sub Category" />
+          <p className="center-text"><strong>Click on an item to add it</strong></p>
         </div>
         <div>
           {this.equipmentDisplay()}

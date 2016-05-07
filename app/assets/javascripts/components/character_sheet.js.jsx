@@ -70,7 +70,8 @@ var CharacterSheet = React.createClass({
           {this.showEquipment()}
           {this.toggleEdit()}
           <GameEquipmentSearch
-            gameId={this.props.game_id}/>
+            gameId={this.props.game_id}
+            characterId={this.props.character_id} />
       </div>
     );
   },
