@@ -77,6 +77,14 @@ armor4 = Equipment.create( name: "Quetzalcoatl's bracer", category: "Armor", wei
 weaponArr = [weapon1, weapon2, weapon3, weapon4]
 armorArr = [armor1,armor2, armor3, armor4]
 
+weaponArr.each do |item|
+  SessionItem.create(equipment_id: item.id, game_session_id: 1)
+end
+
+armorArr.each do |item|
+  SessionItem.create(equipment_id: item.id, game_session_id: 1)
+end
+
 characters.each do |char|
   CharStat.create( character_id: char.id, stat_id: strength.sample.id )
   CharStat.create( character_id: char.id, stat_id: dexterity.sample.id )
