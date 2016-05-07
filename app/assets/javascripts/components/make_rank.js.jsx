@@ -1,4 +1,4 @@
-var MakeSkills = React.createClass({
+var MakeRank = React.createClass({
   getInitialState: function() {
     return {
       rank: this.props.rank
@@ -20,7 +20,7 @@ var MakeSkills = React.createClass({
   handlePutRank: function () {
     $.ajax({
       method: "PUT",
-      url: "/skills/" + this.props.id,
+      url: "/"+ this.props.subject +"/" + this.props.id,
       data: {
         skills: {
           rank: this.state.rank

@@ -44,7 +44,8 @@ var CharacterSheet = React.createClass({
         <h6>Atributes</h6>
         {this.props.stats.map(function(stat) {
           return (
-          <MakeStats
+          <MakeRank
+            subject="stats"
             key={stat.id}
             id={stat.id}
             name={stat.name}
@@ -56,7 +57,8 @@ var CharacterSheet = React.createClass({
         <h6>Skills</h6>
         {this.props.skills.map(function(skill) {
           return (
-          <MakeSkills
+          <MakeRank
+            subject="skills"
             key={skill.id}
             id={skill.id}
             name={skill.name}
