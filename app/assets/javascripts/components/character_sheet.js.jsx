@@ -1,25 +1,42 @@
 var CharacterSheet = React.createClass({
+  getInitialState: function(){
+    return {
+      editable: false,
+    };
+  },
+  showEquipment: function () {
+    if (this.props.equipment.length === 0) {
+      return (
+        <p>This character has no equipment</p>
+      );
+    } else {
+      {this.props.equipment.map(function(equip) {
+        return (
+        <MakeEquip
+          key={equip.id}
+          name={equip.name}
+          rank={equip.type}
+          />
+        );
+      })}
+    }
+  },
+
+  handleClick: function (){
+    this.setState({
+      editable: !this.state.editable
+    });
+  },
+
+  toggleEdit: function (){
+    return (<p onClick={this.handleClick} className="clicky-button">Edit this character</p>)
+  },
+
   render: function() {
+    console.log(this.state.editable)
     var charName = this.props.name;
     var charBio = this.props.bio;
     var that = this;
-    var showEquipment =  function () {
-      if (that.props.equipment.length === 0) {
-        return (
-          <p>This character has no equipment</p>
-        );
-      } else {
-        {that.props.equipment.map(function(equip) {
-          return (
-          <MakeEquip
-            key={equip.id}
-            name={equip.name}
-            rank={equip.type}
-            />
-          );
-        })}
-      }
-    }
     return (
       <div>
         <h4>{charName}</h4>
@@ -29,8 +46,10 @@ var CharacterSheet = React.createClass({
           return (
           <MakeStats
             key={stat.id}
+            id={stat.id}
             name={stat.name}
             rank={stat.rank}
+            canEdit={that.state.editable}
             />
           );
         })}
@@ -39,13 +58,16 @@ var CharacterSheet = React.createClass({
           return (
           <MakeSkills
             key={skill.id}
+            id={skill.id}
             name={skill.name}
             rank={skill.rank}
+            canEdit={that.state.editable}
             />
           );
         })}
         <h6>Equipment</h6>
-          {showEquipment()}
+          {this.showEquipment()}
+          {this.toggleEdit()}
       </div>
     );
   },

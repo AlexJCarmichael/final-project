@@ -1,5 +1,11 @@
 class SkillsController < ApplicationController
 
+  def update
+    skill = Skill.find(params.fetch(:id))
+    skill.update(skill_params)
+    render json: { message: "Skill updated"}
+  end
+
   def create
     sheet = params.fetch(:sheet)
     @skill = Skill.new(skill_params)
@@ -10,7 +16,7 @@ class SkillsController < ApplicationController
         end
         format.json do
           SheetSkill.create!( skill_id: @skill.id, sheet_template_id: sheet )
-          render json: { message: "Sheet Skill! created", redirect_id: sheet }
+          render json: { message: "Sheet Skill created!", redirect_id: sheet }
         end
       end
     end

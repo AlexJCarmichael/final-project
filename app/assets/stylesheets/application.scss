@@ -77,8 +77,27 @@ strong {
   }
 }
 
+.in-line {
+  display: inline-block;
+}
+
 .hide {
   display: hidden;
+}
+
+.character-form {
+  display: inline-block;
+  max-width: 2em;
+  text-align: center;
+}
+
+input[type="text"]{
+   height: 1.5em;
+   margin: 0;
+ }
+
+.sm-margin {
+  margin-bottom: .25em;
 }
 
 ::-webkit-input-placeholder {
@@ -94,5 +113,5 @@ strong {
 }
 
 :-ms-input-placeholder {
-   color: #5E5E5E;  
+   color: #5E5E5E;
 }

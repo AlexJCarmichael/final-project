@@ -1,5 +1,4 @@
 var UserSearch = React.createClass({
-
     getInitialState: function(){
       return {
         allUsers: [],
@@ -44,12 +43,12 @@ var UserSearch = React.createClass({
 
     userNames: function(user){
       var that = this
-      if (this.state.search.length > 1)
-       { if (this.props.userInvite === true)
+      if (this.state.search.length > 1) {
+        if (this.props.userInvite === true) {
           return this.state.filteredUsers.map(function (user){
               return (<UserInvite key={user.id} user={user}/>);
           });
-          else {
+        } else {
             return this.state.filteredUsers.map(function (user){
                 return (<CreatePlayer key={user.id} user={user} game={that.props.game}/>);
             });
@@ -64,7 +63,7 @@ var UserSearch = React.createClass({
         <div>
           <h6 onClick={this.handleClick} className="clicky-button">Request a friend</h6>
           <div className={this.state.divClass}>
-            <input className="form-control" type="text"
+            <input type="text"
             onChange={this.filterList} value={this.state.search}
             placeholder="Username or User's name" />
           </div>
