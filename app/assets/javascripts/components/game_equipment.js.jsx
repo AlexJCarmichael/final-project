@@ -1,5 +1,6 @@
 var GameEquipment = React.createClass({
   render: function () {
-    return (<p>{this.props.equip.type}: {this.props.equip.subtype}: {this.props.equip.name}</p>);
+    console.log(this.props)
+    return (<p>{this.props.equip.category}: {this.props.equip.sub_category}: {this.props.equip.name}</p>);
   }
 });

@@ -65,14 +65,14 @@ sword4 = Skill.create( name: "Sword", rank: 8 )
 acroArr = [acro1, acro2, acro3, acro4]
 swordArr = [sword1, sword2, sword3, sword4]
 
-weapon1 = Equipment.create( name: "Katana", damage: "2d6", category: "Weapon", weight: "3lbs" )
-weapon2 = Equipment.create( name: "Rapier", damage: "1d6+2", category: "Weapon", weight: "2lbs" )
-weapon3 = Equipment.create( name: "Broadsword", damage: "2d6+1", category: "Weapon", weight: "5lbs" )
-weapon4 = Equipment.create( name: "Dirk", damage: "1d6", category: "Weapon", weight: "1lbs" )
-armor1 = Equipment.create( name: "Hermes Boots", category: "Armor", weight: "1lb", effects: "Allows the character to jump 30 feet." )
-armor2 = Equipment.create( name: "Inari Okami Robes", category: "Armor", weight: "2lb", effects: "Allows the character increased luck(GM's discretion)." )
-armor3 = Equipment.create( name: "Odin's Ring", category: "Armor", weight: ".5lb", effects: "Grants the character +2 intelligence." )
-armor4 = Equipment.create( name: "Quetzalcoatl's bracer", category: "Armor", weight: "1lb", effects: "Allows the character to deflect arrows." )
+weapon1 = Equipment.create( name: "Katana", damage: "2d6", category: "Weapon", sub_category: "Sword", weight: "3lbs" )
+weapon2 = Equipment.create( name: "Rapier", damage: "1d6+2", category: "Weapon", sub_category: "Sword", weight: "2lbs" )
+weapon3 = Equipment.create( name: "Broadsword", damage: "2d6+1", category: "Weapon", sub_category: "Sword", weight: "5lbs" )
+weapon4 = Equipment.create( name: "Dirk", damage: "1d6", category: "Weapon", sub_category: "Dagger", weight: "1lbs" )
+armor1 = Equipment.create( name: "Hermes Boots", category: "Armor", sub_category: "Boots", weight: "1lb", effects: "Allows the character to jump 30 feet." )
+armor2 = Equipment.create( name: "Inari Okami Robes", category: "Armor", sub_category: "Robes", weight: "2lb", effects: "Allows the character increased luck(GM's discretion)." )
+armor3 = Equipment.create( name: "Odin's Ring", category: "Armor", sub_category: "Accesory", weight: ".5lb", effects: "Grants the character +2 intelligence." )
+armor4 = Equipment.create( name: "Quetzalcoatl's bracer", category: "Armor", sub_category: "Accesory", weight: "1lb", effects: "Allows the character to deflect arrows." )
 
 weaponArr = [weapon1, weapon2, weapon3, weapon4]
 armorArr = [armor1,armor2, armor3, armor4]

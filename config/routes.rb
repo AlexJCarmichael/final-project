@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :characters
   resources :equipment do
     member do
-      get "session"
+      get "character"
     end
   end
   resources :skills

@@ -17,13 +17,13 @@ var GameEquipmentSearch = React.createClass({
   },
 
   filterList: function(event){
-    var searchReturn = this.state.gameEquipment.filter(function (user) {
+    var searchReturn = this.state.gameEquipment.filter(function (equipment) {
       return (equipment.name.toLowerCase().indexOf(event.target.value.toLowerCase()) !==-1 ||
-              equipment.type.toLowerCase().indexOf(event.target.value.toLowerCase()) !==-1 ||
-              equipment.subtype.toLowerCase().indexOf(event.target.value.toLowerCase()) !==-1);
+              equipment.category.toLowerCase().indexOf(event.target.value.toLowerCase()) !==-1 ||
+              equipment.sub_category.toLowerCase().indexOf(event.target.value.toLowerCase()) !==-1);
     });
     this.setState({
-      filteredUsers: searchReturn,
+      filteredEquipment: searchReturn,
       search: event.target.value
     });
   },
@@ -31,7 +31,7 @@ var GameEquipmentSearch = React.createClass({
   componentDidMount: function () {
     var that = this
     $.ajax({
-      url: "/equipment/" + this.props.gameId + "/session",
+      url: "/equipment/" + this.props.gameId + "/character",
       dataType: "JSON",
       method: "get"
     }).done(function (response) {
@@ -60,7 +60,7 @@ var GameEquipmentSearch = React.createClass({
         <div className={this.state.divClass}>
           <input type="text"
           onChange={this.filterList} value={this.state.search}
-          placeholder="Equipment Name or Type or Subtype" />
+          placeholder="Equipment Name or Category or Sub Category" />
         </div>
         <div>
           {this.equipmentDisplay()}

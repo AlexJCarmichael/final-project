@@ -1,7 +1,6 @@
 class EquipmentController < ApplicationController
-  def session
-    binding.pry
-    game = GameSession.find(params.fetch(:id))
+  def character
+    game = GameSession.first
     @items = game.items
     render json: @items
   end
