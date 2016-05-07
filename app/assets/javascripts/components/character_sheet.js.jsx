@@ -33,7 +33,6 @@ var CharacterSheet = React.createClass({
   },
 
   render: function() {
-    console.log(this.state.editable)
     var charName = this.props.name;
     var charBio = this.props.bio;
     var that = this;
@@ -44,7 +43,7 @@ var CharacterSheet = React.createClass({
         <h6>Atributes</h6>
         {this.props.stats.map(function(stat) {
           return (
-          <MakeRank
+          <MakeStats
             subject="stats"
             key={stat.id}
             id={stat.id}

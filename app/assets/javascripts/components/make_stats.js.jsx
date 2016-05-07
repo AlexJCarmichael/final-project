@@ -1,4 +1,4 @@
-var MakeRank = React.createClass({
+var MakeStats = React.createClass({
   getInitialState: function() {
     return {
       rank: this.props.rank
@@ -29,16 +29,36 @@ var MakeRank = React.createClass({
     });
   },
 
+  changeRender: function (){
+    if (this.props.canEdit === true) {
+      return (
+        <div className="sm-margin row">
+            <div className="input-field col s7">
+              <span className="in-line col s6 m3 l2">{this.props.name}: </span>
+              <input type="text" className="character-form col s6 m3 l2" value={this.state.rank}
+                                                                          onKeyDown={this.handleDown}
+                                                                          onChange={this.handleChange}/>
+            </div>
+        </div>
+      );
+    } else {
+      return (
+        <div className="sm-margin row">
+            <div className="input-field col s7">
+              <span className="in-line col s6 m3 l2">{this.props.name}: </span>
+              <input type="text" className="character-form col s6 m3 l2" value={this.state.rank}
+                                                                          onKeyDown={this.handleDown}
+                                                                          disabled='true'
+                                                                          onChange={this.handleChange}/>
+            </div>
+        </div>
+      );
+    }
+  },
+
   render: function() {
     return (
-      <div className="sm-margin row">
-          <div className="input-field col s6">
-            <span className="in-line col s4 m3 l2">{this.props.name}: </span>
-            <input type="text" className="character-form col s3 m3 l2" value={this.state.rank}
-                                                                        onKeyDown={this.handleDown}
-                                                                        onChange={this.handleChange}/>
-          </div>
-      </div>
+      this.changeRender()
     );
-  }
+  },
 });
