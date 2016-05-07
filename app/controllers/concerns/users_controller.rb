@@ -5,6 +5,11 @@ class UsersController < Clearance::UsersController
     render json: @users
   end
 
+  def show
+    @user = User.find(params.fetch(:id))
+    @sessions = @user.my_games
+  end
+
   def friendship
     @friend = Friend.new(to_user_id: params[:to_user_id], status: "pending")
     @friend.user = current_user

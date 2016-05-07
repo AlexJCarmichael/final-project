@@ -8,7 +8,7 @@
     <h5 class='clicky-button'>Invited to game</h5>
     <div class='hide-on-small-only expand-me'>
       <% @players.each do |player| %>
-        <p><%= player.user.user_name%>: <%= player.user.name %></p>
+        <p><%= link_to "#{player.user.user_name}", user_path(player.user.id) %>: <%= player.user.name %></p>
         <% end %>
       <%= react_component('UserSearch', userInvite: false, game: @game.id) %>
     </div>

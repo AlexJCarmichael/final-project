@@ -31,11 +31,11 @@
     <h5 class='clicky-button'>Friends</h5>
     <div class='hide-on-small-only expand-me'>
       <% @friends.each do |friend| %>
-        <p><%= friend.name %></p>
+        <p><%= link_to "#{friend.name}", user_path(friend.id) %></p>
       <% end %>
       <h5>Pending Friends</h5>
       <% @pending.each do |pend| %>
-        <p><%= pend.name %></p>
+        <p><%= link_to "#{pend.name}", user_path(pend.id) %></p>
       <% end %>
       <%#TODO: Change this to react ajax after project, currenly an a-tag that redirect_to back%>
       <%= react_component('UserSearch', userInvite: true) %>
