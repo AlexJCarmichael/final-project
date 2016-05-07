@@ -1,4 +1,4 @@
 <div class='character-sheet'>
     <%= react_component('CharacterSheet', stats: @character.stats, skills: @character.skills, equipment: @character.equipment,
-                        name: @character.name, bio: @character.bio) %>
+                        name: @character.name, bio: @character.bio, game_id: @character.player.game_session_id) %>
 </div>

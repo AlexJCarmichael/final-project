@@ -17,7 +17,11 @@ Rails.application.routes.draw do
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "users#new", as: "sign_up"
   resources :characters
-  resources :equipment
+  resources :equipment do
+    member do
+      get "session"
+    end
+  end
   resources :skills
   resources :stats
   resources :sheet_templates do
