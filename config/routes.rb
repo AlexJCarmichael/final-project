@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     collection do
       post "friendship"
       post "player"
+      put "acceptance"
+      put "denial"
     end
     resource :password,
       controller: "clearance/passwords",

@@ -35,7 +35,15 @@
       <% end %>
       <h5>Pending Friends</h5>
       <% @pending.each do |pend| %>
-        <p><%= link_to "#{pend.name}", user_path(pend.id) %></p>
+        <p>
+          <%= link_to "#{pend.name}", user_path(pend.id) %>
+          <% if pend.awaiting_friendships.empty? %>
+            <a>Accept</a>
+            <a>Decline</a>
+          <% else %>
+            <span>Awaiting approval</span>
+          <% end %>
+        </p>
       <% end %>
       <%#TODO: Change this to react ajax after project, currenly an a-tag that redirect_to back%>
       <%= react_component('UserSearch', userInvite: true) %>
