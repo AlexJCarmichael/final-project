@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   resources :sheet_templates do
     member do
       get "grabber"
+      post "game_sheet"
     end
   end
   resources :game_sessions

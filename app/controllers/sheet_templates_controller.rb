@@ -1,4 +1,10 @@
 class SheetTemplatesController < ApplicationController
+
+  def index
+    @sheets = SheetTemplate.all
+    render json: @sheets
+  end
+
   def show
     @sheet = SheetTemplate.find(params.fetch(:id))
   end
@@ -26,8 +32,17 @@ class SheetTemplatesController < ApplicationController
       }
   end
 
+  def game_sheet
+    sheet = GameSheet.create(game_sheet_params)
+    render json: { message: "Game Sheet Created!", redirect_id: sheet.sheet_template_id }
+  end
+
   private
   def sheet_params
     params.require(:sheet_template).permit(:game_name)
+  end
+
+  def game_sheet_params
+    params.require(:game_sheet).permit(:game_session_id, :sheet_template_id)
   end
 end
