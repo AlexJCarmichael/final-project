@@ -32,6 +32,12 @@
 
 <% else %>
   <% if @game.user_id == current_user.id %>
-    <h4>Assign a Sheet Template before inviting users to the game</h4>
+    <div class='warning-header-box'>
+      <h4>
+        <a class='warning-header' href='/sheet_templates/new?game=<%=@game.id%>'>
+          Assign a Sheet Template before inviting users to the game
+        </a>
+      </h4>
+    </div>
     <% end %>
 <% end %>
