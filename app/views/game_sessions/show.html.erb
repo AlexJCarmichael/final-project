@@ -13,9 +13,8 @@
         <%= react_component('UserSearch', userInvite: false, game: @game.id) %>
       </div>
     </div>
-  </div>
 
-  <div class='row'>
+
     <div class='dash-display col s12 m3 offset-m1'>
       <h5 class='clicky-button'>Equipment</h5>
       <div class='hide-on-small-only expand-me'>
@@ -30,7 +29,6 @@
       </div>
     </div>
   </div>
-
 
 <% else %>
   <% if @game.user_id == current_user.id %>
