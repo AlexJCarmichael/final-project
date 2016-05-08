@@ -142,10 +142,13 @@ ActiveRecord::Schema.define(version: 20160505133429) do
   add_index "sheet_stats", ["stat_id"], name: "index_sheet_stats_on_stat_id", using: :btree
 
   create_table "sheet_templates", force: :cascade do |t|
+    t.integer  "user_id"
     t.string   "game_name",  null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "sheet_templates", ["user_id"], name: "index_sheet_templates_on_user_id", using: :btree
 
   create_table "skills", force: :cascade do |t|
     t.string   "name",                   null: false
@@ -195,4 +198,5 @@ ActiveRecord::Schema.define(version: 20160505133429) do
   add_foreign_key "sheet_skills", "skills"
   add_foreign_key "sheet_stats", "sheet_templates"
   add_foreign_key "sheet_stats", "stats"
+  add_foreign_key "sheet_templates", "users"
 end

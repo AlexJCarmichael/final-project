@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :characters, through: :players
   has_many :playing_sessions, through: :players, source: :game_session
   has_many :game_sessions
+  has_many :sheet_templates
 
   has_many :friends # , class_name: :Friend, foriegn_key: :user_id
   has_many :requested_friends, class_name: :Friend, foreign_key: :to_user_id

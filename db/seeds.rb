@@ -15,7 +15,7 @@ Friend.create( user_id: user.id, to_user_id: user2.id, status: "accepted" )
 Friend.create( user_id: user.id, to_user_id: user3.id, status: "accepted" )
 Friend.create( user_id: user.id, to_user_id: user4.id, status: "pending" )
 
-sheet = SheetTemplate.create( game_name: "Danes and Dragons" )
+sheet = SheetTemplate.create( game_name: "Danes and Dragons", user_id: 1 )
 
 sheet_skill1 = Skill.create( name: "Acrobatics" )
 sheet_skill2 = Skill.create( name: "Sword" )
