@@ -37,11 +37,13 @@
       <% @pending.each do |pend| %>
         <p>
           <%= link_to "#{pend.name}", user_path(pend.id) %>
-          <% if pend.awaiting_friendships.empty? %>
-            <a>Accept</a>
-            <a>Decline</a>
-          <% else %>
-            <span>Awaiting approval</span>
+          <% if pend.friends.first %>
+            <% if pend.friends.first.to_user_id == current_user.id %>
+              <%= link_to "Accept", acceptance_users_path(pend: pend.id, to: current_user.id), method: :put %>
+              <%= link_to "Decline", denial_users_path(pend: pend.id, to: current_user.id), method: :put %>
+            <% else %>
+              <span>Awaiting approval</span>
+            <% end %>
           <% end %>
         </p>
       <% end %>

@@ -17,6 +17,7 @@ class UsersController < Clearance::UsersController
       redirect_to :back
     else
       flash[:alert] = "Couldn't initiate friendship"
+      redirect_to :back
     end
   end
 
@@ -48,6 +49,20 @@ class UsersController < Clearance::UsersController
       flash[:alert] = 'Passwords do not match'
       render template: "users/new"
     end
+  end
+
+  def acceptance
+    friend = Friend.find_by("user_id = ? and to_user_id = ?", params[:pend], params[:to])
+    friend.status = Friend::ACCEPTED
+    friend.save
+    redirect_to :back
+  end
+
+  def denial
+    friend = Friend.find_by("user_id = ? and to_user_id = ?", params[:pend], params[:to])
+    friend.status = Friend::DECLINED
+    friend.save
+    redirect_to :back
   end
 
   private
