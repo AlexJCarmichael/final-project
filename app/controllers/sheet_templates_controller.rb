@@ -9,6 +9,10 @@ class SheetTemplatesController < ApplicationController
 
   def create
     sheet = SheetTemplate.create(sheet_params)
+    if params.fetch(:sheet_template).fetch(:game_id)
+      game = params.fetch(:sheet_template).fetch(:game_id)
+      GameSheet.create(sheet_template_id: sheet.id, game_session_id: game)
+    end
     render json: { message: "Sheet created!", redirect_id: sheet.id }
   end
 

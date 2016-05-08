@@ -32,7 +32,8 @@ var AssignSheet = React.createClass ({
       url: "/sheet_templates/",
       data: {
         sheet_template: {
-          game_name: this.state.postText
+          game_name: this.state.postText,
+          game_id: this.props.gameId
         }
       },
       success: function(response) {
