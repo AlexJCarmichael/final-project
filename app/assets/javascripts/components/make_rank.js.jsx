@@ -18,14 +18,13 @@ var MakeRank = React.createClass({
   },
 
   handlePutRank: function () {
+    var data = {};
+    data[this.props.subject] = {};
+    data[this.props.subject]["rank"] = this.state.rank;
     $.ajax({
       method: "PUT",
       url: "/"+ this.props.subject +"/" + this.props.id,
-      data: {
-        skills: {
-          rank: this.state.rank
-        }
-      }
+      data: data
     });
   },
 
