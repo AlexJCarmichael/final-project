@@ -34,8 +34,8 @@ class User < ActiveRecord::Base
     self.friendships | self.accepted_friendships
   end
 
-  def my_pending_friends
-    self.pending_friendships | self.awaiting_friendships
+  def my_pending_friends(id)
+    Friend.where("user_id = ? or to_user_id = ? and status = ?", id, id, Friend::PENDING)
   end
 
   private

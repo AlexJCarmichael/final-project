@@ -7,6 +7,6 @@ class DashboardController < ApplicationController
     @characters = @user.characters
     @sessions = @user.my_games
     @friends = @user.my_friends
-    @pending = Friend.where("user_id = ? or to_user_id = ? and status = ?", @user.id, @user.id, Friend::PENDING)
+    @pending = @user.my_pending_friends(@user.id)
   end
 end
