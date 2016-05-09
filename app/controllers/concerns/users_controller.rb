@@ -52,14 +52,14 @@ class UsersController < Clearance::UsersController
   end
 
   def acceptance
-    friend = Friend.find_by("user_id = ? and to_user_id = ?", params[:pend], params[:to])
+    friend = Friend.find_by("user_id = ? and to_user_id = ?", params[:from], params[:to])
     friend.status = Friend::ACCEPTED
     friend.save
     redirect_to :back
   end
 
   def denial
-    friend = Friend.find_by("user_id = ? and to_user_id = ?", params[:pend], params[:to])
+    friend = Friend.find_by("user_id = ? and to_user_id = ?", params[:from], params[:to])
     friend.status = Friend::DECLINED
     friend.save
     redirect_to :back
@@ -71,6 +71,6 @@ class UsersController < Clearance::UsersController
   end
 
   def player_params
-      params.require(:player).permit(:user_id, :game_session_id)
+    params.require(:player).permit(:user_id, :game_session_id)
   end
 end

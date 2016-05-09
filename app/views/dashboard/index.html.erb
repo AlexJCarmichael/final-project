@@ -30,20 +30,23 @@
   <div class='dash-display col s12 m3 offset-m1'>
     <h5 class='clicky-button'>Friends</h5>
     <div class='hide-on-small-only expand-me'>
-      <% @friends.each do |friend| %>
-        <p><%= link_to "#{friend.name}", user_path(friend.id) %></p>
+      <% if @friends.empty? %>
+        <p>No user's have accepted a friend request</p>
+      <% else %>
+        <% @friends.each do |friend| %>
+          <p><%= link_to "#{friend.name}", user_path(friend.id) %></p>
+        <% end %>
       <% end %>
-      <h5>Pending Friends</h5>
+      <h5 class='center-text'>Pending Friends</h5>
       <% @pending.each do |pend| %>
         <p>
-          <%= link_to "#{pend.name}", user_path(pend.id) %>
-          <% if pend.friends.first %>
-            <% if pend.friends.first.to_user_id == current_user.id %>
-              <%= link_to "Accept", acceptance_users_path(pend: pend.id, to: current_user.id), method: :put %>
-              <%= link_to "Decline", denial_users_path(pend: pend.id, to: current_user.id), method: :put %>
-            <% else %>
-              <span>Awaiting approval</span>
-            <% end %>
+          <% if pend.user.name == current_user.name %>
+            <%= link_to "#{pend.to_user.name}", user_path(pend.to_user.id) %>
+            <span>Awaiting approval</span>
+          <% else %>
+            <%= link_to "#{pend.user.name}", user_path(pend.user.id) %>
+            <%= link_to "Accept", acceptance_users_path(from: pend.user_id, to: current_user.id), method: :put %>
+            <%= link_to "Decline", denial_users_path(from: pend.user_id, to: current_user.id), method: :put %>
           <% end %>
         </p>
       <% end %>
