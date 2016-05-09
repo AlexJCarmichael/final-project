@@ -49,6 +49,8 @@ group :development do
 end
 
 gem 'react-rails', '~> 1.7.0'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 gem "rails-erd"
 gem 'clearance'
 gem 'materialize-sass'
