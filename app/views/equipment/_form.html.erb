@@ -7,5 +7,6 @@
   <p>Weight: <%= f.text_field :weight %></p>
   <p>Reach: <%= f.text_field :reach %></p>
   <p>Effects: <%= f.text_field :effects %></p>
+  <%= f.hidden_field :game_id, value: @game %>
   <%= f.submit "Create Equipment"%>
 <% end %>

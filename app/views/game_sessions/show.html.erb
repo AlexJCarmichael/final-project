@@ -28,7 +28,7 @@
       </div>
       <div>
         <p class="click-me center-text">Add equipment</p>
-        <%= link_to "Create Equipment", new_equipment_path, class: "hidden-form hide center-text block" %>
+        <%= link_to "Create Equipment", new_equipment_path(game: @game.id), class: "hidden-form hide center-text block" %>
       </div>
     </div>
   </div>

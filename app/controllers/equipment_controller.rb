@@ -5,16 +5,19 @@ class EquipmentController < ApplicationController
   end
 
   def new
+    @game = params[:game]
     @equip = Equipment.new
   end
 
   def create
-    if Equipment.create(equip_params)
+    equip = Equipment.create(equip_params)
+    if equip.id
+      SessionItem.create(game_session_id: params.fetch(:equipment).fetch(:game_id), equipment_id: equip.id)
       flash[:alert] = "Equipment created"
       redirect_to :back
     else
       flash[:alert] = "Missing a required field"
-
+      redirect_to :back
     end
 
   end
@@ -30,7 +33,7 @@ class EquipmentController < ApplicationController
     redirect_to :back
   end
 
-  def gameequip 
+  def gameequip
     SessionItem.create(game_session_id: params.fetch(:game_id), equipment_id: params.fetch(:id))
     redirect_to :back
   end
