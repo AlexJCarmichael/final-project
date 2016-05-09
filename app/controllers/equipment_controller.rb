@@ -4,6 +4,13 @@ class EquipmentController < ApplicationController
     render json: @items
   end
 
+  def new
+    @equip = Equipment.new
+  end
+
+  def create
+  end
+
   def character
     game = GameSession.first
     @items = game.items
