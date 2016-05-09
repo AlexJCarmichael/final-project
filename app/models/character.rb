@@ -5,11 +5,10 @@ class Character < ActiveRecord::Base
   belongs_to :sheet_template
 
   has_many :char_stats
-  has_many :stats, through: :char_stats
+  has_many :stats, -> { order(name: :asc) }, through: :char_stats
 
   has_many :char_skills
-  has_many :skills, through: :char_skills
-
+  has_many :skills, -> { order(name: :asc) }, through: :char_skills
   has_many :char_equips
   has_many :equipment, through: :char_equips
 
