@@ -28,10 +28,14 @@ var EquipmentSearch = React.createClass({
     });
   },
 
-  componentDidMount: function () {
-    var that = this
+  whichMount: function () {
+    var that = this;
+    var url = '/equipment/';
+    if (this.props.searchFor ===  "character_equipment") {
+        url = "/equipment/" + this.props.gameId + "/character";
+    }
     $.ajax({
-      url: "/equipment/",
+      url: url,
       dataType: "JSON",
       method: "get"
     }).done(function (response) {
@@ -39,7 +43,11 @@ var EquipmentSearch = React.createClass({
         equipment: response,
         filteredEquipment: []
       });
-    })
+    });
+  },
+
+  componentDidMount: function () {
+    this.whichMount()
   },
 
   equipmentDisplay: function(user){
@@ -50,6 +58,8 @@ var EquipmentSearch = React.createClass({
                       key={equip.id}
                       equip={equip}
                       isGM={that.props.isGM}
+                      searchFor={that.props.searchFor}
+                      char_id={that.props.characterId}
                       game_id = {that.props.gameId}/>);
         });
     } else {
