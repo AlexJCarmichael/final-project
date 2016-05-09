@@ -27,6 +27,9 @@ ready = function() {
     }),
     $(".click-me").on("click", function () {
         $(".hidden-form").toggleClass("hide");
+    }),
+    $("#flash").on("click", function () {
+        $(this).addClass("hide");
     });
 };
 

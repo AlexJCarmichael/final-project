@@ -66,6 +66,12 @@ strong {
   }
 }
 
+#flash {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 .warning-header {
   text-decoration: none;
   color: inherit;
