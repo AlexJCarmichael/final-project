@@ -23,9 +23,12 @@
           <%= react_component('EquipmentSearch', gameId: @game.id, isGM: game_master) %>
         <% else %>
           <% game_master = false %>
-
           <%= react_component('EquipmentSearch', gameId: @game.id, isGM: game_master) %>
         <% end %>
+      </div>
+      <div>
+        <p class="click-me center-text">Add equipment</p>
+        <%= link_to "Create Equipment", new_equipment_path, class: "hidden-form hide center-text block" %>
       </div>
     </div>
   </div>

@@ -96,6 +96,10 @@ strong {
   display: inline-block;
 }
 
+.block {
+  display: block;
+}
+
 .hide {
   display: hidden;
 }
@@ -117,6 +121,9 @@ input[type="text"]{
 
 .center-text {
   text-align: center;
+  p {
+    margin: 0;
+  }
 }
 
 input.upper-margin {
@@ -137,4 +144,10 @@ input.upper-margin {
 
 :-ms-input-placeholder {
    color: #5E5E5E;
+}
+
+@media only screen and (min-width: 993px) {
+.container {
+    width: 80%;
+  }
 }
