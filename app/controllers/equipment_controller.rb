@@ -9,6 +9,14 @@ class EquipmentController < ApplicationController
   end
 
   def create
+    if Equipment.create(equip_params)
+      flash[:alert] = "Equipment created"
+      redirect_to :back
+    else
+      flash[:alert] = "Missing a required field"
+
+    end
+
   end
 
   def character
@@ -26,5 +34,10 @@ class EquipmentController < ApplicationController
     binding.pry
     SessionItem.create(game_session_id: params.fetch(:game_id), equipment_id: params.fetch(:id))
     redirect_to :back
+  end
+
+  private
+  def equip_params
+    params.require(:equipment).permit(:name, :category, :sub_category, :armor, :damage, :weight, :reach, :effects)
   end
 end
