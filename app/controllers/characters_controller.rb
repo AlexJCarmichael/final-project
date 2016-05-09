@@ -1,6 +1,12 @@
 class CharactersController < ApplicationController
   def show
-    get_character
+    @character = get_character
+    respond_to do |format|
+      format.html { }
+      format.pdf do
+        render pdf: 'event-report', disable_external_links: true, template: 'characters/show.html.erb'
+      end
+    end
   end
 
   def new
@@ -25,7 +31,7 @@ class CharactersController < ApplicationController
 
   private
   def get_character
-    @character = Character.find(params.fetch(:id))
+    Character.find(params.fetch(:id))
   end
 
   def char_params

@@ -1,6 +1,7 @@
   <%= link_to "Go Back", :back %>
 
 <div class='character-sheet'>
+  <%= link_to 'PDF of Character', character_path(@character.id, format: :pdf), class: "not-pdf-friendly right" %>
     <%= react_component('CharacterSheet', stats: @character.stats, skills: @character.skills, equipment: @character.equipment,
                         name: @character.name, bio: @character.bio, game_id: @character.player.game_session_id, character_id: @character.id) %>
 </div>
