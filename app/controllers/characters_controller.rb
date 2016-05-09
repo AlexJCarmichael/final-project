@@ -4,7 +4,7 @@ class CharactersController < ApplicationController
     respond_to do |format|
       format.html { }
       format.pdf do
-        render pdf: 'event-report', disable_external_links: true, template: 'characters/show.html.erb'
+        render pdf: "#{@character.name}'s sheet", disable_external_links: true, template: 'characters/show.html.erb'
       end
     end
   end

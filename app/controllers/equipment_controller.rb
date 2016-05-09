@@ -30,8 +30,7 @@ class EquipmentController < ApplicationController
     redirect_to :back
   end
 
-  def gameequip
-    binding.pry
+  def gameequip 
     SessionItem.create(game_session_id: params.fetch(:game_id), equipment_id: params.fetch(:id))
     redirect_to :back
   end

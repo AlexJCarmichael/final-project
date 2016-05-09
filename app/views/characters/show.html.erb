@@ -1,4 +1,4 @@
-  <%= link_to "Go Back", :back %>
+  <%= link_to "Go Back", :back, class: "not-pdf-friendly" %>
 
 <div class='character-sheet'>
   <%= link_to 'PDF of Character', character_path(@character.id, format: :pdf), class: "not-pdf-friendly right" %>
