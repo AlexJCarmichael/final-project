@@ -50,7 +50,7 @@ var NewGame = React.createClass({
     var place = this.props.placeholder;
     return (
       <div>
-        <h6 onClick={this.handleClick} className="clicky-button">{header}</h6>
+        <h6 onClick={this.handleClick} className="clicky-button btn">{header}</h6>
         <div className={this.state.divClass}>
           <input className="center"
             placeholder={place}

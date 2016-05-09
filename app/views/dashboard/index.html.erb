@@ -1,18 +1,7 @@
 <h1>Dashboard for <%= current_user.user_name %></h1>
 
 <div class='row'>
-  <div class='dash-display col s12 m3'>
-    <h5 class='clicky-button'>Characters</h5>
-    <div class='hide-on-small-only expand-me'>
-      <% @characters.each do |char| %>
-        <p><%= link_to "#{char.name}", character_path("#{char.id}") %></p>
-      <% end %>
-      <strong>Create new characters from a game session</strong>
-    </div>
-  </div>
-
-
-  <div class='dash-display col s12 m3 offset-m1'>
+  <div class='card dash-display col s12 m7'>
     <h5 class='clicky-button'>Games</h5>
     <div class='hide-on-small-only expand-me'>
       <% @sessions.each do |session| %>
@@ -22,12 +11,22 @@
         <% end %>
       <% end %>
       <%= react_component('NewGame', controller: "game_sessions", redirect_controller: "game_sessions",
-                          name: "session_name", sheet_id: 1, display_name: "Create a new game",
+                          name: "session_name", sheet_id: 1, display_name: "New game",
                           placeholder: "Type in a game name") %>
     </div>
   </div>
 
-  <div class='dash-display col s12 m3 offset-m1'>
+  <div class='card dash-display col s12 m3 offset-m1'>
+    <h5 class='clicky-button'>Characters</h5>
+    <div class='hide-on-small-only expand-me'>
+      <% @characters.each do |char| %>
+        <p><%= link_to "#{char.name}", character_path("#{char.id}") %></p>
+      <% end %>
+      <strong>Create new characters from a game session</strong>
+    </div>
+  </div>
+
+  <div class='card dash-display col s12 m3 offset-m1 md-top-margin'>
     <h5 class='clicky-button'>Friends</h5>
     <div class='hide-on-small-only expand-me'>
       <% if @friends.empty? %>

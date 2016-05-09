@@ -15,8 +15,8 @@
  */
 
 $primary-color: #1C2528;
-$secondary-color: #1F1A37;
-$tertiary-color:  #F9F0C1;
+$secondary-color:  #221D3E;
+$body-color: rgba(249, 240, 193, .25);
 
 @import "materialize";
 @import url(https://fonts.googleapis.com/css?family=Inknut+Antiqua|Alegreya+Sans:400,700);
@@ -30,7 +30,13 @@ p, span, div, textarea, input, nav, .btn {
 }
 
 .btn {
-  color: white;
+  &:hover {
+    color: white;
+  }
+}
+
+body {
+  background-color: $body-color
 }
 
 strong {
@@ -44,11 +50,15 @@ strong {
       cursor: pointer;
       color: inherit;
     }
+  .btn {
+    &:hover {
+      color: white;
+    }
+  }
 }
 
 .dash-display {
-  background-color: $tertiary-color;
-  border: 1px solid $secondary-color;
+  background-color: white;
   p {
     margin-left: 1em;
   }
@@ -83,7 +93,7 @@ strong {
 
 .character-sheet {
   margin-top: 3em;
-  background-color: $tertiary-color;
+  background-color: $secondary-color;
   h6 {
     margin: 1em 0 0 .5em;
   }
@@ -144,6 +154,12 @@ input.upper-margin {
 
 :-ms-input-placeholder {
    color: #5E5E5E;
+}
+
+@media only screen and (min-width: 600px) {
+  .md-top-margin {
+    margin-top: 2em;
+  }
 }
 
 @media only screen and (min-width: 993px) {
