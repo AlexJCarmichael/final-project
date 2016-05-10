@@ -20,7 +20,10 @@
     <h5 class='clicky-button'>Characters</h5>
     <div class='hide-on-small-only expand-me'>
       <% @characters.each do |char| %>
-        <p><%= link_to "#{char.name}", character_path("#{char.id}") %></p>
+        <p><a class="character_sheet" href="#character_sheet_modal"><%= "#{char.name}" %></a></p>
+        <div class="character_sheet_modal modal">
+          <%= render partial: 'layouts/character_sheet', :locals => { :char => char } %>
+        </div>
       <% end %>
       <strong>Create new characters from a game session</strong>
     </div>

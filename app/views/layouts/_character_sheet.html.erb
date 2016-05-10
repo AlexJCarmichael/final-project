@@ -1,0 +1,11 @@
+<div class='character-sheet'>
+      <%= react_component('CharacterSheet', {
+          stats: char.stats,
+          skills: char.skills,
+          equipment: char.equipment,
+          name: char.name,
+          bio: char.bio,
+          game_id: char.player.game_session_id,
+          searchFor: "character_equipment",
+          character_id: char.id}, { prerender: true }) %>
+</div>

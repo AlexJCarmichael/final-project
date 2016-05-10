@@ -31,6 +31,11 @@ ready = function() {
     $("#flash").on("click", function () {
         $(this).addClass("hide");
     });
+
+    $(".character_sheet").on("click",function(){
+
+    $(".character_sheet_modal").openModal();
+  });
 };
 
 $(document).ready(ready);

@@ -69,7 +69,9 @@ var EquipmentSearch = React.createClass({
 
   headerText: function () {
     if (this.props.isGM === true) {
-      return ("Add an item");
+      return ("+");
+    } else if (this.props.searchFor === "character_equipment") {
+      return ("+");
     } else {
       return ("View this  game's items");
     }
