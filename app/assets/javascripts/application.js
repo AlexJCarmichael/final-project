@@ -26,6 +26,10 @@ ready = function() {
         $(this).parent().find(".expand-me").toggleClass("hide-on-small-only");
     }),
 
+    $("#clicky-button").on("click", function () {
+        $("#collapse-me").toggleClass("collapse");
+    }),
+
     $(".click-me").on("click", function () {
         $(".hidden-form").toggleClass("hide");
     }),
@@ -35,7 +39,7 @@ ready = function() {
     }),
 
     $(".character_sheet").on("click",function(){
-        $(".character_sheet_modal").openModal();
+        $(this).parent().parent().find(".character_sheet_modal").openModal();
     });
 };
 

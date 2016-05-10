@@ -169,6 +169,35 @@ input[type="text"]{
   }
 }
 
+.chat-container {
+  height: 25em;
+  width: 30em;
+  overflow: auto;
+}
+
+#chat-window {
+  height: 20em;
+  overflow: auto;
+}
+
+.limiter {
+  width: 30em;
+  background-color: black;
+  color: white;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.chat-position {
+  position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+.collapse {
+  display: none;
+}
+
 input.upper-margin {
   margin-top: 1em;
 }
