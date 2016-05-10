@@ -171,7 +171,7 @@ input[type="text"]{
 
 .chat-container {
   height: 25em;
-  width: 30em;
+  width: 90%;
   overflow-y: hidden;
   overflow-x: scroll;
   background-color: white;
@@ -186,8 +186,9 @@ input[type="text"]{
 }
 
 .limiter {
-  width: 30em;
+  width: 90%;
   margin: 0;
+  padding: .3em;
   background-color: $secondary-color;
   color: white;
   &:hover {
@@ -234,6 +235,12 @@ input.upper-margin {
   }
   .important-card {
       min-height: 35em;
+  }
+  .limiter {
+    width: 30em;
+  }
+  .chat-container {
+    width: 30em;
   }
 }
 
