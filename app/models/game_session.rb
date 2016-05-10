@@ -11,4 +11,10 @@ class GameSession < ActiveRecord::Base
 
   validates :session_name, presence: true
 
+  def game_setup(dm)
+    if self.persisted?
+      ChatSession.create(game_session_id: self.id)
+      Player.create!(user_id: dm.id, game_session_id: self.id)
+    end
+  end
 end

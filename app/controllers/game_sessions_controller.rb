@@ -13,13 +13,9 @@ class GameSessionsController < ApplicationController
   def create
     @game = current_user.game_sessions.build(game_params)
     if @game.save
+      @game.game_setup(current_user)
       respond_to do |format|
-        format.html do
-          ChatSession.create(game_session_id: @game.id)
-          redirect_to game_session_path
-        end
         format.json do
-          Player.create!( user_id: current_user.id, game_session_id: @game.id )
           render json: { message: "Game created!", redirect_id: @game.id }
         end
       end
