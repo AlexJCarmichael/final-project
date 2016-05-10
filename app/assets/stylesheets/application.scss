@@ -172,27 +172,36 @@ input[type="text"]{
 .chat-container {
   height: 25em;
   width: 30em;
-  overflow: auto;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  background-color: white;
+  opacity: .90;
 }
 
 #chat-window {
   height: 20em;
   overflow: auto;
   background-color: white;
+  overflow-x: hidden;
 }
 
 .limiter {
   width: 30em;
-  background-color: black;
+  margin: 0;
+  background-color: $secondary-color;
   color: white;
   &:hover {
     cursor: pointer;
   }
 }
 .chat-position {
-  position: absolute;
+  position: fixed;
 	bottom: 0;
 	right: 0;
+}
+
+.lil-space {
+  margin: .2em 0;
 }
 
 .collapse {
