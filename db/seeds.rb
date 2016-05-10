@@ -28,6 +28,7 @@ SheetStat.create( sheet_template_id: sheet.id, stat_id: sheet_stat1.id )
 SheetStat.create( sheet_template_id: sheet.id, stat_id: sheet_stat2.id )
 
 session = GameSession.create( session_name: "Dane's Cool Game", user_id: user.id )
+ChatSession.create(game_session_id: session.id)
 
 GameSheet.create( game_session_id: session.id, sheet_template_id: sheet.id )
 
