@@ -1,7 +1,8 @@
 class MessagesController < ApplicationController
   def index
-    if gameId
-      @messages = Message.all.where("chat_session_id =?" )
+    id = params.fetch(:chat_session_id)
+    if id
+      @messages = Message.all.where("chat_session_id =?", id)
       respond_to do |format|
         format.json do
           render json: @messages

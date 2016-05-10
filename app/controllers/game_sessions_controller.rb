@@ -15,6 +15,7 @@ class GameSessionsController < ApplicationController
     if @game.save
       respond_to do |format|
         format.html do
+          ChatSession.create(game_session_id: @game.id)
           redirect_to game_session_path
         end
         format.json do

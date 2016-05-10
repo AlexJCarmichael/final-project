@@ -30,7 +30,6 @@ var ReactChat = React.createClass({
   render: function() {
     return (
       <div id="chat-window">
-      <p>Yo</p>
         {this.state.messages.map(function(message){
           return (
             <MessageDisplay
