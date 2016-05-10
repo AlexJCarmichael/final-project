@@ -175,7 +175,6 @@ input[type="text"]{
   overflow-y: hidden;
   overflow-x: scroll;
   background-color: white;
-  opacity: .90;
 }
 
 #chat-window {
@@ -186,7 +185,6 @@ input[type="text"]{
 }
 
 .limiter {
-  width: 90%;
   margin: 0;
   padding: .3em;
   background-color: $secondary-color;
@@ -241,6 +239,7 @@ input.upper-margin {
   }
   .chat-container {
     width: 30em;
+    opacity: .90;
   }
 }
 
