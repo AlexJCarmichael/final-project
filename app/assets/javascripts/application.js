@@ -25,17 +25,18 @@ ready = function() {
     $(".clicky-button").on("click", function () {
         $(this).parent().find(".expand-me").toggleClass("hide-on-small-only");
     }),
+
     $(".click-me").on("click", function () {
         $(".hidden-form").toggleClass("hide");
     }),
+
     $("#flash").on("click", function () {
         $(this).addClass("hide");
-    });
+    }),
 
     $(".character_sheet").on("click",function(){
-
-    $(".character_sheet_modal").openModal();
-  });
+        $(".character_sheet_modal").openModal();
+    });
 };
 
 $(document).ready(ready);

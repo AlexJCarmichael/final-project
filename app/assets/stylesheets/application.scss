@@ -115,6 +115,17 @@ a.center.btn.clicky-button {
 
 .character-sheet {
   margin-top: 3em;
+  background-color: white;
+  h6 {
+    margin: 1em 0 0 .5em;
+  }
+  p {
+    margin-left: 1em;
+  }
+}
+
+.character-mod {
+  margin-top: 3em;
   background-color: $body-color;
   h6 {
     margin: 1em 0 0 .5em;
