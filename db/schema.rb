@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160505133429) do
+ActiveRecord::Schema.define(version: 20160510192454) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,14 @@ ActiveRecord::Schema.define(version: 20160505133429) do
   add_index "characters", ["player_id"], name: "index_characters_on_player_id", using: :btree
   add_index "characters", ["sheet_template_id"], name: "index_characters_on_sheet_template_id", using: :btree
 
+  create_table "chat_sessions", force: :cascade do |t|
+    t.integer  "game_session_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "chat_sessions", ["game_session_id"], name: "index_chat_sessions_on_game_session_id", using: :btree
+
   create_table "equipment", force: :cascade do |t|
     t.string   "name",         null: false
     t.string   "damage"
@@ -100,6 +108,17 @@ ActiveRecord::Schema.define(version: 20160505133429) do
 
   add_index "game_sheets", ["game_session_id"], name: "index_game_sheets_on_game_session_id", using: :btree
   add_index "game_sheets", ["sheet_template_id"], name: "index_game_sheets_on_sheet_template_id", using: :btree
+
+  create_table "messages", force: :cascade do |t|
+    t.string   "body"
+    t.integer  "user_id"
+    t.integer  "chat_session_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "messages", ["chat_session_id"], name: "index_messages_on_chat_session_id", using: :btree
+  add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
 
   create_table "players", force: :cascade do |t|
     t.integer  "user_id"
@@ -188,8 +207,11 @@ ActiveRecord::Schema.define(version: 20160505133429) do
   add_foreign_key "char_stats", "characters"
   add_foreign_key "char_stats", "stats"
   add_foreign_key "characters", "sheet_templates"
+  add_foreign_key "chat_sessions", "game_sessions"
   add_foreign_key "game_sheets", "game_sessions"
   add_foreign_key "game_sheets", "sheet_templates"
+  add_foreign_key "messages", "chat_sessions"
+  add_foreign_key "messages", "users"
   add_foreign_key "players", "game_sessions"
   add_foreign_key "players", "users"
   add_foreign_key "session_items", "equipment"
