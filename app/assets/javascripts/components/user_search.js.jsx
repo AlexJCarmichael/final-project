@@ -61,7 +61,7 @@ var UserSearch = React.createClass({
     render: function() {
       return (
         <div>
-          <h6 onClick={this.handleClick} className="clicky-button">Request a friend</h6>
+          <h6 onClick={this.handleClick} className="clicky-button btn right">New friend</h6>
           <div className={this.state.divClass}>
             <input type="text"
             onChange={this.filterList} value={this.state.search}

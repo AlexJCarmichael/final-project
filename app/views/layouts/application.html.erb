@@ -27,9 +27,6 @@
         </div>
         <% end %>
     </nav>
-    <% if signed_in? %>
-      <h6>Signed in as: <%= current_user.user_name %></h6>
-    <% end %>
   <div class='container'>
     <div id='flash'>
       <% flash.each do |key, value| %>
