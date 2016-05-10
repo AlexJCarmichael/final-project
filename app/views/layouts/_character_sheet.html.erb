@@ -1,5 +1,5 @@
 <div class='character-mod'>
-      <%= react_component('CharacterSheet', {
+      <%= react_component('CharacterSheet',
           stats: char.stats,
           skills: char.skills,
           equipment: char.equipment,
@@ -7,5 +7,5 @@
           bio: char.bio,
           game_id: char.player.game_session_id,
           searchFor: "character_equipment",
-          character_id: char.id} %>
+          character_id: char.id) %>
 </div>
