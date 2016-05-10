@@ -1,46 +1,51 @@
 var MessagesSender = React.createClass({
-  // getInitialState: function () {
-  //   return {
-  //     messages: []
-  //   };
-  // },
-  //
-  // tick: function() {
-  //   var that = this;
-  //   var url = '/messages';
-  //   var chatWindow = document.getElementById("chat-window");
-  //   var isScrolledToBottom = chatWindow.scrollHeight - chatWindow.clientHeight <= chatWindow.scrollTop + 5;
-  //   $.getJSON(url, function(response){
-  //     console.log(response);
-  //     that.setState({
-  //       messages: response
-  //     })
-  //     if(isScrolledToBottom)
-  //       chatWindow.scrollTop = chatWindow.scrollHeight - chatWindow.clientHeight;
-  //   });
-  // },
-  //
-  // componentDidMount: function() {
-  //   this.interval = setInterval(this.tick, 1000);
-  // },
-  //
-  // componentWillUnmount: function() {
-  //   clearInterval(this.interval);
-  // },
+  getInitialState: function (){
+    return {
+      messageText: ''
+    };
+  },
 
-  render: function() {
+  handleChange: function (event) {
+      this.setState({
+        messageText: event.target.value
+    });
+  },
+
+  handleDown: function (event) {
+    if (event.shiftKey && event.keyCode === 13) {
+        this.state.messageText + "\n"
+      }
+    if (event.keyCode === 13) {
+      this.handlePostMessage();
+    }
+  },
+
+  handlePostMessage: function () {
+    var that = this;
+    $.ajax({
+      method: "POST",
+      url: "/messages",
+      data: {
+        message: {
+          body: this.state.messageText,
+          chat_session_id: this.props.chatId
+        }
+      }
+    }).done(function(response) {
+      that.setState({
+        messageText: ''
+      });
+    });
+  },
+
+  render: function(){
     return (
-      <div id="chat-window">
-      <p>Yo</p>
-        // this.state.messages.map(function(message){
-        //   return (
-          //   <MessageDisplay
-          //     key={message.id}
-          //     user_name={message.user_name}
-          //     body={message.body}
-          //     />
-          // );
-        })}
+      <div>
+        <textarea row={40} cols={40}
+                placeholder="Send a message"
+                value={this.state.messageText}
+                onKeyDown={this.handleDown}
+                onChange={this.handleChange}/>
       </div>
     );
   }

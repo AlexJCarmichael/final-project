@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :messages
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
 
@@ -36,6 +35,11 @@ Rails.application.routes.draw do
     end
   end
   resources :game_sessions
+  resources :messages do
+    member do
+      get "session_messages"
+    end
+  end
 
   root 'dashboard#index'
 
