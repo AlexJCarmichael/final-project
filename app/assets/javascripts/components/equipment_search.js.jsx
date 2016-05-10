@@ -86,7 +86,7 @@ var EquipmentSearch = React.createClass({
   render: function() {
     return (
       <div>
-        <h6 onClick={this.handleClick} className="clicky-button">{this.headerText()}</h6>
+        <h6 onClick={this.handleClick} className="clicky-button btn">{this.headerText()}</h6>
         <div className={this.state.divClass}>
           <input className= "upper-margin" type="text"
                 onChange={this.filterList}

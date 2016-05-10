@@ -9,10 +9,10 @@ var UserSearch = React.createClass({
     },
 
     handleClick: function (){
-      if (this.state.divClass === "hide") {
-        this.setState({divClass: ""});
+      if (this.state.divClass === "hide padding-bottom") {
+        this.setState({divClass: "padding-bottom"});
       }else {
-        this.setState({divClass: "hide"});
+        this.setState({divClass: "hide padding-bottom"});
       }
     },
 
@@ -61,7 +61,7 @@ var UserSearch = React.createClass({
     render: function() {
       return (
         <div>
-          <h6 onClick={this.handleClick} className="clicky-button btn right">New friend</h6>
+          <h6 onClick={this.handleClick} className={this.props.buttonStyle}>New friend</h6>
           <div className={this.state.divClass}>
             <input type="text"
             onChange={this.filterList} value={this.state.search}

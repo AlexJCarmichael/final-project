@@ -20,9 +20,10 @@ var UserCard = React.createClass({
   render: function() {
     var url = "/characters/new?session_id=" + this.props.session_id;
     return (
-        <div className="dash-display col s12 m3">
+        <div className="dash-display col s12 m7 important-card card">
           <h5 onClick={this.handleClick} className="clicky-button">Actors in this game</h5>
           <div className={this.state.divClass + " expand-me"}>
+          <a href={url} className="center btn clicky-button right">Create</a>
             {this.props.characters.map(function(character) {
               return (
                 <IndividualUser
@@ -33,7 +34,6 @@ var UserCard = React.createClass({
                   />
               );
             })}
-              <a href={url}>Create a character</a>
           </div>
         </div>
     );

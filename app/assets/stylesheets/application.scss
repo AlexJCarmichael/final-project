@@ -62,19 +62,39 @@ strong {
   }
 }
 
+.text-center {
+  text-align: center;
+}
+
 .dash-display {
   background-color: white;
   a {
     color: inherit;
-    text-decoration: underline;;
+    text-decoration: underline;
     &:hover {
       cursor: pointer;
+      }
+      .btn {
+        color: white;
+        text-decoration: none;
+      }
     }
-  }
   strong {
     margin-bottom: 2em;
     display: block;
     text-align: center;
+  }
+}
+
+.padding-bottom {
+  padding-bottom: 1em;
+}
+
+a.center.btn.clicky-button {
+  color: white;
+  text-decoration: none;
+  &:hover {
+    color: black;
   }
 }
 

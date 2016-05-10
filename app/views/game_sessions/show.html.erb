@@ -4,18 +4,19 @@
 
   <div class='row'>
     <%= react_component('UserCard', characters: @characters, session_id: @game.id) %>
-    <div class='dash-display col s12 m3 offset-m1'>
+
+    <div class='dash-display col s12 m3 offset-m1 card'>
       <h5 class='clicky-button'>Invited to game</h5>
       <div class='hide-on-small-only expand-me'>
         <% @players.each do |player| %>
           <p><%= link_to "#{player.user.user_name}", user_path(player.user.id) %>: <%= player.user.name %></p>
           <% end %>
-        <%= react_component('UserSearch', userInvite: false, game: @game.id) %>
+        <%= react_component('UserSearch', userInvite: false, buttonStyle: "clicky-button btn", game: @game.id) %>
       </div>
     </div>
 
 
-    <div class='dash-display col s12 m3 offset-m1'>
+    <div class='dash-display col s12 m3 offset-m1 card md-top-margin'>
       <h5 class='clicky-button'>Equipment</h5>
       <div class='hide-on-small-only expand-me'>
         <% if @game.user_id == current_user.id %>
@@ -27,8 +28,7 @@
         <% end %>
       </div>
       <div>
-        <p class="click-me center-text">Add equipment</p>
-        <%= link_to "Create Equipment", new_equipment_path(game: @game.id), class: "hidden-form hide center-text block" %>
+        <%= link_to "Create Equipment", new_equipment_path(game: @game.id), class: "center-text block" %>
       </div>
     </div>
   </div>
