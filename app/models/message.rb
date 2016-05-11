@@ -1,4 +1,4 @@
-require 'SecureRandom'
+require 'securerandom'
 class Message < ActiveRecord::Base
   belongs_to :user
   belongs_to :chat_session
