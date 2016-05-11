@@ -35,7 +35,7 @@
 
   <div class='chat-position'>
     <h6 class='limiter' id='clicky-button'>Chat collapse or expand</h6>
-    <div class='chat-container' id='collapse-me'>
+    <div class='chat-container collapse' id='collapse-me'>
       <%= react_component('ReactChat', chatId: @game.chat_session.id) %>
       <%= react_component('MessagesSender', chatId: @game.chat_session.id) %>
     </div>
