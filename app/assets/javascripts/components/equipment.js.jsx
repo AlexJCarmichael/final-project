@@ -1,12 +1,23 @@
 var Equipment = React.createClass({
-  properDisplay: function(){
-    if (this.props.isGM === true) {
-      var url = "/equipment/" + this.props.equip.id +  "/gameequip?game_id=" + this.props.game_id
+  ableToAdd: function () {
+    var url = "/equipment/" + this.props.equip.id +  "/gameequip?game_id=" + this.props.game_id
+    if (this.props.otherEq.includes(this.props.equip.id)){
       return (<p>
                 <a rel="nofollow" data-method="POST" href={url}>
+                {console.log(this.props.equip.name)}
                   {this.props.equip.category}: {this.props.equip.sub_category}: {this.props.equip.name}
                 </a>
               </p>);
+    } else {
+      return (<p>
+                {this.props.equip.category}: {this.props.equip.sub_category}: {this.props.equip.name}
+              </p>);
+    }
+  },
+
+  properDisplay: function(){
+    if (this.props.isGM === true) {
+        return (this.ableToAdd());
     } else if (this.props.searchFor === "character_equipment"){
       return (
         <GameEquipment
@@ -19,7 +30,7 @@ var Equipment = React.createClass({
     } else {
       return (
         <p>{this.props.equip.category}: {this.props.equip.sub_category}: {this.props.equip.name}</p>
-      )
+      );
     }
   },
 

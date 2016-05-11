@@ -21,10 +21,10 @@
       <div class='hide-on-small-only expand-me'>
         <% if @game.user_id == current_user.id %>
           <% game_master = true %>
-          <%= react_component('EquipmentSearch', gameId: @game.id, isGM: game_master) %>
+          <%= react_component('EquipmentSearch', gameId: @game.id, isGM: game_master, otherEq: @game.other_equipment) %>
         <% else %>
           <% game_master = false %>
-          <%= react_component('EquipmentSearch', gameId: @game.id, isGM: game_master) %>
+          <%= react_component('EquipmentSearch', gameId: @game.id, isGM: game_master, otherEq: @game.other_equipment) %>
         <% end %>
       </div>
       <div>

@@ -58,6 +58,7 @@ var EquipmentSearch = React.createClass({
                       key={equip.id}
                       equip={equip}
                       isGM={that.props.isGM}
+                      otherEq={that.props.otherEq}
                       searchFor={that.props.searchFor}
                       char_id={that.props.characterId}
                       game_id = {that.props.gameId}/>);
@@ -73,7 +74,7 @@ var EquipmentSearch = React.createClass({
     } else if (this.props.searchFor === "character_equipment") {
       return ("+");
     } else {
-      return ("View this  game's items");
+      return ("View items");
     }
   },
 
