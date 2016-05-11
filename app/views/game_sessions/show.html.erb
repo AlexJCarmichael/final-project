@@ -1,6 +1,6 @@
 <h3><%= @game.session_name %></h3>
 <% if @game.sheet_template %>
-  <p><a id="sheet_template" href="#sheet_template_modal">Sheet Template</a></p>
+  <p><a id="sheet_template" class ="btn" href="#sheet_template_modal">Sheet Template</a></p>
   <div id="sheet_template_modal" class="modal">
     <%= render partial: 'layouts/sheet_template', object: @sheet %>
   </div>
@@ -31,7 +31,7 @@
         <% end %>
       </div>
       <div>
-        <%= link_to "Create Equipment", new_equipment_path(game: @game.id), class: "center-text block" %>
+        <%= link_to "Create", new_equipment_path(game: @game.id), class: "center-text btn" %>
       </div>
     </div>
   </div>

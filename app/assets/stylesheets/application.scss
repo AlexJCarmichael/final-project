@@ -98,6 +98,20 @@ a.center.btn.clicky-button {
   }
 }
 
+a.center-text.btn {
+  color: white;
+  text-decoration: none;
+  &:hover {
+    color: black;
+  }
+}
+
+a.btn {
+  &:hover {
+    color: black;
+  }
+}
+
 #flash {
   &:hover {
     cursor: pointer;
