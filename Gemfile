@@ -48,6 +48,7 @@ group :development do
   gem 'spring'
 end
 
+gem 'gravatar_image_tag'
 gem 'react-rails', '~> 1.7.0'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
