@@ -6,7 +6,7 @@ var MessageDisplay = React.createClass({
           <strong>{this.props.name}:</strong>
         </div>
         <div className='col s10 offset-s1'>
-          <span style={{whiteSpace: 'pre'}}>{this.props.body}</span>
+          <span style={{whiteSpace: 'pre-wrap', wordWrap: 'break-word'}}>{this.props.body}</span>
         </div>
       </div>
     );
