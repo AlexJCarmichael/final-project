@@ -17,7 +17,7 @@ class Message < ActiveRecord::Base
   end
 
   def return_die_result(sides)
-    SecureRandom.random_number(sides-1) + 1
+    SecureRandom.random_number(1..sides)
   end
 
   def as_json(_ = nil)
