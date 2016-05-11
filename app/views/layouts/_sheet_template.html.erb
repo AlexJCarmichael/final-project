@@ -1,0 +1,20 @@
+<h3><%= @sheet.game_name%></h3>
+
+<div class='dash-display'>
+  <h5>Skills for <%= @sheet.game_name %></h5>
+  <% @sheet.skills.each do |skill| %>
+    <p><%= skill.name %></p>
+  <% end %>
+  <% if @sheet.user_id == current_user.id %>
+    <%= react_component('NewGame', controller: "skills", redirect_controller: "sheet_templates", name: "name",
+                        sheet_id: @sheet.id, display_name: "Add a skill", placeholder: "Type in a skill name") %>
+  <% end %>
+  <h5>Stats for <%= @sheet.game_name %></h5>
+  <% @sheet.stats.each do |stat| %>
+    <p><%= stat.name %></p>
+  <% end %>
+  <% if @sheet.user_id == current_user.id %>
+    <%= react_component('NewGame', controller: "stats", redirect_controller: "sheet_templates", name: "name",
+                        sheet_id: @sheet.id, display_name: "Add a stat",  placeholder: "Type in a stat name") %>
+  <% end %>
+</div>

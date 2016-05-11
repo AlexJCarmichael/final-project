@@ -4,6 +4,7 @@ class GameSessionsController < ApplicationController
     @game = get_game
     @characters = @game.characters
     @players = @game.players
+    @sheet =  @game.sheet_template
   end
 
   def new

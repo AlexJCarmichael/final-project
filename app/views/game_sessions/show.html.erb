@@ -1,6 +1,9 @@
 <h3><%= @game.session_name %></h3>
 <% if @game.sheet_template %>
-  <%= link_to "Sheet Template", sheet_template_path(@game.sheet_template.id) %>
+  <p><a id="sheet_template" href="#sheet_template_modal">Sheet Template</a></p>
+  <div id="sheet_template_modal" class="modal">
+    <%= render partial: 'layouts/sheet_template', object: @sheet %>
+  </div>
 
   <div class='row'>
     <%= react_component('UserCard', characters: @characters, session_id: @game.id) %>

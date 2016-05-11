@@ -40,6 +40,10 @@ ready = function() {
 
     $(".character_sheet").on("click",function(){
         $(this).parent().parent().find(".character_sheet_modal").openModal();
+    }),
+
+    $("#sheet_template").on("click",function(){
+        $("#sheet_template_modal").openModal();
     });
 };
 
