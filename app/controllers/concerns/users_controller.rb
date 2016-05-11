@@ -67,7 +67,7 @@ class UsersController < Clearance::UsersController
 
   private
   def user_params
-    params.require(:user).permit(:user_name, :email, :password, :password_confirmation, :name, :phone_number, :profile_pic)
+    params.require(:user).permit(:user_name, :email, :password, :password_confirmation, :name, :phone_number, :profile_image)
   end
 
   def player_params
