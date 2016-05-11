@@ -8,7 +8,11 @@ class Message < ActiveRecord::Base
       num_times = num_times.to_i
       num_of_sides = self.body.match(/\d{1,3}\b/).to_s
       num_of_sides = num_of_sides.to_i
+      original = self.body.match(/\d{1,3}d\d{1,3}/).to_s
       rolls = num_times.times.collect { return_die_result(num_of_sides) }
+      self.body = "rolls #{original}, resulting in #{rolls.join(", ")} for a total of #{rolls.reduce(:+)}"
+    else
+      rolls = 1.times.collect { return_die_result(20) }
       self.body = rolls.join(" ")
     end
   end
