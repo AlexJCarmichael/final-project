@@ -39,6 +39,10 @@ class User < ActiveRecord::Base
     Friend.where("(user_id = ? or to_user_id = ?) and status = ?", id, id, Friend::PENDING)
   end
 
+  def as_json(_ = nil)
+    super(exclude: [:encrypted_password, :password_confirmation])
+  end
+
   private
   def haters
     self.declined_friendships

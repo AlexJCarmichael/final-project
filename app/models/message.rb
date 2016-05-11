@@ -1,5 +1,7 @@
 require 'securerandom'
 class Message < ActiveRecord::Base
+  before_save :strip_body
+
   belongs_to :user
   belongs_to :chat_session
 
@@ -18,6 +20,10 @@ class Message < ActiveRecord::Base
 
   def return_die_result(sides)
     SecureRandom.random_number(1..sides)
+  end
+
+  def strip_body
+    self.body.strip!
   end
 
   def as_json(_ = nil)
