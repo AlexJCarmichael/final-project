@@ -27,6 +27,9 @@ class MessagesController < ApplicationController
 
   def create
     message = current_user.messages.build(message_params)
+    if message.body[0..4] == "/roll"
+      message.roll_dice
+    end
     if message.save
       respond_to do |format|
         format.json do
