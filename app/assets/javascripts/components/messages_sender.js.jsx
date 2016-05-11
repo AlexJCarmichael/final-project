@@ -14,7 +14,7 @@ var MessagesSender = React.createClass({
   handleDown: function (event) {
     if (event.shiftKey && event.keyCode === 13) {
         this.setState({
-          messageText: this.state.messageText + "\n"
+          messageText: this.state.messageText
         });
       } else if (event.keyCode === 13) {
       this.handlePostMessage();
@@ -42,7 +42,7 @@ var MessagesSender = React.createClass({
   render: function(){
     return (
       <div>
-        <textarea row={40} cols={40}
+        <textarea className="message-sender"
                 placeholder="Send a message"
                 value={this.state.messageText}
                 onKeyDown={this.handleDown}
