@@ -36,6 +36,7 @@ var AssignSheet = React.createClass ({
   },
 
   handlePost: function () {
+    that = this;
     $.ajax({
       method: "POST",
       url: "/sheet_templates/",
@@ -46,7 +47,7 @@ var AssignSheet = React.createClass ({
         }
       },
       success: function(response) {
-        window.location.replace("/sheet_templates/" + response.redirect_id);
+        window.location.replace("/sheet_templates/" + response.redirect_id + "/?game=" + that.props.gameId);
       }
     })
   },

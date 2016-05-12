@@ -1,5 +1,6 @@
 var CreateGameSheet = React.createClass ({
   handlePost: function () {
+    var that = this;
     $.ajax({
       method: "POST",
       url: "/sheet_templates/1/game_sheet",
@@ -10,7 +11,7 @@ var CreateGameSheet = React.createClass ({
         }
       },
       success: function(response) {
-        window.location.replace("/sheet_templates/" + response.redirect_id);
+        window.location.replace("/sheet_templates/" + response.redirect_id + "/?game=" + that.props.gameId);
       }
     })
   },

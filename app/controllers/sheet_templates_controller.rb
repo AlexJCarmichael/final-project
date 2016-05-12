@@ -7,6 +7,7 @@ class SheetTemplatesController < ApplicationController
 
   def show
     @sheet = SheetTemplate.find(params.fetch(:id))
+    @game = params.fetch(:game)
   end
 
   def new
@@ -14,7 +15,7 @@ class SheetTemplatesController < ApplicationController
   end
 
   def create
-    current_user.sheet_templates.create(sheet_params)
+    sheet = current_user.sheet_templates.create(sheet_params)
     if params.fetch(:sheet_template).fetch(:game_id)
       game = params.fetch(:sheet_template).fetch(:game_id)
       GameSheet.create(sheet_template_id: sheet.id, game_session_id: game)
