@@ -21,7 +21,10 @@
     <div class='hide-on-small-only expand-me'>
       <% @characters.each do |char| %>
         <div>
-          <p><a class="character_sheet" href="#character_sheet_modal"><%= "#{char.name}" %></a></p>
+          <p>
+            <a class="character_sheet" href="#character_sheet_modal"><%= "#{char.name}" %></a>
+            playing in: <%= char.player.game_session.session_name %>
+          </p>
           <div class="character_sheet_modal modal">
             <%= render partial: 'layouts/character_sheet', :locals => { :char => char } %>
           </div>
@@ -35,7 +38,7 @@
     <h5 class='clicky-button'>Friends</h5>
     <div class='hide-on-small-only expand-me'>
       <%#TODO: Change this to react ajax after project, currenly an a-tag that redirect_to back%>
-      <%= react_component('UserSearch', buttonStyle: "clicky-button btn right", userInvite: true) %>
+      <%= react_component('UserSearch', buttonStyle: "center", userInvite: true) %>
       <% if @friends.empty? %>
         <p>No user's have accepted a friend request</p>
       <% else %>
@@ -43,7 +46,6 @@
           <p><%= link_to "#{friend.name}", user_path(friend.id) %></p>
         <% end %>
       <% end %>
-      <h5 class='center-text'>Pending Friends</h5>
       <% @pending.each do |pend| %>
         <p>
           <% if pend.user.name == current_user.name %>
