@@ -5,11 +5,13 @@ var MessageDisplay = React.createClass({
         <div className="col s2">
           <img className="z-depth-2 responsive-img" src={this.props.image} />
         </div>
-        <div className='col s2'>
-          <strong>{this.props.name}:</strong>
-        </div>
-        <div className='col s10'>
-          <span style={{whiteSpace: 'pre-wrap', wordWrap: 'break-word'}}>{this.props.body}</span>
+        <div className="row col s10">
+          <div className='col s12'>
+            <strong>{this.props.name}:</strong>
+          </div>
+          <div className='col s12'>
+            <span style={{whiteSpace: 'pre-wrap', wordWrap: 'break-word'}}>{this.props.body}</span>
+          </div>
         </div>
       </div>
     );

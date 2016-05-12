@@ -37,6 +37,10 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.3)
+    avatarly (1.4.0)
+      rfc822
+      rmagick
+      unicode_utils
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
@@ -169,6 +173,8 @@ GEM
     refile-postgres (1.1.0)
       pg
       refile (~> 0.5.3)
+    rfc822 (0.1.5)
+    rmagick (2.15.4)
     ruby-graphviz (1.2.2)
     sass (3.4.22)
     sass-rails (5.0.4)
@@ -202,6 +208,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.0)
       execjs (>= 0.3.0, < 3)
+    unicode_utils (1.4.0)
     uniform_notifier (1.9.0)
     web-console (2.3.0)
       activemodel (>= 4.0)
@@ -215,6 +222,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  avatarly
   bcrypt
   bullet
   byebug

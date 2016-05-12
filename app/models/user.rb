@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
   include Clearance::User
+  # before_save :set_default_image
+
   attachment :profile_image
-  
+
   has_many :players
   has_many :characters, through: :players
   has_many :playing_sessions, through: :players, source: :game_session
@@ -41,9 +43,15 @@ class User < ActiveRecord::Base
     Friend.where("(user_id = ? or to_user_id = ?) and status = ?", id, id, Friend::PENDING)
   end
 
+  def set_default_image
+    if profile_image_id.nil?
+      self.profile_image = Avatarly.generate_avatar(self.name, size: 60)
+      self.save
+    end
+  end
+
   def photo_url
-    ActionController::Base.helpers.attachment_url(self, :profile_image, :fit, 60, 60, format: :jpg) ||
-    ActionController::Base.helpers.image_url('default.jpg')
+    ActionController::Base.helpers.attachment_url(self, :profile_image, :fit, 60, 60, format: :jpg)
   end
 
   def as_json(_ = nil)
