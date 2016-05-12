@@ -140,6 +140,15 @@ a.btn {
 
 .in-a-modal {
   padding: 3em;
+  background-color: $body-color;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.slight-left-margin {
+  margin-left: 1em;
 }
 
 .character-mod {

@@ -1,7 +1,7 @@
 <div class='in-a-modal'>
   <h3><%= @sheet.game_name%></h3>
   <div class='row dash-display'>
-    <div class='col s6'>
+    <div class='col s6 card no-margin'>
       <h5>Skills:</h5>
       <% @sheet.skills.each do |skill| %>
         <p><%= skill.name %></p>
@@ -11,7 +11,7 @@
                             sheet_id: @sheet.id, display_name: "Add a skill", placeholder: "Type in a skill name") %>
       <% end %>
     </div>
-    <div class='col s6'>
+    <div class='col s6 card no-margin'>
       <h5>Stats:</h5>
       <% @sheet.stats.each do |stat| %>
         <p><%= stat.name %></p>
