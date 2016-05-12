@@ -51,7 +51,8 @@ class User < ActiveRecord::Base
   end
 
   def photo_url
-    ActionController::Base.helpers.attachment_url(self, :profile_image, :fit, 60, 60, format: :jpg)
+    ActionController::Base.helpers.attachment_url(self, :profile_image, :fit, 60, 60, format: :jpg) ||
+    ActionController::Base.helpers.gravatar_url(self.email)
   end
 
   def as_json(_ = nil)

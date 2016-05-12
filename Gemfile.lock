@@ -77,6 +77,7 @@ GEM
       i18n (~> 0.5)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    gravatarify (3.0.0)
     i18n (0.7.0)
     jbuilder (2.4.1)
       activesupport (>= 3.0.0, < 5.1)
@@ -229,6 +230,7 @@ DEPENDENCIES
   clearance
   coffee-rails (~> 4.1.0)
   faker
+  gravatarify (~> 3.0.0)
   jbuilder (~> 2.0)
   jquery-rails
   kaminari

@@ -48,6 +48,7 @@ group :development do
   gem 'spring'
 end
 
+gem 'gravatarify', '~> 3.0.0'
 gem "refile", require: "refile/rails"
 gem "refile-mini_magick"
 gem 'refile-postgres'
