@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   include Clearance::User
   attachment :profile_image
-  
+
   has_many :players
   has_many :characters, through: :players
   has_many :playing_sessions, through: :players, source: :game_session

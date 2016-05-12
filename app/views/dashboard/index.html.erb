@@ -1,4 +1,4 @@
-<h4>Dashboard for <%= current_user.user_name %></h4>
+<h4>Dashboard for <%= current_user.user_name %> <%= attachment_image_tag(@user, :profile_image, :fill, 32, 32, fallback: "default.jpeg") %></h4>
 
 <div class='row'>
   <div class='card dash-display col s12 m7 important-card'>

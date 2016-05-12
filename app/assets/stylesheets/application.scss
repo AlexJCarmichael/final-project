@@ -231,6 +231,11 @@ input[type="text"]{
   display: none;
 }
 
+.fallback {
+  height: 2em;
+  width: 2em;
+}
+
 input.upper-margin {
   margin-top: 1em;
 }
