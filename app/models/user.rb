@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   include Clearance::User
   attachment :profile_image
-
+  
   has_many :players
   has_many :characters, through: :players
   has_many :playing_sessions, through: :players, source: :game_session
@@ -42,7 +42,8 @@ class User < ActiveRecord::Base
   end
 
   def photo_url
-    ActionController::Base.helpers.attachment_url(self, :profile_image, :fill, 60, 60, format: :jpg)
+    ActionController::Base.helpers.attachment_url(self, :profile_image, :fit, 60, 60, format: :jpg) ||
+    ActionController::Base.helpers.image_url('default.jpg')
   end
 
   def as_json(_ = nil)

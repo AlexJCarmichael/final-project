@@ -3,7 +3,7 @@ var MessageDisplay = React.createClass({
     return (
       <div className="lil-space row">
         <div className="col s2">
-          <img className="z-depth-2 circle responsive-img" src={this.props.image} />
+          <img className="z-depth-2 responsive-img" src={this.props.image} />
         </div>
         <div className='col s2'>
           <strong>{this.props.name}:</strong>

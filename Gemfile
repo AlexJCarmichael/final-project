@@ -50,6 +50,7 @@ end
 
 gem "refile", require: "refile/rails"
 gem "refile-mini_magick"
+gem 'refile-postgres'
 gem 'react-rails', '~> 1.7.0'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'

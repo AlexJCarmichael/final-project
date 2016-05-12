@@ -231,9 +231,15 @@ input[type="text"]{
   display: none;
 }
 
-.fallback {
-  height: 2em;
-  width: 2em;
+.image-wrapper {
+  width: 60px;
+  height: 50px;
+  overflow: hidden;
+}
+
+.img-block {
+  display: block;
+  margin: 0 auto;
 }
 
 input.upper-margin {

@@ -166,6 +166,9 @@ GEM
     refile-mini_magick (0.2.0)
       mini_magick (~> 4.0)
       refile (~> 0.5)
+    refile-postgres (1.1.0)
+      pg
+      refile (~> 0.5.3)
     ruby-graphviz (1.2.2)
     sass (3.4.22)
     sass-rails (5.0.4)
@@ -232,6 +235,7 @@ DEPENDENCIES
   react-rails (~> 1.7.0)
   refile
   refile-mini_magick
+  refile-postgres
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring

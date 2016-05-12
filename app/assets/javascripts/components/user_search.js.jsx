@@ -34,7 +34,6 @@ var UserSearch = React.createClass({
         dataType: "JSON",
         method: "get"
       }).done(function (response) {
-        console.log(response)
         that.setState({
           allUsers: response,
           filteredUsers: []
