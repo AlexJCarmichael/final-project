@@ -34,7 +34,8 @@ var ReactChat = React.createClass({
           return (
             <MessageDisplay
               key={message.id}
-              name={message.user.name}
+              image={message.users_image}
+              name={message.users_name}
               body={message.body}
               />
           );

@@ -41,8 +41,13 @@ class User < ActiveRecord::Base
     Friend.where("(user_id = ? or to_user_id = ?) and status = ?", id, id, Friend::PENDING)
   end
 
+  def photo_url
+    ActionController::Base.helpers.attachment_url(self, :profile_image, :fill, 60, 60, format: :jpg)
+  end
+
   def as_json(_ = nil)
-    super(exclude: [:encrypted_password, :password_confirmation])
+    super(only: [:name, :user_name, :email, :profile_image_id, :id],
+          methods: [:photo_url])
   end
 
   private

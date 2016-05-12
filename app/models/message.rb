@@ -26,7 +26,19 @@ class Message < ActiveRecord::Base
     self.body.strip!
   end
 
+  def users_name
+    self.user.name
+  end
+
+  def users_username
+    self.user.user_name
+  end
+
+  def users_image
+    self.user.photo_url
+  end
+
   def as_json(_ = nil)
-    super(include: [:user])
+    super(methods: [:users_name, :users_username, :users_image])
   end
 end
