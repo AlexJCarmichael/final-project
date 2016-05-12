@@ -9,12 +9,11 @@
 </head>
 <body>
   <nav>
-    <ul>
-      <li><%= link_to 'Home', root_path %></li>
-    </ul>
+    <div class="nav-wrapper">
       <% if signed_in? %>
         <div class='right'>
           <ul>
+            <li><%= link_to 'Home', root_path %></li>
             <li><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
             </ul>
         </div>
@@ -25,8 +24,9 @@
             <li><%= link_to t(".sign_up"), sign_up_path %></li>
           </ul>
         </div>
-        <% end %>
-    </nav>
+      <% end %>
+    </div>
+  </nav>
   <div class='container'>
     <div id='flash'>
       <% flash.each do |key, value| %>

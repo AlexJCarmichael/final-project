@@ -42,6 +42,8 @@ ready = function() {
         $(this).parent().parent().find(".character_sheet_modal").openModal();
     }),
 
+    $(".dropdown-button").dropdown();
+
     $("#sheet_template").on("click",function(){
         $("#sheet_template_modal").openModal();
     });
