@@ -3,17 +3,8 @@ var UserSearch = React.createClass({
       return {
         allUsers: [],
         filteredUsers: [],
-        search: "",
-        divClass: ""
+        search: ""
       };
-    },
-
-    handleClick: function (){
-      if (this.state.divClass === "hide padding-bottom") {
-        this.setState({divClass: "padding-bottom"});
-      }else {
-        this.setState({divClass: "hide padding-bottom"});
-      }
     },
 
     filterList: function(event){
@@ -58,19 +49,11 @@ var UserSearch = React.createClass({
       }
     },
 
-    displayBreak: function() {
-      if (this.state.search.length > 1) {
-        return (<h6 className="center">Click to make a friend request</h6>);
-      } else {
-        return (<span></span>);
-      }
-    },
-
     render: function() {
       return (
         <div>
-          <h6 onClick={this.handleClick} className={this.props.buttonStyle}>Request a friend</h6>
-          <div className={this.state.divClass}>
+          <h6 className={this.props.buttonStyle}>Request a friend</h6>
+          <div>
             <input type="text"
             onChange={this.filterList} value={this.state.search}
             placeholder="Username or User's name" />
@@ -78,7 +61,6 @@ var UserSearch = React.createClass({
           <div>
             {this.userNames()}
           </div>
-            {this.displayBreak()}
         </div>
       );
     },
