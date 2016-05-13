@@ -28,12 +28,12 @@ class EquipmentController < ApplicationController
     render json: @items
   end
 
-  def charequip
+  def char_equip
     CharEquip.create(character_id: params.fetch(:char_id), equipment_id: params.fetch(:id))
     redirect_to :back
   end
 
-  def gameequip
+  def game_equip
     SessionItem.create(game_session_id: params.fetch(:game_id), equipment_id: params.fetch(:id))
     redirect_to :back
   end

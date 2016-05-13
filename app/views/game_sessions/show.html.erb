@@ -8,13 +8,10 @@
     </div>
   </div>
   <div class='col s4'>
-  <% if @game.user_id == current_user.id %>
-    <% game_master = true %>
-    <%= react_component('EquipmentSearch', gameId: @game.id, isGM: game_master, otherEq: @game.other_equipment) %>
-  <% else %>
-    <% game_master = false %>
-    <%= react_component('EquipmentSearch', gameId: @game.id, isGM: game_master, otherEq: @game.other_equipment) %>
-  <% end %>
+    <p><a class ="btn opens-modal" href="#to-be-opened-modal">Game equipment</a></p>
+    <div class="to-be-opened-modal modal">
+      <%= render partial: 'layouts/equipment_show', object: @game %>
+    </div>
   </div>
   <div class='col s4'>
     <p><%= link_to "Create", new_equipment_path(game: @game.id), class: "center-text btn" %></p>

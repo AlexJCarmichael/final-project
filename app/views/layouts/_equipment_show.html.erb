@@ -1,0 +1,12 @@
+<div class='in-a-modal'>
+  <% @game.items.each do |item| %>
+    <p><%= item.name %> <%= item.category %> <%= item.sub_category %></p>
+  <% end %>
+  <% if @game.user_id == current_user.id %>
+    <% game_master = true %>
+    <%= react_component('EquipmentSearch', gameId: @game.id, isGM: game_master, otherEq: @game.other_equipment) %>
+  <% else %>
+    <% game_master = false %>
+    <%= react_component('EquipmentSearch', gameId: @game.id, isGM: game_master, otherEq: @game.other_equipment) %>
+  <% end %>
+</div>
