@@ -38,8 +38,8 @@ ready = function() {
         $(this).addClass("hide");
     }),
 
-    $(".character_sheet").on("click",function(){
-        $(this).parent().parent().find(".character_sheet_modal").openModal();
+    $(".opens-modal").on("click",function(){
+        $(this).parent().parent().find(".to-be-opened-modal").openModal();
     }),
 
     $(".dropdown-button").dropdown();

@@ -2,8 +2,8 @@
 <div class='row'>
   <div class='col s4'>
   <% if @game.sheet_template %>
-    <p><a id="sheet_template" class ="btn" href="#sheet_template_modal">Sheet Template</a></p>
-    <div id="sheet_template_modal" class="modal">
+    <p><a class ="btn opens-modal" href="#to-be-opened-modal">Sheet Template</a></p>
+    <div class="to-be-opened-modal modal">
       <%= render partial: 'layouts/sheet_template', object: @sheet %>
     </div>
   </div>

@@ -23,10 +23,10 @@
       <% @characters.each do |char| %>
         <div>
           <p>
-            <a class="character_sheet" href="#character_sheet_modal"><%= "#{char.name}" %></a>
+            <a class="opens-modal" href="#to-be-opened-modal"><%= "#{char.name}" %></a>
             playing in: <%= char.player.game_session.session_name %>
           </p>
-          <div class="character_sheet_modal modal">
+          <div class="to-be-opened-modal modal">
             <%= render partial: 'layouts/character_sheet', :locals => { :char => char } %>
           </div>
         </div>
