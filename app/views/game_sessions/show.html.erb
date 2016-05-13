@@ -14,7 +14,7 @@
         <% @players.each do |player| %>
           <p><%= link_to "#{player.user.user_name}", user_path(player.user.id) %>: <%= player.user.name %></p>
           <% end %>
-        <%= react_component('UserSearch', userInvite: false, buttonStyle: "clicky-button btn", game: @game.id) %>
+        <%= react_component('UserSearch', userInvite: false, buttonStyle: "center", headerText: "Invite a player", game: @game.id) %>
       </div>
     </div>
 

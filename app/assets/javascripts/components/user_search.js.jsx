@@ -52,7 +52,7 @@ var UserSearch = React.createClass({
     render: function() {
       return (
         <div>
-          <h6 className={this.props.buttonStyle}>Request a friend</h6>
+          <h6 className={this.props.buttonStyle}>{this.props.headerText}</h6>
           <div>
             <input type="text"
             onChange={this.filterList} value={this.state.search}
