@@ -1,11 +1,5 @@
 <div class='in-a-modal'>
-  <% if @game.user_id == current_user.id %>
-    <% game_master = true %>
-    <%= react_component('EquipmentSearch', gameId: @game.id, isGM: game_master, otherEq: @game.other_equipment) %>
-  <% else %>
-    <% game_master = false %>
-    <%= react_component('EquipmentSearch', gameId: @game.id, isGM: game_master, otherEq: @game.other_equipment) %>
-  <% end %>
+  <%= react_component('EquipmentSearch', gameId: @game.id, isGM: current_user.is_gm_of?(@game), otherEq: @game.other_equipment) %>
   <div>
     <h6 class='click-me'>Weapons</h6>
     <div class='hidden hide'>

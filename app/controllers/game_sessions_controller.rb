@@ -2,9 +2,10 @@ class GameSessionsController < ApplicationController
 
   def show
     @game = get_game
-    @characters = @game.characters
+    @characters = @game.actors
     @players = @game.players
     @sheet =  @game.sheet_template
+    @npcs = @game.npcs
   end
 
   def new

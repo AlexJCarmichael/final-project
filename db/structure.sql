@@ -140,7 +140,8 @@ CREATE TABLE characters (
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     bio text,
-    player_id integer
+    player_id integer,
+    npc boolean
 );
 
 
@@ -1376,4 +1377,6 @@ INSERT INTO schema_migrations (version) VALUES ('20160511233422');
 INSERT INTO schema_migrations (version) VALUES ('20160511233927');
 
 INSERT INTO schema_migrations (version) VALUES ('20160512171322');
+
+INSERT INTO schema_migrations (version) VALUES ('20160513203348');
 

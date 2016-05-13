@@ -19,7 +19,7 @@
 </div>
 
   <div class='row'>
-    <%= react_component('UserCard', characters: @characters, session_id: @game.id) %>
+    <%= react_component('UserCard', characters: @characters, session_id: @game.id, npcs: @npcs, isGM: current_user.is_gm_of?(@game)) %>
 
     <div class='dash-display col s12 m3 offset-m1 card'>
       <h5 class='clicky-button'>Invited to game</h5>

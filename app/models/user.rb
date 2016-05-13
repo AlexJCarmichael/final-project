@@ -28,6 +28,10 @@ class User < ActiveRecord::Base
   validates :email, presence: true
   validates :name, presence: true
 
+  def is_gm_of?(game)
+    game.user_id == self.id
+  end
+  
   def my_games
     joined_games = self.players.map do |player|
       player.game_session

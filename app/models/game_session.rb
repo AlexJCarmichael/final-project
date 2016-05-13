@@ -15,6 +15,14 @@ class GameSession < ActiveRecord::Base
     Equipment.all.ids - self.items.ids
   end
 
+  def actors
+    self.characters.where(npc: false)
+  end
+
+  def npcs
+    self.characters.where(npc: true)
+  end
+
   def weapons
     self.items.where(category: "Weapon")
   end

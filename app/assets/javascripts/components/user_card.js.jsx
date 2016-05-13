@@ -17,6 +17,29 @@ var UserCard = React.createClass({
     }
   },
 
+  dislpayNPC: function () {
+    var that = this;
+    if (this.props.isGM === true) {
+      return (
+        <div>
+          <h5>NPCs in this game</h5>
+          {that.props.npcs.map(function(npc) {
+            return (
+              <IndividualNPC
+                characterId={npc.id}
+                key={npc.id}
+                name={npc.name}
+                />
+            )
+          })}
+        </div>
+      )
+
+    } else {
+      return (<span></span>);
+    }
+  },
+
   render: function() {
     var url = "/characters/new?session_id=" + this.props.session_id;
     return (
@@ -34,6 +57,7 @@ var UserCard = React.createClass({
                   />
               );
             })}
+            {this.dislpayNPC()}
           </div>
         </div>
     );
