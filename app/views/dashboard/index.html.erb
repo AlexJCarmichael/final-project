@@ -30,7 +30,7 @@
           </div>
         </div>
       <% end %>
-      <strong>Create new characters from a game session</strong>
+      <strong>Characters are created in games</strong>
     </div>
   </div>
 
@@ -52,8 +52,9 @@
             <%= link_to "#{pend.to_user.name}", user_path(pend.to_user.id) %>
             <span>Awaiting approval</span>
           <% else %>
-            <%= link_to "#{pend.user.name}", user_path(pend.user.id) %>
+            <%= link_to "#{pend.user.name} |", user_path(pend.user.id) %>
             <%= link_to "Accept", acceptance_users_path(from: pend.user_id, to: current_user.id), method: :put %>
+            <span> or </span>
             <%= link_to "Decline", denial_users_path(from: pend.user_id, to: current_user.id), method: :put %>
           <% end %>
         </p>
