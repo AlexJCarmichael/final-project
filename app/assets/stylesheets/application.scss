@@ -86,6 +86,13 @@ strong {
   }
 }
 
+.click-me {
+  &:hover {
+      cursor: pointer;
+      color: inherit;
+  }
+}
+
 .padding-bottom {
   padding-bottom: 1em;
 }

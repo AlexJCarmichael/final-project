@@ -15,6 +15,14 @@ class GameSession < ActiveRecord::Base
     Equipment.all.ids - self.items.ids
   end
 
+  def weapons
+    self.items.where(category: "Weapon")
+  end
+
+  def armor
+    self.items.where(category: "Armor")
+  end
+
   def game_setup(dm)
     if self.persisted?
       ChatSession.create(game_session_id: self.id)

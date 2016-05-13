@@ -31,7 +31,7 @@ ready = function() {
     }),
 
     $(".click-me").on("click", function () {
-        $(".hidden-form").toggleClass("hide");
+        $(this).parent().find(".hidden").toggleClass("hide");
     }),
 
     $("#flash").on("click", function () {
