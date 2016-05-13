@@ -24,6 +24,7 @@ var UserCard = React.createClass({
         <div>
           <h5>NPCs in this game</h5>
           {that.props.npcs.map(function(npc) {
+            console.log(npc)
             return (
               <IndividualNPC
                 characterId={npc.id}

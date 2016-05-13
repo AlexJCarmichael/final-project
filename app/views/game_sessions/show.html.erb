@@ -19,7 +19,35 @@
 </div>
 
   <div class='row'>
-    <%= react_component('UserCard', characters: @characters, session_id: @game.id, npcs: @npcs, isGM: current_user.is_gm_of?(@game)) %>
+    <div class='dash-display col s12 m7 important-card card'>
+      <h5 class='clicky-button'>Actors in this game</h5>
+      <div class='hide-on-small-only expand-me'>
+        <% @characters.each do |char|%>
+          <div>
+            <p>
+              <a class="opens-modal" href="#to-be-opened-modal"><%= "#{char.name}" %></a>
+              played by: <%= char.user.name %>
+            </p>
+            <div class="to-be-opened-modal modal">
+              <%= render partial: 'layouts/character_sheet', :locals => { :char => char } %>
+            </div>
+        </div>
+        <% end %>
+        <% if current_user.is_gm_of?(@game) %>
+          <h5>NPCs in this game</h5>
+          <% @npcs.each do |npc|%>
+            <div>
+              <p>
+                <a class="opens-modal" href="#to-be-opened-modal"><%= "#{npc.name}" %></a>
+              </p>
+              <div class="to-be-opened-modal modal">
+                <%= render partial: 'layouts/character_sheet', :locals => { :char => npc } %>
+              </div>
+          </div>
+          <% end %>
+        <% end %>
+    </div>
+  </div>
 
     <div class='dash-display col s12 m3 offset-m1 card'>
       <h5 class='clicky-button'>Invited to game</h5>

@@ -9,7 +9,7 @@
                           placeholder: "Type in a game name") %>
       <% @sessions.each do |session| %>
       <h6><%= link_to "#{session.session_name}", game_session_path("#{session.id}") %></h6>
-        <% session.characters.each do |char| %>
+        <% session.actors.each do |char| %>
           <p><%= char.user.name %> playing as <%= char.name %></p>
         <% end %>
       <% end %>

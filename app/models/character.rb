@@ -15,7 +15,7 @@ class Character < ActiveRecord::Base
   validates :name, presence: true
 
   def as_json(_ = nil)
-    super(include: [:user])
+    super(include: { user: { only: [:name, :user_name, :email, :profile_image_id, :id]} } )
   end
 
 end
