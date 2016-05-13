@@ -640,7 +640,6 @@ CREATE TABLE users (
     encrypted_password character varying(128) NOT NULL,
     confirmation_token character varying(128),
     remember_token character varying(128) NOT NULL,
-    password_confirmation character varying,
     profile_image_id character varying
 );
 
@@ -1379,4 +1378,6 @@ INSERT INTO schema_migrations (version) VALUES ('20160511233927');
 INSERT INTO schema_migrations (version) VALUES ('20160512171322');
 
 INSERT INTO schema_migrations (version) VALUES ('20160513203348');
+
+INSERT INTO schema_migrations (version) VALUES ('20160513230108');
 

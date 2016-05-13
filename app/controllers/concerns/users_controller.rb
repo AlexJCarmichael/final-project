@@ -36,8 +36,8 @@ class UsersController < Clearance::UsersController
   end
 
   def create
-    @user = user_from_params
-    if @user.password == @user.password_confirmation
+    @user = User.new(user_params)
+    if @user.password == params[:user][:password_confirmation]
       if @user.save
         sign_in @user
         redirect_back_or url_after_create
@@ -67,7 +67,7 @@ class UsersController < Clearance::UsersController
 
   private
   def user_params
-    params.require(:user).permit(:user_name, :email, :password, :password_confirmation, :name, :phone_number, :profile_image)
+    params.require(:user).permit(:user_name, :email, :password, :name, :phone_number, :profile_image)
   end
 
   def player_params
