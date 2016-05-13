@@ -22,6 +22,6 @@ var CreatePlayer = React.createClass({
 
   render: function () {
     console.log(this.props.game)
-    return (<a onClick={this.handleClick}>{this.props.user.name}: {this.props.user.user_name}</a>);
+    return (<p>{this.props.user.name}: {this.props.user.user_name}  |   <a onClick={this.handleClick}>Invite</a></p>);
   }
 });

@@ -1,9 +1,25 @@
 <h3><%= @game.session_name %></h3>
-<% if @game.sheet_template %>
-  <p><a id="sheet_template" class ="btn" href="#sheet_template_modal">Sheet Template</a></p>
-  <div id="sheet_template_modal" class="modal">
-    <%= render partial: 'layouts/sheet_template', object: @sheet %>
+<div class='row'>
+  <div class='col s4'>
+  <% if @game.sheet_template %>
+    <p><a id="sheet_template" class ="btn" href="#sheet_template_modal">Sheet Template</a></p>
+    <div id="sheet_template_modal" class="modal">
+      <%= render partial: 'layouts/sheet_template', object: @sheet %>
+    </div>
   </div>
+  <div class='col s4'>
+  <% if @game.user_id == current_user.id %>
+    <% game_master = true %>
+    <%= react_component('EquipmentSearch', gameId: @game.id, isGM: game_master, otherEq: @game.other_equipment) %>
+  <% else %>
+    <% game_master = false %>
+    <%= react_component('EquipmentSearch', gameId: @game.id, isGM: game_master, otherEq: @game.other_equipment) %>
+  <% end %>
+  </div>
+  <div class='col s4'>
+    <p><%= link_to "Create", new_equipment_path(game: @game.id), class: "center-text btn" %></p>
+  </div>
+</div>
 
   <div class='row'>
     <%= react_component('UserCard', characters: @characters, session_id: @game.id) %>
@@ -11,30 +27,20 @@
     <div class='dash-display col s12 m3 offset-m1 card'>
       <h5 class='clicky-button'>Invited to game</h5>
       <div class='hide-on-small-only expand-me'>
+          <%= react_component('UserSearch', userInvite: false, buttonStyle: "center", headerText: "Invite a player", game: @game.id) %>
         <% @players.each do |player| %>
           <p><%= link_to "#{player.user.user_name}", user_path(player.user.id) %>: <%= player.user.name %></p>
           <% end %>
-        <%= react_component('UserSearch', userInvite: false, buttonStyle: "center", headerText: "Invite a player", game: @game.id) %>
       </div>
     </div>
 
 
     <div class='dash-display col s12 m3 offset-m1 card md-top-margin'>
-      <h5 class='clicky-button'>Equipment</h5>
+      <h5 class='clicky-button'>Should I exist?</h5>
       <div class='hide-on-small-only expand-me'>
-        <% if @game.user_id == current_user.id %>
-          <% game_master = true %>
-          <%= react_component('EquipmentSearch', gameId: @game.id, isGM: game_master, otherEq: @game.other_equipment) %>
-        <% else %>
-          <% game_master = false %>
-          <%= react_component('EquipmentSearch', gameId: @game.id, isGM: game_master, otherEq: @game.other_equipment) %>
-        <% end %>
-      </div>
-      <div>
-        <%= link_to "Create", new_equipment_path(game: @game.id), class: "center-text btn" %>
-      </div>
     </div>
   </div>
+</div>
 
   <div class='chat-position'>
     <h6 class='limiter' id='clicky-button'>Chat collapse or expand</h6>
@@ -42,6 +48,7 @@
       <%= react_component('ReactChat', chatId: @game.chat_session.id) %>
       <%= react_component('MessagesSender', chatId: @game.chat_session.id) %>
     </div>
+  </div>
   </div>
 
 <% else %>
