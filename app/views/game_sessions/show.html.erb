@@ -1,21 +1,21 @@
 <h3><%= @game.session_name %></h3>
 <div class='row'>
-  <div class='col s4'>
+  <div class='col s6 m5 l4'>
   <% if @game.sheet_template %>
     <p><a class ="btn opens-modal" href="#to-be-opened-modal">Sheet Template</a></p>
     <div class="to-be-opened-modal modal">
       <%= render partial: 'layouts/sheet_template', object: @sheet %>
     </div>
   </div>
-  <div class='col s4'>
+  <div class='col s6 m5 l4'>
     <p><a class ="btn opens-modal" href="#to-be-opened-modal">Game equipment</a></p>
     <div class="to-be-opened-modal modal">
       <%= render partial: 'layouts/equipment_show', object: @game %>
     </div>
   </div>
-  <div class='col s4'>
-    <p><%= link_to "Create", new_equipment_path(game: @game.id), class: "center-text btn" %></p>
-  </div>
+</div>
+<div>
+  <p><%= link_to "Create", new_equipment_path(game: @game.id), class: "center-text btn" %></p>
 </div>
 
   <div class='row'>
