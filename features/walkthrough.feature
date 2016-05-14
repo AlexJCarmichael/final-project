@@ -6,7 +6,7 @@ Feature: Walkthrough
     And I fill in "Email" with "test@test.test"
     And I fill in "Password" with "password"
     And I press "Sign in"
-    Then I should see "Dashboard for"
+    Then I should see "Tavern"
 
   Scenario: A User Logs Out
     Given I have an existing test environment
