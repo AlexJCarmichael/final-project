@@ -35,12 +35,15 @@
       <% if @friends.empty? %>
         <p class='card'>No user's have accepted a friend request</p>
       <% else %>
+       <ul class="collection">
         <% @friends.each do |friend| %>
-          <p class='card plain'>
-            <img className="z-depth-2 responsive-img" src="<%= friend.photo_url %>" />
-            <%= link_to "#{friend.name}", user_path(friend.id) %>
-          </p>
+           <li class="collection-item avatar">
+             <img src="<%= friend.photo_url %>" alt="" class="circle">
+              <span class="title"><%= link_to "#{friend.name}", user_path(friend.id) %></span>
+              <p><%= friend.user_name %></p>
+            </li>
         <% end %>
+        </ul>
       <% end %>
       <% @pending.each do |pend| %>
         <p class='card plain'>
