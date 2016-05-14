@@ -31,7 +31,11 @@ class User < ActiveRecord::Base
   def is_gm_of?(game)
     game.user_id == self.id
   end
-  
+
+  def player_id
+    self.players.find_by(game_session_id: 1).id
+  end
+
   def my_games
     joined_games = self.players.map do |player|
       player.game_session

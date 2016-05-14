@@ -20,6 +20,7 @@ class CharactersController < ApplicationController
   end
 
   def create
+    binding.pry
     character = current_user.characters.build(char_params)
       if character.save!
         assign_defaults(character)
@@ -35,7 +36,7 @@ class CharactersController < ApplicationController
   end
 
   def char_params
-    params.require(:character).permit(:name, :sheet_template_id, :bio, :player_id)
+    params.require(:character).permit(:name, :sheet_template_id, :bio, :player_id, :npc)
   end
 
   def assign_defaults(character)
