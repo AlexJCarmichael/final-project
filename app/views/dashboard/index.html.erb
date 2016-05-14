@@ -15,11 +15,12 @@
   <div>
     <% @sessions.each do |session| %>
       <div class='card'>
-        <h6 class='center'><%= link_to "#{session.session_name}", game_session_path("#{session.id}") %></h6>
+        <h5 class='center plain'><%= link_to "#{session.session_name}", game_session_path("#{session.id}") %></h5>
         <p class='small-left-margin'>
           <%= session.actors.count %>
           <i class="person-icon material-icons">portrait</i>
           <span class='session-border'><%= session.sheet_template.game_name %></span>
+          <span class="right small-right-margin"><%=session.game_time.strftime("%A %l%P")%></span>
         </p>
       </div>
       <% end %>

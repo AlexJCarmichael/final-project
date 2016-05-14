@@ -275,7 +275,8 @@ CREATE TABLE game_sessions (
     session_name character varying NOT NULL,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    user_id integer
+    user_id integer,
+    game_time timestamp without time zone
 );
 
 
@@ -1380,4 +1381,6 @@ INSERT INTO schema_migrations (version) VALUES ('20160512171322');
 INSERT INTO schema_migrations (version) VALUES ('20160513203348');
 
 INSERT INTO schema_migrations (version) VALUES ('20160513230108');
+
+INSERT INTO schema_migrations (version) VALUES ('20160514184948');
 

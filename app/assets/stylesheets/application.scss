@@ -66,6 +66,17 @@ strong {
   margin-left: 1.5em;
 }
 
+.small-right-margin {
+  margin-right: 1.5em;
+}
+
+.plain {
+  text-decoration: underline;
+   a {
+     color: black;
+  }
+}
+
 .person-icon {
   vertical-align: text-bottom;;
   font-size: 1.5rem;
