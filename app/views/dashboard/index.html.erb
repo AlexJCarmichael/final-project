@@ -47,7 +47,11 @@
         <% @friends.each do |friend| %>
            <li class="collection-item avatar plain">
              <img src="<%= friend.photo_url %>" class="circle">
-              <span class="title"><%= link_to "#{friend.name}", user_path(friend.id) %></span>
+              <span class="title"><a class="opens-modal" href="#to-be-opened-modal"><%= "#{friend.name}" %></a>
+                <div class="to-be-opened-modal modal">
+                  <%= render partial: 'layouts/user_show', :locals => { :user => friend } %>
+                </div>
+              </span>
               <p><%= friend.user_name %></p>
             </li>
         <% end %>
@@ -58,16 +62,24 @@
             <% if pend.user.name == current_user.name %>
               <li class="collection-item avatar plain">
                 <img src="<%= pend.to_user.photo_url %>" class="circle">
-                <span class="title"><%= link_to "#{pend.to_user.name}", user_path(pend.to_user.id) %></span>
+                <span class="title"><a class="opens-modal" href="#to-be-opened-modal"><%= "#{pend.to_user.name}" %></a>
+                  <div class="to-be-opened-modal modal">
+                    <%= render partial: 'layouts/user_show', :locals => { :user => pend.to_user } %>
+                  </div>
+                </span>
                 <p><%= pend.to_user.user_name %> <br>
                   Awaiting approval
                 </p>
               </li>
             <% else %>
-              <li class="collection-item avatar">
+              <li class="collection-item avatar plain">
                 <img src="<%= pend.user.photo_url %>" class="circle">
-                <span class="title plain"><%= link_to "#{pend.user.name}", user_path(pend.user.id) %></span>
-                <p class="plain"><%= pend.user.user_name %> <br>
+                <span class="title"><a class="opens-modal" href="#to-be-opened-modal"><%= "#{pend.user.name}" %></a>
+                  <div class="to-be-opened-modal modal">
+                    <%= render partial: 'layouts/user_show', :locals => { :user => pend.user } %>
+                  </div>
+                </span>
+                <p><%= pend.user.user_name %> <br>
                   <%= link_to "Accept", acceptance_users_path(from: pend.user_id, to: current_user.id), method: :put %>
                   <span> or </span>
                   <%= link_to "Decline", denial_users_path(from: pend.user_id, to: current_user.id), method: :put %>

@@ -1,0 +1,12 @@
+<div class='body-color'>
+  <div class='in-a-modal card'>
+    <h4><%= user.name %></h4>
+    <h5>Games</h5>
+      <% user.my_games.each do |session| %>
+        <h6><%= link_to "#{session.session_name}", game_session_path("#{session.id}") %></h6>
+        <% session.characters.each do |char| %>
+          <p><%= char.user.name %> playing as <%= char.name %></p>
+          <% end %>
+      <% end %>
+  </div>
+</div>
