@@ -15,7 +15,7 @@ class GameSessionsController < ApplicationController
 
   def create
     @game = current_user.game_sessions.build(game_params)
-    binding.pry
+    @game.game_time = Chronic.parse(params[:game_sessions][:game_time])
     if @game.save
       @game.game_setup(current_user)
       respond_to do |format|

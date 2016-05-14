@@ -23,15 +23,17 @@
             <i class="person-icon material-icons">portrait</i>
           </div>
           <div class='col s6 center'>
-            <span class='session-border'><%= session.sheet_template.game_name %></span>
+            <% if session.sheet_template %>
+              <span class='session-border'><%= session.sheet_template.game_name %></span>
+              <% end %>
           </div>
           <div class='col s3'>
             <span class="right small-right-margin"><%=session.game_time.strftime("%A %l%P")%></span>
           </div>
         </p>
         </div>
-        <% end %>
       </div>
+    <% end %>
     </div>
   </div>
 

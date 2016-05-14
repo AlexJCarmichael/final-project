@@ -1,25 +1,19 @@
-require 'chronic'
 class GameSession < ActiveRecord::Base
-  before_save :convert_time
 
-  has_many :players
+  has_many :players, dependent: :destroy
   has_many :actors, through: :players, source: :user
   has_many :characters, through: :players
   has_many :session_items
   has_many :items, through: :session_items, source: :equipment
 
-  has_one :game_sheet
+  has_one :game_sheet, dependent: :destroy
   has_one :sheet_template, through: :game_sheet, source: :sheet_template
-  has_one :chat_session
+  has_one :chat_session, dependent: :destroy
 
   validates :session_name, presence: true
 
   def other_equipment
     Equipment.all.ids - self.items.ids
-  end
-
-  def convert_time
-    self.due_at = Chronic::parse(self.game_time)
   end
 
   def actors
