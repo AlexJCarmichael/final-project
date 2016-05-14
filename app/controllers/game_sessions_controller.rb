@@ -15,6 +15,7 @@ class GameSessionsController < ApplicationController
 
   def create
     @game = current_user.game_sessions.build(game_params)
+    binding.pry
     if @game.save
       @game.game_setup(current_user)
       respond_to do |format|
@@ -31,6 +32,6 @@ class GameSessionsController < ApplicationController
   end
 
   def game_params
-    params.require(:game_sessions).permit(:session_name, :user_id, :sheet_template_id)
+    params.require(:game_sessions).permit(:session_name, :user_id, :sheet_template_id, :game_time)
   end
 end

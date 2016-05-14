@@ -1,4 +1,7 @@
+require 'chronic'
 class GameSession < ActiveRecord::Base
+  before_save :convert_time
+
   has_many :players
   has_many :actors, through: :players, source: :user
   has_many :characters, through: :players
@@ -13,6 +16,10 @@ class GameSession < ActiveRecord::Base
 
   def other_equipment
     Equipment.all.ids - self.items.ids
+  end
+
+  def convert_time
+    self.due_at = Chronic::parse(self.game_time)
   end
 
   def actors
