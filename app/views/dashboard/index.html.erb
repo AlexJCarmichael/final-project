@@ -16,14 +16,22 @@
     <% @sessions.each do |session| %>
       <div class='card'>
         <h5 class='center plain'><%= link_to "#{session.session_name}", game_session_path("#{session.id}") %></h5>
-        <p class='small-left-margin'>
-          <%= session.actors.count %>
-          <i class="person-icon material-icons">portrait</i>
-          <span class='session-border'><%= session.sheet_template.game_name %></span>
-          <span class="right small-right-margin"><%=session.game_time.strftime("%A %l%P")%></span>
+        <div class='row'>
+        <p>
+          <div class='col s2 offset-s1'>
+            <%= session.actors.count %>
+            <i class="person-icon material-icons">portrait</i>
+          </div>
+          <div class='col s6 center'>
+            <span class='session-border'><%= session.sheet_template.game_name %></span>
+          </div>
+          <div class='col s3'>
+            <span class="right small-right-margin"><%=session.game_time.strftime("%A %l%P")%></span>
+          </div>
         </p>
+        </div>
+        <% end %>
       </div>
-      <% end %>
     </div>
   </div>
 
