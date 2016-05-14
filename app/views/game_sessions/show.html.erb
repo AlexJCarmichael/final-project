@@ -33,6 +33,16 @@
             </div>
         </div>
         <% end %>
+        <div>
+          <div>
+            <a class="opens-modal" href="#to-be-opened-modal">Create a character</a>
+            <div class="to-be-opened-modal modal">
+              <%= render partial: 'layouts/new_character', object: @charater, :locals => { :npc => false,
+                                                                              :sheet_template_id => @game.sheet_template.id,
+                                                                              :player_id => current_user.player_id } %>
+            </div>
+          </div>
+        </div>
         <% if current_user.is_gm_of?(@game) %>
           <h5>NPCs in this game</h5>
           <% @npcs.each do |npc|%>
@@ -46,11 +56,13 @@
           </div>
           <% end %>
           <div>
-            <a class="opens-modal" href="#to-be-opened-modal">Create an NPC</a>
-            <div class="to-be-opened-modal modal">
-              <%= render partial: 'layouts/new_character', object: @charater, :locals => { :npc => true,
-                                                                              :sheet_template_id => @game.sheet_template.id,
-                                                                              :player_id => current_user.player_id } %>
+            <div>
+              <a class="opens-modal" href="#to-be-opened-modal">Create an NPC</a>
+              <div class="to-be-opened-modal modal">
+                <%= render partial: 'layouts/new_character', object: @charater, :locals => { :npc => true,
+                                                                                :sheet_template_id => @game.sheet_template.id,
+                                                                                :player_id => current_user.player_id } %>
+              </div>
             </div>
           </div>
         <% end %>

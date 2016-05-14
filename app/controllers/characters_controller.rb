@@ -20,7 +20,6 @@ class CharactersController < ApplicationController
   end
 
   def create
-    binding.pry
     character = current_user.characters.build(char_params)
       if character.save!
         assign_defaults(character)
