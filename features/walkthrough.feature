@@ -18,7 +18,7 @@ Feature: Walkthrough
     Then I should see "Sign in"
 
   @javascript
-  Scenario: A User Goes To a Game session
+  Scenario: A User Has a Page Showing their Info
     Given I have an existing test environment
     When I go to the root path
     And I fill in "Email" with "test@test.test"
@@ -28,13 +28,13 @@ Feature: Walkthrough
     Then I should see "Games"
 
   @javascript
-  Scenario: A User Goes To a Game session
+  Scenario: A User Has Pending Friends
     Given I have an existing test environment
     When I go to the root path
     And I fill in "Email" with "test@test.test"
     And I fill in "Password" with "password"
     And I press "Sign in"
-    Then I should see "Tiffo Awaiting approval"
+    Then I should see "Awaiting approval"
 
     @javascript
     Scenario: A User Goes To a Game session
