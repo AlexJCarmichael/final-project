@@ -64,6 +64,7 @@ GEM
     childprocess (0.5.9)
       ffi (~> 1.0, >= 1.0.11)
     choice (0.2.0)
+    chronic (0.10.2)
     clearance (1.13.0)
       bcrypt
       email_validator (~> 1.4)
@@ -276,6 +277,7 @@ DEPENDENCIES
   bullet
   byebug
   capybara
+  chronic
   clearance
   codeclimate-test-reporter
   coffee-rails (~> 4.1.0)

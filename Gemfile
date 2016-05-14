@@ -53,6 +53,7 @@ group :development do
   gem 'spring'
 end
 
+gem 'chronic'
 gem 'gravatarify', '~> 3.0.0'
 gem "refile", require: "refile/rails"
 gem "refile-mini_magick"
