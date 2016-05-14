@@ -1,0 +1,17 @@
+<div class='card dash-display col s12 m3 offset-m1'>
+  <h5 class='clicky-button'>Characters</h5>
+  <div class='hide-on-small-only expand-me'>
+    <% @characters.each do |char| %>
+      <div>
+        <p>
+          <a class="opens-modal" href="#to-be-opened-modal"><%= "#{char.name}" %></a>
+          playing in: <%= char.player.game_session.session_name %>
+        </p>
+        <div class="to-be-opened-modal modal">
+          <%= render partial: 'layouts/character_sheet', :locals => { :char => char } %>
+        </div>
+      </div>
+    <% end %>
+    <strong>Characters are created in games</strong>
+  </div>
+</div>

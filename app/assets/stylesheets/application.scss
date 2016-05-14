@@ -62,6 +62,22 @@ strong {
   }
 }
 
+.small-left-margin {
+  margin-left: 1.5em;
+}
+
+.person-icon {
+  vertical-align: text-bottom;;
+  font-size: 1.5rem;
+}
+
+.session-border {
+  border-top: 1px solid $secondary-color;
+  border-left: 1px solid $secondary-color;
+  border-right: 1px solid $secondary-color;
+  padding: 0 .25em;
+}
+
 .text-center {
   text-align: center;
 }

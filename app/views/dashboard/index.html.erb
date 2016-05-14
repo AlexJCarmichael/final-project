@@ -1,39 +1,31 @@
 <h4>Dashboard for <%= current_user.user_name %> </h4>
 
 <div class='row'>
-  <div class='card dash-display col s12 m7 important-card'>
-    <h5 class='clicky-button'>Games</h5>
-    <div class='hide-on-small-only expand-me'>
-      <%= react_component('NewGame', controller: "game_sessions", redirect_controller: "game_sessions",
-                          name: "session_name", sheet_id: 1, display_name: "New game",
-                          placeholder: "Type in a game name") %>
-      <% @sessions.each do |session| %>
-      <h6><%= link_to "#{session.session_name}", game_session_path("#{session.id}") %></h6>
-        <% session.actors.each do |char| %>
-          <p><%= char.user.name %> playing as <%= char.name %></p>
-        <% end %>
+  <div class='col s12 m7'>
+    <div class='row'>
+      <div class='col s6'>
+        <h5>Games</h5>
+      </div>
+      <div class='col s6'>
+        <%= react_component('NewGame', controller: "game_sessions", redirect_controller: "game_sessions",
+                            name: "session_name", sheet_id: 1, display_name: "New game",
+                            placeholder: "Type in a game name") %>
+      </div>
+    </div>
+  <div>
+    <% @sessions.each do |session| %>
+      <div class='card'>
+        <h6 class='center'><%= link_to "#{session.session_name}", game_session_path("#{session.id}") %></h6>
+        <p class='small-left-margin'>
+          <%= session.actors.count %>
+          <i class="person-icon material-icons">portrait</i>
+          <span class='session-border'><%= session.sheet_template.game_name %></span>
+        </p>
+      </div>
       <% end %>
-
     </div>
   </div>
 
-  <div class='card dash-display col s12 m3 offset-m1'>
-    <h5 class='clicky-button'>Characters</h5>
-    <div class='hide-on-small-only expand-me'>
-      <% @characters.each do |char| %>
-        <div>
-          <p>
-            <a class="opens-modal" href="#to-be-opened-modal"><%= "#{char.name}" %></a>
-            playing in: <%= char.player.game_session.session_name %>
-          </p>
-          <div class="to-be-opened-modal modal">
-            <%= render partial: 'layouts/character_sheet', :locals => { :char => char } %>
-          </div>
-        </div>
-      <% end %>
-      <strong>Characters are created in games</strong>
-    </div>
-  </div>
 
   <div class='card dash-display col s12 m3 offset-m1 md-top-margin'>
     <h5 class='clicky-button'>Friends</h5>
