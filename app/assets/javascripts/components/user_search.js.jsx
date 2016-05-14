@@ -51,9 +51,9 @@ var UserSearch = React.createClass({
 
     render: function() {
       return (
-        <div>
+        <div className={this.props.divStyle}>
           <h6 className={this.props.buttonStyle}>{this.props.headerText}</h6>
-          <div>
+          <div className="sm-padding">
             <input type="text"
             onChange={this.filterList} value={this.state.search}
             placeholder="Username or User's name" />
