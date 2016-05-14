@@ -171,10 +171,13 @@ a.btn {
     margin-left: 1em;
   }
 }
+.body-color {
+  background-color: $body-color;
+}
 
 .in-a-modal {
   padding: 3em;
-  background-color: $body-color;
+  background-color: white;
   margin: 3em;
 }
 

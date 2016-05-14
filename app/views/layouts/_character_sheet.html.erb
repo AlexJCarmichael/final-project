@@ -1,11 +1,13 @@
-<div class='character-mod'>
-      <%= react_component('CharacterSheet',
-          stats: char.stats,
-          skills: char.skills,
-          equipment: char.equipment,
-          name: char.name,
-          bio: char.bio,
-          game_id: char.player.game_session_id,
-          searchFor: "character_equipment",
-          character_id: char.id) %>
+<div class='body-color'>
+  <div class='in-a-modal card'>
+        <%= react_component('CharacterSheet',
+            stats: char.stats,
+            skills: char.skills,
+            equipment: char.equipment,
+            name: char.name,
+            bio: char.bio,
+            game_id: char.player.game_session_id,
+            searchFor: "character_equipment",
+            character_id: char.id) %>
+  </div>
 </div>

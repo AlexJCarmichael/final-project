@@ -45,7 +45,7 @@
       <% else %>
        <ul class="collection">
         <% @friends.each do |friend| %>
-           <li class="collection-item avatar">
+           <li class="collection-item avatar plain">
              <img src="<%= friend.photo_url %>" class="circle">
               <span class="title"><%= link_to "#{friend.name}", user_path(friend.id) %></span>
               <p><%= friend.user_name %></p>
@@ -56,7 +56,7 @@
       <ul class="collection">
         <% @pending.each do |pend| %>
             <% if pend.user.name == current_user.name %>
-              <li class="collection-item avatar">
+              <li class="collection-item avatar plain">
                 <img src="<%= pend.to_user.photo_url %>" class="circle">
                 <span class="title"><%= link_to "#{pend.to_user.name}", user_path(pend.to_user.id) %></span>
                 <p><%= pend.to_user.user_name %> <br>
