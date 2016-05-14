@@ -23,7 +23,7 @@ class CharactersController < ApplicationController
     character = current_user.characters.build(char_params)
       if character.save!
         assign_defaults(character)
-        redirect_to character_path(character)
+        redirect_to game_session_path(character.player.game_session_id)
       else
         flash[:alert] = "Character could not be created"
       end
