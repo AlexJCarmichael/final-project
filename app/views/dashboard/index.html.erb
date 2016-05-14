@@ -38,25 +38,35 @@
        <ul class="collection">
         <% @friends.each do |friend| %>
            <li class="collection-item avatar">
-             <img src="<%= friend.photo_url %>" alt="" class="circle">
+             <img src="<%= friend.photo_url %>" class="circle">
               <span class="title"><%= link_to "#{friend.name}", user_path(friend.id) %></span>
               <p><%= friend.user_name %></p>
             </li>
         <% end %>
         </ul>
       <% end %>
-      <% @pending.each do |pend| %>
-        <p class='card plain'>
-          <% if pend.user.name == current_user.name %>
-            <%= link_to "#{pend.to_user.name}", user_path(pend.to_user.id) %>
-            <span>Awaiting approval</span>
-          <% else %>
-            <%= link_to "#{pend.user.name} |", user_path(pend.user.id) %>
-            <%= link_to "Accept", acceptance_users_path(from: pend.user_id, to: current_user.id), method: :put %>
-            <span> or </span>
-            <%= link_to "Decline", denial_users_path(from: pend.user_id, to: current_user.id), method: :put %>
-          <% end %>
-        </p>
+      <ul class="collection">
+        <% @pending.each do |pend| %>
+            <% if pend.user.name == current_user.name %>
+              <li class="collection-item avatar">
+                <img src="<%= pend.to_user.photo_url %>" class="circle">
+                <span class="title"><%= link_to "#{pend.to_user.name}", user_path(pend.to_user.id) %></span>
+                <p><%= pend.to_user.user_name %> <br>
+                  Awaiting approval
+                </p>
+              </li>
+            <% else %>
+              <li class="collection-item avatar">
+                <img src="<%= pend.user.photo_url %>" class="circle">
+                <span class="title plain"><%= link_to "#{pend.user.name}", user_path(pend.user.id) %></span>
+                <p class="plain"><%= pend.user.user_name %> <br>
+                  <%= link_to "Accept", acceptance_users_path(from: pend.user_id, to: current_user.id), method: :put %>
+                  <span> or </span>
+                  <%= link_to "Decline", denial_users_path(from: pend.user_id, to: current_user.id), method: :put %>
+                </p>
+              </li>
+              <% end %>
+        </ul>
       <% end %>
     </div>
   </div>
