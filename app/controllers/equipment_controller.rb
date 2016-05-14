@@ -23,7 +23,7 @@ class EquipmentController < ApplicationController
   end
 
   def character
-    game = GameSession.first
+    game = GameSession.find_by(id: params.fetch(:id))
     @items = game.items
     render json: @items
   end
