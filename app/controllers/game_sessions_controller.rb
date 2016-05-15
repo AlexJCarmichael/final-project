@@ -19,13 +19,17 @@ class GameSessionsController < ApplicationController
   def create
     @game = current_user.game_sessions.build(game_params)
     @game.game_time = Chronic.parse(params[:game_sessions][:game_time])
-    if @game.save
-      @game.game_setup(current_user)
-      respond_to do |format|
-        format.json do
-          render json: { message: "Game created!", redirect_id: @game.id }
+    if @game.game_time
+      if @game.save
+        @game.game_setup(current_user)
+        respond_to do |format|
+          format.json do
+            render json: { message: "Game created!", redirect_id: @game.id }
+          end
         end
       end
+    else
+      render json: "Invalid time", status: :unprocessable_entity
     end
   end
 

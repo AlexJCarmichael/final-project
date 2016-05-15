@@ -31,7 +31,10 @@ var NewGame = React.createClass({
       },
       success: function(response) {
         window.location.replace("/game_sessions/" + response.redirect_id);
-      }
+      },
+      error: function(response) {
+        $("#game-error").append("<h6 id='game-error-field'>" + response.responseText + "</h6>");
+      },
     })
   },
 
@@ -52,6 +55,8 @@ var NewGame = React.createClass({
               placeholder="Monday 7pm"
               value={this.state.startTime}
               onChange={this.handleChange2}/>
+          </div>
+          <div id="game-error">
           </div>
           <div className="center"><a className="btn" onClick={this.handlePost}>Create Game</a></div>
         </div>
