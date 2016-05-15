@@ -4,11 +4,6 @@ class EquipmentController < ApplicationController
     render json: @items
   end
 
-  def new
-    @game = params[:game]
-    @equip = Equipment.new
-  end
-
   def create
     equip = Equipment.create(equip_params)
     if equip.id

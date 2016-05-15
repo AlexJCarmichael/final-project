@@ -70,9 +70,9 @@ var EquipmentSearch = React.createClass({
 
   headerText: function () {
     if (this.props.isGM === true) {
-      return ("+");
+      return ("Add equipment");
     } else if (this.props.searchFor === "character_equipment") {
-      return ("+");
+      return ("Add equipment");
     } else {
       return ("View items");
     }

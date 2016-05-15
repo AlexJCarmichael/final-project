@@ -50,10 +50,14 @@ ready = function() {
         $("#sheet_template_modal").openModal();
     }),
 
-  newEquipment.on("ajax:success", function(data) {
-      console.log(data);
-      newEquipment.children().find("input[type=text]").val("");
-  });
+    $("#opens-modal").on("click",function(){
+        $("#within-modal").openModal();
+    }),
+
+    newEquipment.on("ajax:success", function(data) {
+        console.log(data);
+        newEquipment.children().find("input[type=text]").val("");
+    });
     newEquipment.on("ajax:error", function(e, data) {
         console.log(data);
         $("#flash").append("<p>" + data.responseText + "</p>");

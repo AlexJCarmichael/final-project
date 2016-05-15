@@ -7,6 +7,7 @@ class GameSessionsController < ApplicationController
     @sheet =  @game.sheet_template
     @npcs = @game.npcs
     @character = Character.new
+    @equip = Equipment.new
   end
 
   def new

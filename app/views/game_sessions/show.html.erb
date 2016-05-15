@@ -1,21 +1,18 @@
 <h3><%= @game.session_name %></h3>
 <div class='row'>
-  <div class='col s6 m5 l4'>
+  <div class='col s12 m5 l4'>
   <% if @game.sheet_template %>
-    <p><a class ="btn opens-modal" href="#to-be-opened-modal">Sheet Template</a></p>
+    <p><a class ="btn opens-modal" href="#to-be-opened-modal">Character Sheet</a></p>
     <div class="to-be-opened-modal modal">
       <%= render partial: 'layouts/sheet_template', object: @sheet %>
     </div>
   </div>
-  <div class='col s6 m5 l4'>
-    <p><a class ="btn opens-modal" href="#to-be-opened-modal">Game equipment</a></p>
+  <div class='col s12 m5 l4'>
+    <p><a class ="btn opens-modal" href="#to-be-opened-modal">Armory</a></p>
     <div class="to-be-opened-modal modal">
-      <%= render partial: 'layouts/equipment_show', object: @game %>
+      <%= render partial: 'layouts/equipment_show', object: @game, object: @equip %>
     </div>
   </div>
-</div>
-<div>
-  <p><%= link_to "Create", new_equipment_path(game: @game.id), class: "center-text btn" %></p>
 </div>
 
 <div class='row'>
@@ -111,14 +108,17 @@
     </div>
   </div>
 
-  <div class='chat-position'>
-    <h6 class='limiter' id='clicky-button'>Chat collapse or expand</h6>
-    <div class='chat-container collapse' id='collapse-me'>
-      <%= react_component('ReactChat', chatId: @game.chat_session.id) %>
-      <%= react_component('MessagesSender', chatId: @game.chat_session.id) %>
-    </div>
+<div class='chat-position'>
+  <h6 class='limiter' id='clicky-button'>Chat collapse or expand</h6>
+  <div class='chat-container collapse' id='collapse-me'>
+    <%= react_component('ReactChat', chatId: @game.chat_session.id) %>
+    <%= react_component('MessagesSender', chatId: @game.chat_session.id) %>
   </div>
-  </div>
+</div>
+
+<div class="modal" id="within-modal">
+  <%= render partial: 'layouts/create_equipment', object: @equip, :locals => { :game_id => @game.id } %>
+</div>
 
 <% else %>
   <% if @game.user_id == current_user.id %>
