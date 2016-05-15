@@ -9,4 +9,7 @@ class DashboardController < ApplicationController
     @friends = @user.my_friends
     @pending = @user.my_pending_friends(@user.id)
   end
+
+  def about
+  end
 end
