@@ -9,7 +9,7 @@
         <% end %>
         <% if @sheet.user_id == current_user.id %>
           <%= react_component('MakeName', controller: "skills", redirect_controller: "sheet_templates", name: "name",
-                              sheet_id: @sheet.id, display_name: "Add a skill", placeholder: "Type in a skill name") %>
+                              sheet_id: @sheet.id, display_name: "Add a skill", placeholder: "Type in a skill name", game: @game.id) %>
         <% end %>
       </div>
       <div class='col s6 no-margin'>
@@ -19,7 +19,7 @@
         <% end %>
         <% if @sheet.user_id == current_user.id %>
           <%= react_component('MakeName', controller: "stats", redirect_controller: "sheet_templates", name: "name",
-                              sheet_id: @sheet.id, display_name: "Add a stat",  placeholder: "Type in a stat name") %>
+                              sheet_id: @sheet.id, display_name: "Add a stat",  placeholder: "Type in a stat name", game: @game.id) %>
         <% end %>
       </div>
     </div>

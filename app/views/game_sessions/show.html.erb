@@ -4,7 +4,7 @@
   <% if @game.sheet_template %>
     <p><a class ="btn opens-modal" href="#to-be-opened-modal">Character Sheet</a></p>
     <div class="to-be-opened-modal modal">
-      <%= render partial: 'layouts/sheet_template', object: @sheet %>
+      <%= render partial: 'layouts/sheet_template', object: @sheet, object: @game %>
     </div>
   </div>
   <div class='col s12 m5 l4'>
