@@ -36,9 +36,9 @@ player1 = Player.create(user_id: user.id, game_session_id: session.id)
 player2 = Player.create(user_id: user2.id, game_session_id: session.id)
 player3 = Player.create(user_id: user3.id, game_session_id: session.id)
 
-jaxom = Character.create(name: "Jaxom Vanee", bio: "You know Jaxom", player_id: player1.id, sheet_template_id: sheet.id, npc: false)
-a_random_hero = Character.create(name: "A Random Hero", bio: "You know A Random Hero", player_id: player2.id, sheet_template_id: sheet.id, npc: false)
-morales = Character.create(name: "Morales", bio: "You know Morales", player_id: player3.id, sheet_template_id: sheet.id, npc: false)
+jaxom = Character.create(name: "Jaxom Vanee", bio: "You know Jaxom", player_id: player1.id, sheet_template_id: sheet.id, level: "3", currency: "50", npc: false)
+a_random_hero = Character.create(name: "A Random Hero", bio: "You know A Random Hero", player_id: player2.id, sheet_template_id: sheet.id, level: "2", currency: "350", npc: false)
+morales = Character.create(name: "Morales", bio: "You know Morales", player_id: player3.id, sheet_template_id: sheet.id, level: "5", currency: "500", npc: false)
 
 characters = [jaxom, a_random_hero, morales]
 

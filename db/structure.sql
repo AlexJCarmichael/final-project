@@ -141,7 +141,9 @@ CREATE TABLE characters (
     updated_at timestamp without time zone NOT NULL,
     bio text,
     player_id integer,
-    npc boolean
+    npc boolean,
+    level character varying DEFAULT '1'::character varying,
+    currency character varying DEFAULT '0'::character varying
 );
 
 
@@ -1383,4 +1385,6 @@ INSERT INTO schema_migrations (version) VALUES ('20160513203348');
 INSERT INTO schema_migrations (version) VALUES ('20160513230108');
 
 INSERT INTO schema_migrations (version) VALUES ('20160514184948');
+
+INSERT INTO schema_migrations (version) VALUES ('20160515020856');
 
