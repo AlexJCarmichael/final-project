@@ -19,55 +19,61 @@
 </div>
 
   <div class='row'>
-    <div class='dash-display col s12 m7 important-card card'>
-      <h5 class='clicky-button'>Actors in this game</h5>
-      <div class='hide-on-small-only expand-me'>
-        <% @characters.each do |char|%>
+    <div class='col s12 m7'>
+      <h5 >Actors in this game</h5>
+      <% @characters.each do |char|%>
+        <div class='card'>
+          <div class='row plain'>
+            <h5 class='col s4 offset-s1'>
+              <a class="opens-modal" href="#to-be-opened-modal"><%= "#{char.name}" %></a>
+              <div class="to-be-opened-modal modal">
+                <%= render partial: 'layouts/character_sheet', :locals => { :char => char } %>
+              </div>
+              </h5>
+              <h5 class='col s3 center-text'><%= char.level %></h5>
+              <h5 class='col s3 center-text'><%= char.currency %></h5>
+          </div>
+          <div class='row'>
+            <p class='col s4 offset-s1'> Played by: <%= char.user.name %></p>
+            <p class='col s3 center-text center-text'> Level</p>
+            <p class='col s3 center-text center-text'> Gold</p>
+          </div>
+        </div>
+      <% end %>
+      <div>
+        <div>
+          <a class="opens-modal" href="#to-be-opened-modal">Create a character</a>
+          <div class="to-be-opened-modal modal">
+            <%= render partial: 'layouts/new_character', object: @charater, :locals => { :npc => false,
+                                                                            :sheet_template_id => @game.sheet_template.id,
+                                                                            :player_id => current_user.player_id } %>
+          </div>
+        </div>
+      </div>
+      <% if current_user.is_gm_of?(@game) %>
+        <h5>NPCs in this game</h5>
+        <% @npcs.each do |npc|%>
           <div>
             <p>
-              <a class="opens-modal" href="#to-be-opened-modal"><%= "#{char.name}" %></a>
-              played by: <%= char.user.name %>
+              <a class="opens-modal" href="#to-be-opened-modal"><%= "#{npc.name}" %></a>
             </p>
             <div class="to-be-opened-modal modal">
-              <%= render partial: 'layouts/character_sheet', :locals => { :char => char } %>
+              <%= render partial: 'layouts/character_sheet', :locals => { :char => npc } %>
             </div>
         </div>
         <% end %>
         <div>
           <div>
-            <a class="opens-modal" href="#to-be-opened-modal">Create a character</a>
+            <a class="opens-modal" href="#to-be-opened-modal">Create an NPC</a>
             <div class="to-be-opened-modal modal">
-              <%= render partial: 'layouts/new_character', object: @charater, :locals => { :npc => false,
+              <%= render partial: 'layouts/new_character', object: @charater, :locals => { :npc => true,
                                                                               :sheet_template_id => @game.sheet_template.id,
                                                                               :player_id => current_user.player_id } %>
             </div>
           </div>
         </div>
-        <% if current_user.is_gm_of?(@game) %>
-          <h5>NPCs in this game</h5>
-          <% @npcs.each do |npc|%>
-            <div>
-              <p>
-                <a class="opens-modal" href="#to-be-opened-modal"><%= "#{npc.name}" %></a>
-              </p>
-              <div class="to-be-opened-modal modal">
-                <%= render partial: 'layouts/character_sheet', :locals => { :char => npc } %>
-              </div>
-          </div>
-          <% end %>
-          <div>
-            <div>
-              <a class="opens-modal" href="#to-be-opened-modal">Create an NPC</a>
-              <div class="to-be-opened-modal modal">
-                <%= render partial: 'layouts/new_character', object: @charater, :locals => { :npc => true,
-                                                                                :sheet_template_id => @game.sheet_template.id,
-                                                                                :player_id => current_user.player_id } %>
-              </div>
-            </div>
-          </div>
-        <% end %>
+      <% end %>
     </div>
-  </div>
 
     <div class='dash-display col s12 m3 offset-m1 card'>
       <h5 class='clicky-button'>Invited to game</h5>
@@ -78,14 +84,7 @@
           <% end %>
       </div>
     </div>
-
-
-    <div class='dash-display col s12 m3 offset-m1 card md-top-margin'>
-      <h5 class='clicky-button'>Should I exist?</h5>
-      <div class='hide-on-small-only expand-me'>
-    </div>
   </div>
-</div>
 
   <div class='chat-position'>
     <h6 class='limiter' id='clicky-button'>Chat collapse or expand</h6>
