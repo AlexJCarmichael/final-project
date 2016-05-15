@@ -23,12 +23,12 @@
             <%= session.actors.count %>
             <i class="person-icon material-icons">portrait</i>
           </div>
-          <div class='col s6 center'>
+          <div class='col s5 center'>
             <% if session.sheet_template %>
               <span class='session-border'><%= session.sheet_template.game_name %></span>
               <% end %>
           </div>
-          <div class='col s3'>
+          <div class='col s4'>
             <span class="right small-right-margin"><%=session.game_time.strftime("%A %l%P")%></span>
           </div>
         </h6>

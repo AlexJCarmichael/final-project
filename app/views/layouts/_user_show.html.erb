@@ -3,10 +3,25 @@
     <h4><%= user.name %></h4>
     <h5>Games</h5>
       <% user.my_games.each do |session| %>
-        <h6><%= link_to "#{session.session_name}", game_session_path("#{session.id}") %></h6>
-        <% session.characters.each do |char| %>
-          <p><%= char.user.name %> playing as <%= char.name %></p>
-          <% end %>
+      <div class='border-me sm-margin'>
+        <h5 class='center plain'><%= session.session_name %></h5>
+        <div class='row push-up'>
+        <h6>
+          <div class='col s2 offset-s1'>
+            <%= session.actors.count %>
+            <i class="person-icon material-icons">portrait</i>
+          </div>
+          <div class='col s5 center'>
+            <% if session.sheet_template %>
+              <span class='border-me'><%= session.sheet_template.game_name %></span>
+              <% end %>
+          </div>
+          <div class='col s4'>
+            <span class="right small-right-margin"><%=session.game_time.strftime("%A %l%P")%></span>
+          </div>
+        </h6>
+        </div>
+      </div>
       <% end %>
   </div>
 </div>
