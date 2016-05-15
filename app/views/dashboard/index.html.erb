@@ -7,17 +7,18 @@
         <h5>Games</h5>
       </div>
       <div class='col s6'>
-        <%= react_component('NewGame', controller: "game_sessions", redirect_controller: "game_sessions",
-                            name: "session_name", sheet_id: 1, display_name: "New game",
-                            placeholder: "Type in a game name") %>
+        <a class="opens-modal btn" href="#to-be-opened-modal">Make a new Game</a>
+          <div class="to-be-opened-modal modal">
+            <%= react_component('NewGame') %>
+          </div>
       </div>
     </div>
   <div>
     <% @sessions.each do |session| %>
-      <div class='card'>
+      <div class='card stretch'>
         <h5 class='center plain'><%= link_to "#{session.session_name}", game_session_path("#{session.id}") %></h5>
-        <div class='row'>
-        <p>
+        <div class='row push-up'>
+        <h6>
           <div class='col s2 offset-s1'>
             <%= session.actors.count %>
             <i class="person-icon material-icons">portrait</i>
@@ -30,7 +31,7 @@
           <div class='col s3'>
             <span class="right small-right-margin"><%=session.game_time.strftime("%A %l%P")%></span>
           </div>
-        </p>
+        </h6>
         </div>
       </div>
     <% end %>
