@@ -94,9 +94,19 @@
       <h5 class='clicky-button'>Invited to game</h5>
       <div class='hide-on-small-only expand-me'>
           <%= react_component('UserSearch', userInvite: false, buttonStyle: "center", headerText: "Invite a player", game: @game.id) %>
-        <% @players.each do |player| %>
-          <p><%= link_to "#{player.user.user_name}", user_path(player.user.id) %>: <%= player.user.name %></p>
+        <ul class='collection'>
+          <% @players.each do |player| %>
+          <li class="collection-item avatar plain">
+            <img src="<%= player.user.photo_url %>" class="circle">
+             <span class="title"><a class="opens-modal" href="#to-be-opened-modal"><%= "#{player.user.name}" %></a>
+               <div class="to-be-opened-modal modal">
+                 <%= render partial: 'layouts/user_show', :locals => { :user => player.user } %>
+               </div>
+             </span>
+             <p><%= player.user.user_name %></p>
+           </li>
           <% end %>
+        </ul>
       </div>
     </div>
   </div>
