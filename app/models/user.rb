@@ -32,8 +32,8 @@ class User < ActiveRecord::Base
     game.user_id == self.id
   end
 
-  def player_id
-    self.players.find_by(game_session_id: 1).id
+  def player_id(game_id)
+    self.players.find_by(game_session_id: game_id).id
   end
 
   def my_games

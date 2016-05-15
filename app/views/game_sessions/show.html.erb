@@ -25,7 +25,7 @@
           <div class="to-be-opened-modal modal">
             <%= render partial: 'layouts/new_character', object: @charater, :locals => { :npc => false,
                                                                             :sheet_template_id => @game.sheet_template.id,
-                                                                            :player_id => current_user.player_id } %>
+                                                                            :player_id => current_user.player_id(@game.id) } %>
           </div>
         </div>
       </div>
@@ -60,7 +60,7 @@
             <div class="to-be-opened-modal modal">
               <%= render partial: 'layouts/new_character', object: @charater, :locals => { :npc => true,
                                                                               :sheet_template_id => @game.sheet_template.id,
-                                                                              :player_id => current_user.player_id } %>
+                                                                              :player_id => current_user.player_id(@game.id) } %>
             </div>
           </div>
         </div>
