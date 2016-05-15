@@ -7,7 +7,9 @@ class SheetTemplatesController < ApplicationController
 
   def show
     @sheet = SheetTemplate.find(params.fetch(:id))
-    @game = params.fetch(:game)
+    if params[:game]
+      @game = params.fetch(:game)
+    end
   end
 
   def new

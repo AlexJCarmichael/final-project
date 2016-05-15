@@ -36,7 +36,7 @@ var MakeName = React.createClass({
       url: "/" + this.props.controller + ".json",
       data: dataToSend,
       success: function(response) {
-        window.location.replace("/" + that.props.redirect_controller + "/" + response.redirect_id);
+        window.location.replace("/" + that.props.redirect_controller + "/" + response.redirect_id + "/?game=" + that.props.game);
       }
     }).done(function(response) {
       that.setState({
