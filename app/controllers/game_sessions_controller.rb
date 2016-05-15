@@ -1,5 +1,7 @@
 class GameSessionsController < ApplicationController
 
+  before_action :require_login
+
   def show
     @game = get_game
     @characters = @game.actors
