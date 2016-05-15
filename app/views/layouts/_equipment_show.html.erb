@@ -2,7 +2,7 @@
   <div class='in-a-modal card'>
     <%= react_component('EquipmentSearch', gameId: @game.id, isGM: current_user.is_gm_of?(@game), otherEq: @game.other_equipment) %>
     <div>
-      <h6 class='click-me'>Weapons</h6>
+      <h5 class='click-me'>Weapons(<%= @game.weapons.count %>)</h5>
       <div class='hidden hide'>
         <% @game.weapons.each do |weapon| %>
           <p>Type: <%= weapon.sub_category %> <%= weapon.name %>  Weight: <%= weapon.weight %> Damage: <%= weapon.damage %></p>
@@ -11,7 +11,7 @@
       </div>
     </div>
     <div>
-      <h6 class='click-me'>Armor</h6>
+      <h5 class='click-me'>Armor(<%= @game.armor.count %>)</h5>
       <div class='hidden hide'>
         <% @game.armor.each do |arm| %>
           <p>Type: <%= arm.sub_category %> <%= arm.name %> Weight: <%= arm.weight %> <%= arm.armor %></p>

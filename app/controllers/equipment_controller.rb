@@ -13,13 +13,17 @@ class EquipmentController < ApplicationController
     equip = Equipment.create(equip_params)
     if equip.id
       SessionItem.create(game_session_id: params.fetch(:equipment).fetch(:game_id), equipment_id: equip.id)
-      flash[:alert] = "Equipment created"
-      redirect_to :back
+      respond_to do |format|
+        format.json do
+          render json: "Equipment created"
+        end
+        format.html do
+          redirect_to :back
+        end
+      end
     else
-      flash[:alert] = "Missing a required field"
-      redirect_to :back
+      render json: "Failed to create equipment", status: :unprocessable_entity
     end
-
   end
 
   def character

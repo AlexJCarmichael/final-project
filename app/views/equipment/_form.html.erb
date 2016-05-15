@@ -1,4 +1,4 @@
-<%= form_for @equip do |f| %>
+<%= form_for @equip, remote: true do |f| %>
   <p>Name(required): <%= f.text_field :name %></p>
   <p>Category(required): <%= f.text_field :category %></p>
   <p>Sub Category(required):<%= f.text_field :sub_category %></p>

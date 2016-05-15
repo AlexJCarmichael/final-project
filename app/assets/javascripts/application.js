@@ -22,6 +22,8 @@
 
 var ready;
 ready = function() {
+    var newEquipment = $("#new_equipment[data-remote]");
+
     $(".clicky-button").on("click", function () {
         $(this).parent().find(".expand-me").toggleClass("hide-on-small-only");
     }),
@@ -46,6 +48,15 @@ ready = function() {
 
     $("#sheet_template").on("click",function(){
         $("#sheet_template_modal").openModal();
+    }),
+
+  newEquipment.on("ajax:success", function(data) {
+      console.log(data);
+      newEquipment.children().find("input[type=text]").val("");
+  });
+    newEquipment.on("ajax:error", function(e, data) {
+        console.log(data);
+        $("#flash").append("<p>" + data.responseText + "</p>");
     });
 };
 
