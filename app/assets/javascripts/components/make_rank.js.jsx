@@ -12,7 +12,7 @@ var MakeRank = React.createClass({
   },
 
   handleDown: function (event) {
-    if (event.keyCode === 13) {
+    {
       this.handlePutRank();
     }
   },
