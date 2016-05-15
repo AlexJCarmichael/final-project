@@ -246,6 +246,10 @@ input[type="text"]{
   }
 }
 
+.center-text-only-small {
+  text-align: center;
+}
+
 .message-sender {
   height: 4em;
   width: 29em;
@@ -338,6 +342,9 @@ input.upper-margin {
   .chat-container {
     width: 30em;
     opacity: .90;
+  }
+  .center-text-only-small {
+    text-align: inherit;
   }
 }
 
