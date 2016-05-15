@@ -10,6 +10,20 @@ class UsersController < Clearance::UsersController
     @sessions = @user.my_games
   end
 
+  def edit
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+    if @user.update(user_params)
+      flash[:alert] = "Updated sucsessfully"
+      redirect_to "/about/"
+    else
+      flash[:alert] = "Couldn't update"
+    end
+  end
+
   def friendship
     @friend = Friend.new(to_user_id: params[:to_user_id], status: "pending")
     @friend.user = current_user
