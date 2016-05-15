@@ -18,7 +18,7 @@ Given(/^I have an existing test environment/) do
   SheetStat.create(sheet_template_id: sheet.id, stat_id: sheet_stat1.id)
   SheetStat.create(sheet_template_id: sheet.id, stat_id: sheet_stat2.id)
 
-  session = GameSession.create(session_name: "Dane's Cool Game", user_id: user.id, game_time: Time.new(2016, 5, 20, 15, 0, 0).utc)
+  session = GameSession.create(session_name: "Dane's Cool Game", user_id: user.id, game_time: Time.new(2016, 5, 20, 15, 0, 0))
   ChatSession.create(game_session_id: session.id)
 
   GameSheet.create(game_session_id: session.id, sheet_template_id: sheet.id)

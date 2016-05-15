@@ -30,7 +30,7 @@ var NewGame = React.createClass({
         }
       },
       success: function(response) {
-        window.location.replace("/game_session/" + response);
+        window.location.replace("/game_sessions/" + response.redirect_id);
       }
     })
   },
