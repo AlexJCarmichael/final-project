@@ -36,6 +36,8 @@ ready = function() {
         $(this).parent().find(".hidden").toggleClass("hide");
     }),
 
+    $("select").material_select(),
+
     $("#flash").on("click", function () {
         $(this).addClass("hide");
     }),

@@ -5,11 +5,11 @@
         <div>
           <div>
             <%= f.label :name %>
-            <%= f.text_field :name, placeholder: "Broadsword or Sword of the Mourning" %>
+            <%= f.text_field :name, placeholder: "Broadsword or Sword of the Mourning, Boots or Falcon Boots" %>
           </div>
           <div>
             <%= f.label :category %>
-            <%= f.collection_select :category, @equipment ,:category, :category, include_blank: true %>
+            <%= select_tag(:category, options_for_select([["Armor", "Armor"], ["Weapon", "Weapon"]]), include_blank: true) %>
           </div>
           <div>
             <%= f.label :sub_category %>
