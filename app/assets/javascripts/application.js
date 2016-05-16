@@ -56,8 +56,7 @@ ready = function() {
         $("#within-modal").openModal();
     }),
 
-    newEquipment.on("ajax:complete", function(e, d, c, f) {
-      console.log(d);
+    newEquipment.on("ajax:complete", function() {
         newEquipment.children().find("input[type=text]").val("");
     });
     newEquipment.on("ajax:error", function(e, data) {
