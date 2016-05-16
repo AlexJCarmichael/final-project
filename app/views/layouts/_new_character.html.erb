@@ -1,18 +1,20 @@
 <div class='body-color'>
   <div class='in-a-modal card'>
-    <%= form_for(@character) do |f| %>
-      <div>
-        <%= f.label :name %>
-        <%= f.text_field :name %>
-      </div>
-      <div>
-        <%= f.label :bio %>
-        <%= f.text_area :bio %>
-      </div>
-      <%= f.hidden_field :player_id, value: player_id %>
-      <%= f.hidden_field :sheet_template_id, value: sheet_template_id %>
-      <%= f.hidden_field :npc, value: npc %>
-      <%= f.submit "Create Character", class: "form-submit" %>
-    <% end %>
+    <div class='card-content'>
+      <%= form_for(@character) do |f| %>
+        <div>
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </div>
+        <div>
+          <%= f.label :bio %>
+          <%= f.text_area :bio %>
+        </div>
+        <%= f.hidden_field :player_id, value: player_id %>
+        <%= f.hidden_field :sheet_template_id, value: sheet_template_id %>
+        <%= f.hidden_field :npc, value: npc %>
+        <%= f.submit "Create Character", class: "form-submit" %>
+      <% end %>
+    </div>
   </div>
 </div>

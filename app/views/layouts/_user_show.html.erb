@@ -1,27 +1,29 @@
 <div class='body-color'>
   <div class='in-a-modal card'>
-    <h4><%= user.name %></h4>
-    <h5>Games</h5>
-      <% user.my_games.each do |session| %>
-      <div class='border-me sm-margin'>
-        <h5 class='center plain'><%= session.session_name %></h5>
-        <div class='row push-up'>
-        <h6>
-          <div class='col s2 offset-s1'>
-            <%= session.actors.count %>
-            <i class="person-icon material-icons">portrait</i>
+    <div class='card-content'>
+      <h4><%= user.name %></h4>
+      <h5>Games</h5>
+        <% user.my_games.each do |session| %>
+        <div class='border-me sm-margin'>
+          <h5 class='center plain'><%= session.session_name %></h5>
+          <div class='row push-up'>
+          <h6>
+            <div class='col s2 offset-s1'>
+              <%= session.actors.count %>
+              <i class="person-icon material-icons">portrait</i>
+            </div>
+            <div class='col s5 center'>
+              <% if session.sheet_template %>
+                <span class='border-me'><%= session.sheet_template.game_name %></span>
+                <% end %>
+            </div>
+            <div class='col s4'>
+              <span class="right small-right-margin"><%=session.game_time.strftime("%A %l%P")%></span>
+            </div>
+          </h6>
           </div>
-          <div class='col s5 center'>
-            <% if session.sheet_template %>
-              <span class='border-me'><%= session.sheet_template.game_name %></span>
-              <% end %>
-          </div>
-          <div class='col s4'>
-            <span class="right small-right-margin"><%=session.game_time.strftime("%A %l%P")%></span>
-          </div>
-        </h6>
         </div>
+        <% end %>
       </div>
-      <% end %>
   </div>
 </div>

@@ -1,27 +1,29 @@
 <div class='body-color'>
   <div class='in-a-modal card'>
-    <%= react_component('EquipmentSearch', gameId: @game.id, isGM: current_user.is_gm_of?(@game), otherEq: @game.other_equipment) %>
-    <div>
+      <div class='card-content'>
+      <%= react_component('EquipmentSearch', gameId: @game.id, isGM: current_user.is_gm_of?(@game), otherEq: @game.other_equipment) %>
       <div>
-        <p><a class ="btn" id="opens-modal" href="#within-modal">Make Equipment</a></p>
+        <div>
+          <p><a class ="btn" id="opens-modal" href="#within-modal">Make Equipment</a></p>
+        </div>
       </div>
-    </div>
-    <div>
-      <h5 class='click-me'>Weapons(<%= @game.weapons.count %>)</h5>
-      <div class='hidden hide'>
-        <% @game.weapons.each do |weapon| %>
-          <p>Type: <%= weapon.sub_category %> <%= weapon.name %>  Weight: <%= weapon.weight %> Damage: <%= weapon.damage %></p>
-          <% if weapon.effects && weapon.effects != "" %><p>Effects: <%= weapon.effects %></p> <% end %>
-        <% end %>
+      <div>
+        <h5 class='click-me'>Weapons(<%= @game.weapons.count %>)</h5>
+        <div class='hidden hide'>
+          <% @game.weapons.each do |weapon| %>
+            <p>Type: <%= weapon.sub_category %> <%= weapon.name %>  Weight: <%= weapon.weight %> Damage: <%= weapon.damage %></p>
+            <% if weapon.effects && weapon.effects != "" %><p>Effects: <%= weapon.effects %></p> <% end %>
+          <% end %>
+        </div>
       </div>
-    </div>
-    <div>
-      <h5 class='click-me'>Armor(<%= @game.armor.count %>)</h5>
-      <div class='hidden hide'>
-        <% @game.armor.each do |arm| %>
-          <p>Type: <%= arm.sub_category %> <%= arm.name %> Weight: <%= arm.weight %> <%= arm.armor %></p>
-          <% if arm.effects && arm.effects != "" %><p>Effects: <%= arm.effects %></p> <% end %>
-        <% end %>
+      <div>
+        <h5 class='click-me'>Armor(<%= @game.armor.count %>)</h5>
+        <div class='hidden hide'>
+          <% @game.armor.each do |arm| %>
+            <p>Type: <%= arm.sub_category %> <%= arm.name %> Weight: <%= arm.weight %> <%= arm.armor %></p>
+            <% if arm.effects && arm.effects != "" %><p>Effects: <%= arm.effects %></p> <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

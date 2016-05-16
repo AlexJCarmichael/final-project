@@ -29,7 +29,7 @@ var CharacterSheet = React.createClass({
   },
 
   toggleEdit: function (){
-    return (<p onClick={this.handleClick} className="clicky-button">Edit this character</p>)
+    return (<h6 onClick={this.handleClick} className="clicky-button btn">Edit this character</h6>)
   },
 
   render: function() {
