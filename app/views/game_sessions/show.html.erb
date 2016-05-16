@@ -1,133 +1,133 @@
 <h3><%= @game.session_name %></h3>
-<div class='row'>
-  <div class='col s12 m5 l4'>
-  <% if @game.sheet_template %>
-    <p><a class ="btn opens-modal" href="#to-be-opened-modal">Character Sheet</a></p>
-    <div class="to-be-opened-modal modal">
-      <%= render partial: 'layouts/sheet_template', object: @sheet, object: @game %>
-    </div>
-  </div>
-  <div class='col s12 m5 l4'>
-    <p><a class ="btn opens-modal" href="#to-be-opened-modal">Armory</a></p>
-    <div class="to-be-opened-modal modal">
-      <%= render partial: 'layouts/equipment_show', object: @game, object: @equip %>
-    </div>
-  </div>
-</div>
-
-<div class='row'>
-  <div class='col s12 m7'>
-    <div class='row'>
-      <h5 class='col s12 m5 center-text-only-small'>Characters</h5>
-      <div class='col s12 m7'>
-        <div>
-          <a class="opens-modal btn right" href="#to-be-opened-modal">Create character</a>
-          <div class="to-be-opened-modal modal">
-            <%= render partial: 'layouts/new_character', object: @charater, :locals => { :npc => false,
-                                                                            :sheet_template_id => @game.sheet_template.id,
-                                                                            :player_id => current_user.player_id(@game.id) } %>
-          </div>
-        </div>
+<% if @game.sheet_template %>
+  <div class='row'>
+    <div class='col s12 m5 l4'>
+      <p><a class ="btn opens-modal" href="#to-be-opened-modal">Character Sheet</a></p>
+      <div class="to-be-opened-modal modal">
+        <%= render partial: 'layouts/sheet_template', object: @sheet, object: @game %>
       </div>
     </div>
-
-    <% @characters.each do |char|%>
-      <div class='card'>
-        <div class='row plain'>
-          <h5 class='col s4 offset-s1'>
-            <a class="opens-modal" href="#to-be-opened-modal"><%= "#{char.name}" %></a>
-          </h5>
-          <div class="to-be-opened-modal modal">
-            <%= render partial: 'layouts/character_sheet', :locals => { :char => char } %>
-          </div>
-          </h5>
-          <h5 class='col s3 center-text'><%= char.level %></h5>
-          <h5 class='col s3 center-text'><%= char.currency %></h5>
-        </div>
-        <div class='row'>
-          <p class='col s4 offset-s1'> Played by: <%= char.user.name %></p>
-          <p class='col s3 center-text center-text'> Level</p>
-          <p class='col s3 center-text center-text'> Gold</p>
-        </div>
+    <div class='col s12 m5 l4'>
+      <p><a class ="btn opens-modal" href="#to-be-opened-modal">Armory</a></p>
+      <div class="to-be-opened-modal modal">
+        <%= render partial: 'layouts/equipment_show', object: @game, object: @equip %>
       </div>
-    <% end %>
-    <% if current_user.is_gm_of?(@game) %>
+    </div>
+  </div>
+
+  <div class='row'>
+    <div class='col s12 m7'>
       <div class='row'>
-        <h5 class='col s12 m5 center-text-only-small'>NPCs</h5>
+        <h5 class='col s12 m5 center-text-only-small'>Characters</h5>
         <div class='col s12 m7'>
           <div>
-            <a class="opens-modal btn right" href="#to-be-opened-modal">Create an NPC</a>
+            <a class="opens-modal btn right" href="#to-be-opened-modal">Create character</a>
             <div class="to-be-opened-modal modal">
-              <%= render partial: 'layouts/new_character', object: @charater, :locals => { :npc => true,
+              <%= render partial: 'layouts/new_character', object: @charater, :locals => { :npc => false,
                                                                               :sheet_template_id => @game.sheet_template.id,
                                                                               :player_id => current_user.player_id(@game.id) } %>
             </div>
           </div>
         </div>
       </div>
-        <% @npcs.each do |npc|%>
-          <div class='card'>
-            <div class='row plain'>
-              <h5 class='col s4 offset-s1'>
-                <a class="opens-modal" href="#to-be-opened-modal"><%= "#{npc.name}" %></a>
-              </h5>
-              <div class="to-be-opened-modal modal">
-                <%= render partial: 'layouts/character_sheet', :locals => { :char => npc } %>
-              </div>
-              <h5 class='col s3 center-text'><%= npc.level %></h5>
-              <h5 class='col s3 center-text'><%= npc.currency %></h5>
+
+      <% @characters.each do |char|%>
+        <div class='card'>
+          <div class='row plain'>
+            <h5 class='col s4 offset-s1'>
+              <a class="opens-modal" href="#to-be-opened-modal"><%= "#{char.name}" %></a>
+            </h5>
+            <div class="to-be-opened-modal modal">
+              <%= render partial: 'layouts/character_sheet', :locals => { :char => char } %>
             </div>
-            <div class='row'>
-              <p class='col s4 offset-s1'> Played by: <%= npc.user.name %></p>
-              <p class='col s3 center-text center-text'> Level</p>
-              <p class='col s3 center-text center-text'> Gold</p>
+            </h5>
+            <h5 class='col s3 center-text'><%= char.level %></h5>
+            <h5 class='col s3 center-text'><%= char.currency %></h5>
+          </div>
+          <div class='row'>
+            <p class='col s4 offset-s1'> Played by: <%= char.user.name %></p>
+            <p class='col s3 center-text center-text'> Level</p>
+            <p class='col s3 center-text center-text'> Gold</p>
+          </div>
+        </div>
+      <% end %>
+      <% if current_user.is_gm_of?(@game) %>
+        <div class='row'>
+          <h5 class='col s12 m5 center-text-only-small'>NPCs</h5>
+          <div class='col s12 m7'>
+            <div>
+              <a class="opens-modal btn right" href="#to-be-opened-modal">Create an NPC</a>
+              <div class="to-be-opened-modal modal">
+                <%= render partial: 'layouts/new_character', object: @charater, :locals => { :npc => true,
+                                                                                :sheet_template_id => @game.sheet_template.id,
+                                                                                :player_id => current_user.player_id(@game.id) } %>
+              </div>
             </div>
           </div>
-        <% end %>
-      <% end %>
-    </div>
-
-    <div class='dash-display col s12 m3 offset-m1 card'>
-      <h5 class='clicky-button'>Invited to game</h5>
-      <div class='hide-on-small-only expand-me'>
-          <%= react_component('UserSearch', userInvite: false, buttonStyle: "center", headerText: "Invite a player", game: @game.id) %>
-        <ul class='collection'>
-          <% @players.each do |player| %>
-          <li class="collection-item avatar plain">
-            <img src="<%= player.user.photo_url %>" class="circle">
-             <span class="title"><a class="opens-modal" href="#to-be-opened-modal"><%= "#{player.user.name}" %></a>
-               <div class="to-be-opened-modal modal">
-                 <%= render partial: 'layouts/user_show', :locals => { :user => player.user } %>
-               </div>
-             </span>
-             <p><%= player.user.user_name %></p>
-           </li>
+        </div>
+          <% @npcs.each do |npc|%>
+            <div class='card'>
+              <div class='row plain'>
+                <h5 class='col s4 offset-s1'>
+                  <a class="opens-modal" href="#to-be-opened-modal"><%= "#{npc.name}" %></a>
+                </h5>
+                <div class="to-be-opened-modal modal">
+                  <%= render partial: 'layouts/character_sheet', :locals => { :char => npc } %>
+                </div>
+                <h5 class='col s3 center-text'><%= npc.level %></h5>
+                <h5 class='col s3 center-text'><%= npc.currency %></h5>
+              </div>
+              <div class='row'>
+                <p class='col s4 offset-s1'> Played by: <%= npc.user.name %></p>
+                <p class='col s3 center-text center-text'> Level</p>
+                <p class='col s3 center-text center-text'> Gold</p>
+              </div>
+            </div>
           <% end %>
-        </ul>
+        <% end %>
+      </div>
+
+      <div class='dash-display col s12 m3 offset-m1 card'>
+        <h5 class='clicky-button'>Invited to game</h5>
+        <div class='hide-on-small-only expand-me'>
+            <%= react_component('UserSearch', userInvite: false, buttonStyle: "center", headerText: "Invite a player", game: @game.id) %>
+          <ul class='collection'>
+            <% @players.each do |player| %>
+            <li class="collection-item avatar plain">
+              <img src="<%= player.user.photo_url %>" class="circle">
+               <span class="title"><a class="opens-modal" href="#to-be-opened-modal"><%= "#{player.user.name}" %></a>
+                 <div class="to-be-opened-modal modal">
+                   <%= render partial: 'layouts/user_show', :locals => { :user => player.user } %>
+                 </div>
+               </span>
+               <p><%= player.user.user_name %></p>
+             </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
+
+  <div class='chat-position'>
+    <h6 class='limiter' id='clicky-button'>Chat collapse or expand</h6>
+    <div class='chat-container collapse' id='collapse-me'>
+      <%= react_component('ReactChat', chatId: @game.chat_session.id) %>
+      <%= react_component('MessagesSender', chatId: @game.chat_session.id) %>
+    </div>
   </div>
 
-<div class='chat-position'>
-  <h6 class='limiter' id='clicky-button'>Chat collapse or expand</h6>
-  <div class='chat-container collapse' id='collapse-me'>
-    <%= react_component('ReactChat', chatId: @game.chat_session.id) %>
-    <%= react_component('MessagesSender', chatId: @game.chat_session.id) %>
+  <div class="modal" id="within-modal">
+    <%= render partial: 'layouts/create_equipment', object: @equip, :locals => { :game_id => @game.id } %>
   </div>
-</div>
-
-<div class="modal" id="within-modal">
-  <%= render partial: 'layouts/create_equipment', object: @equip, :locals => { :game_id => @game.id } %>
-</div>
 
 <% else %>
   <% if @game.user_id == current_user.id %>
-    <div class='warning-header-box'>
-      <h4>
+    <div class='warning-header-box card'>
+      <h5>
         <a class='warning-header' href='/sheet_templates/new?game=<%=@game.id%>'>
           Assign a Sheet Template before inviting users to the game
         </a>
-      </h4>
+      </h5>
     </div>
     <% end %>
 <% end %>
