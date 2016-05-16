@@ -5,7 +5,6 @@ class EquipmentController < ApplicationController
   end
 
   def create
-    binding.pry
     equip = Equipment.new(equip_params)
     if equip.save
       SessionItem.create(game_session_id: params.fetch(:equipment).fetch(:game_id), equipment_id: equip.id)

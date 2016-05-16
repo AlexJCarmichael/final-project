@@ -1,7 +1,7 @@
 <div class='body-color'>
   <div class='in-a-modal card'>
     <div class='card-content'>
-      <%= form_for @equip, remote: true do |f| %>
+      <%= form_for @equip, remote: false do |f| %>
         <div>
           <div>
             <%= f.label :name %>
@@ -38,6 +38,8 @@
             <%= f.hidden_field :game_id, value: game_id %>
           <div class='sm-top-margin'>
             <%= f.submit %>
+          </div>
+          <div id="equipment-flash">
           </div>
         </div>
         <% end %>

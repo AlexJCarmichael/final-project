@@ -36,7 +36,7 @@ ready = function() {
         $(this).parent().find(".hidden").toggleClass("hide");
     }),
 
-    $("select").material_select(),
+    $("select").material_select();
 
     $("#flash").on("click", function () {
         $(this).addClass("hide");
@@ -56,13 +56,12 @@ ready = function() {
         $("#within-modal").openModal();
     }),
 
-    newEquipment.on("ajax:success", function(data) {
-        console.log(data);
+    newEquipment.on("ajax:complete", function(e, d, c, f) {
+      console.log(d);
         newEquipment.children().find("input[type=text]").val("");
     });
     newEquipment.on("ajax:error", function(e, data) {
-        console.log(data);
-        $("#flash").append("<p>" + data.responseText + "</p>");
+        $("#equipment-flash").append("<p>" + data.responseText + "</p>");
     });
 };
 
