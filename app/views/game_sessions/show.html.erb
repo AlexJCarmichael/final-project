@@ -1,14 +1,14 @@
 <h3><%= @game.session_name %></h3>
 <% if @game.sheet_template %>
   <div class='row'>
-    <div class='col s12 m5 l4'>
-      <p><a class ="btn opens-modal" href="#to-be-opened-modal">Character Sheet</a></p>
+    <div class='col s12 m3 l4'>
+      <a class ="btn opens-modal" href="#to-be-opened-modal">Character Sheet</a>
       <div class="to-be-opened-modal modal">
         <%= render partial: 'layouts/sheet_template', object: @sheet, object: @game %>
       </div>
     </div>
-    <div class='col s12 m5 l4'>
-      <p><a class ="btn opens-modal" href="#to-be-opened-modal">Armory</a></p>
+    <div class='col s6 m3 l4'>
+      <a class ="btn opens-modal" href="#to-be-opened-modal">Armory</a>
       <div class="to-be-opened-modal modal">
         <%= render partial: 'layouts/equipment_show', object: @game, object: @equip %>
       </div>

@@ -280,7 +280,6 @@ input[type="text"]{
 
 .message-sender {
   height: 4em;
-  width: 29em;
   resize: none;
   border-color: lightgrey;
   border-radius: 2px;
@@ -312,10 +311,12 @@ input[type="text"]{
     cursor: pointer;
   }
 }
+
 .chat-position {
   position: fixed;
 	bottom: 0;
 	right: 0;
+  width: 95%;
 }
 
 .lil-space {
@@ -373,6 +374,10 @@ input.upper-margin {
   }
   .center-text-only-small {
     text-align: inherit;
+  }
+
+  .chat-position {
+    width: 30em;
   }
 }
 
