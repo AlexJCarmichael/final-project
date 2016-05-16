@@ -36,9 +36,9 @@ var MakeRank = React.createClass({
     if (this.props.canEdit === true) {
       return (
         <div className="sm-margin row">
-            <div className="input-field col s7">
-              <span className="in-line col s6 m3 l2">{this.props.name}: </span>
-              <input type="text" className="character-form col s6 m3 l2" value={this.state.rank}
+            <div className="input-field col s12 m6 l6">
+              <span className="in-line col s6 m5 l4">{this.props.name}: </span>
+              <input type="text" className="character-form col s6 m5 l4" value={this.state.rank}
                                                                           onKeyDown={this.handleDown}
                                                                           onChange={this.handleChange}/>
             </div>
@@ -47,9 +47,9 @@ var MakeRank = React.createClass({
     } else {
       return (
         <div className="sm-margin row">
-            <div className="input-field col s12 m6 l7">
-              <span className="in-line col s6 m5 l4">{this.props.name}: </span>
-              <input type="text" className="character-form col s6 m5 l4" value={this.state.rank}
+            <div className="input-field col s12 m6 l6">
+              <span className="in-line col s6 m5 l5">{this.props.name}: </span>
+              <input type="text" className="character-form col s6 m5 l5" value={this.state.rank}
                                                                           onKeyDown={this.handleDown}
                                                                           disabled='true'
                                                                           onChange={this.handleChange}/>
