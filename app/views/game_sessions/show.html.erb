@@ -50,7 +50,10 @@
               <h5 class='col s3 center-text'><%= char.currency %></h5>
             </div>
             <div class='row'>
-              <p class='col s4 offset-s1'> Played by: <%= char.user.name %></p>
+              <p class='col s4 offset-s1 plain'><a class="opens-modal" href="#to-be-opened-modal"> Played by: <%= char.user.name %></a></p>
+                <div class="to-be-opened-modal modal">
+                  <%= render partial: 'layouts/user_show', :locals => { :user => char.user } %>
+                </div>
               <p class='col s3 center-text center-text'> Level</p>
               <p class='col s3 center-text center-text'> Gold</p>
             </div>
