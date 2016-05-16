@@ -121,7 +121,7 @@
   </div>
 
   <div class="modal" id="within-modal">
-    <%= render partial: 'layouts/create_equipment', object: @equip, :locals => { :game_id => @game.id } %>
+    <%= render partial: 'layouts/create_equipment', object: @equip, object: @equipment, :locals => { :game_id => @game.id } %>
   </div>
 
 <% else %>

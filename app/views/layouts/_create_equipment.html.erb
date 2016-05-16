@@ -9,7 +9,7 @@
           </div>
           <div>
             <%= f.label :category %>
-            <%= f.text_field :category, placeholder: "Weapon or Armor only" %>
+            <%= f.collection_select :category, @equipment ,:category, :category, include_blank: true %>
           </div>
           <div>
             <%= f.label :sub_category %>
