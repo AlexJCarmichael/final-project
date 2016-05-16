@@ -21,9 +21,13 @@ var MakeRank = React.createClass({
     var data = {};
     data[this.props.subject] = {};
     data[this.props.subject]["rank"] = this.state.rank;
+    if (this.props.changeCharacter === "true") {
+      data[this.props.subject][this.props.charAttr] = this.state.rank;
+    }
+    var url = "/" + this.props.subject + "/" + this.props.id;
     $.ajax({
       method: "PUT",
-      url: "/"+ this.props.subject +"/" + this.props.id,
+      url: url,
       data: data
     });
   },

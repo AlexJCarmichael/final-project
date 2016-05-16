@@ -35,11 +35,36 @@ var CharacterSheet = React.createClass({
   render: function() {
     var charName = this.props.name;
     var charBio = this.props.bio;
+    var charLevel = this.props.level;
+    var charCurrency = this.props.currency;
+    var charId = this.props.id;
     var that = this;
     return (
       <div>
         <h4>{charName}</h4>
         <p>{charBio}</p>
+        <div className="row">
+        <MakeRank
+          className='col s6'
+          subject="characters"
+          id={charId}
+          name="Level"
+          rank={charLevel}
+          charAttr="level"
+          canEdit={that.state.editable}
+          changeCharacter="true"
+          />
+          <MakeRank
+            className='col s6'
+            subject="characters"
+            id={charId}
+            name="Currency"
+            rank={charCurrency}
+            charAttr="currency"
+            canEdit={that.state.editable}
+            changeCharacter="true"
+            />
+        </div>
         <h6>Atributes</h6>
         {this.props.stats.map(function(stat) {
           return (

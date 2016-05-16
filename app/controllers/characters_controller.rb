@@ -16,7 +16,14 @@ class CharactersController < ApplicationController
   end
 
   def edit
-    get_character
+    @character = get_character
+  end
+
+  def update
+    @character = get_character
+    if @character.update(char_params)
+      render json: { message: "Updated" }
+    end
   end
 
   def create
@@ -35,7 +42,7 @@ class CharactersController < ApplicationController
   end
 
   def char_params
-    params.require(:character).permit(:name, :sheet_template_id, :bio, :player_id, :npc)
+    params.require(:characters).permit(:name, :sheet_template_id, :bio, :player_id, :npc, :level, :currency)
   end
 
   def assign_defaults(character)
