@@ -55,7 +55,7 @@ var AssignSheet = React.createClass ({
   render: function () {
     return (
     <div>
-      <p onClick={this.handleClick} className="clicky-button"><strong>Do you want to create your own sheet for this game?</strong></p>
+      <p onClick={this.handleClick} className="click-me"><strong>Do you want to create your own sheet for this game?</strong></p>
       <div className={this.state.divClass}>
         <input className="center"
           placeholder="Name the Sheet Template"
@@ -63,7 +63,7 @@ var AssignSheet = React.createClass ({
           onKeyDown={this.handleDown}
           onChange={this.handleChange}/>
       </div>
-      <p onClick={this.handleClick2} className="clicky-button"><strong>Do you want to use a sheet that already exists?</strong></p>
+      <p onClick={this.handleClick2} className="click-me"><strong>Do you want to use a sheet that already exists?</strong></p>
       <div className={this.state.secondHidden}>
         <TemplateSearch
           gameId={this.props.gameId}
