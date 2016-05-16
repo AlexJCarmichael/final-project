@@ -33,21 +33,23 @@
 
       <% @characters.each do |char|%>
         <div class='card'>
-          <div class='row plain'>
-            <h5 class='col s4 offset-s1'>
-              <a class="opens-modal" href="#to-be-opened-modal"><%= "#{char.name}" %></a>
-            </h5>
-            <div class="to-be-opened-modal modal">
-              <%= render partial: 'layouts/character_sheet', :locals => { :char => char } %>
+          <div class='card-content'>
+            <div class='row plain'>
+              <h5 class='col s4 offset-s1'>
+                <a class="opens-modal" href="#to-be-opened-modal"><%= "#{char.name}" %></a>
+              </h5>
+              <div class="to-be-opened-modal modal">
+                <%= render partial: 'layouts/character_sheet', :locals => { :char => char } %>
+              </div>
+              </h5>
+              <h5 class='col s3 center-text'><%= char.level %></h5>
+              <h5 class='col s3 center-text'><%= char.currency %></h5>
             </div>
-            </h5>
-            <h5 class='col s3 center-text'><%= char.level %></h5>
-            <h5 class='col s3 center-text'><%= char.currency %></h5>
-          </div>
-          <div class='row'>
-            <p class='col s4 offset-s1'> Played by: <%= char.user.name %></p>
-            <p class='col s3 center-text center-text'> Level</p>
-            <p class='col s3 center-text center-text'> Gold</p>
+            <div class='row'>
+              <p class='col s4 offset-s1'> Played by: <%= char.user.name %></p>
+              <p class='col s3 center-text center-text'> Level</p>
+              <p class='col s3 center-text center-text'> Gold</p>
+            </div>
           </div>
         </div>
       <% end %>
@@ -66,21 +68,23 @@
           </div>
         </div>
           <% @npcs.each do |npc|%>
-            <div class='card'>
-              <div class='row plain'>
-                <h5 class='col s4 offset-s1'>
-                  <a class="opens-modal" href="#to-be-opened-modal"><%= "#{npc.name}" %></a>
-                </h5>
-                <div class="to-be-opened-modal modal">
-                  <%= render partial: 'layouts/character_sheet', :locals => { :char => npc } %>
+            <div class='card plain'>
+              <div class='card-content'>
+                <div class='row'>
+                  <h5 class='col s4 offset-s1'>
+                    <a class="opens-modal" href="#to-be-opened-modal"><%= "#{npc.name}" %></a>
+                  </h5>
+                  <div class="to-be-opened-modal modal">
+                    <%= render partial: 'layouts/character_sheet', :locals => { :char => npc } %>
+                  </div>
+                  <h5 class='col s3 center-text'><%= npc.level %></h5>
+                  <h5 class='col s3 center-text'><%= npc.currency %></h5>
                 </div>
-                <h5 class='col s3 center-text'><%= npc.level %></h5>
-                <h5 class='col s3 center-text'><%= npc.currency %></h5>
-              </div>
-              <div class='row'>
-                <p class='col s4 offset-s1'> Played by: <%= npc.user.name %></p>
-                <p class='col s3 center-text center-text'> Level</p>
-                <p class='col s3 center-text center-text'> Gold</p>
+                <div class='row'>
+                  <p class='col s4 offset-s1'> Played by: <%= npc.user.name %></p>
+                  <p class='col s3 center-text center-text'> Level</p>
+                  <p class='col s3 center-text center-text'> Gold</p>
+                </div>
               </div>
             </div>
           <% end %>
@@ -123,11 +127,13 @@
 <% else %>
   <% if @game.user_id == current_user.id %>
     <div class='warning-header-box card'>
-      <h5>
-        <a class='warning-header' href='/sheet_templates/new?game=<%=@game.id%>'>
-          Assign a Sheet Template before inviting users to the game
-        </a>
-      </h5>
+      <div class='card-content'>
+        <h5>
+          <a class='warning-header' href='/sheet_templates/new?game=<%=@game.id%>'>
+            Assign a Sheet Template before inviting users to the game
+          </a>
+        </h5>
+      </div>
     </div>
     <% end %>
 <% end %>

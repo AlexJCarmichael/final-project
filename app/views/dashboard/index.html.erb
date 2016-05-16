@@ -15,23 +15,25 @@
     </div>
   <div>
     <% @sessions.each do |session| %>
-      <div class='card stretch'>
-        <h5 class='center plain'><%= link_to "#{session.session_name}", game_session_path("#{session.id}") %></h5>
-        <div class='row push-up'>
-        <h6>
-          <div class='col s2 offset-s1'>
-            <%= session.actors.count %>
-            <i class="person-icon material-icons">portrait</i>
+      <div class='card'>
+        <div class='card-content'>
+          <h5 class='center plain'><%= link_to "#{session.session_name}", game_session_path("#{session.id}") %></h5>
+          <div class='row push-up'>
+          <h6>
+            <div class='col s3'>
+              <span class><%= session.actors.count %></span>
+              <i class="person-icon material-icons">portrait</i>
+            </div>
+            <div class='col s6 center'>
+              <% if session.sheet_template %>
+                <span class='session-border'><%= session.sheet_template.game_name %></span>
+                <% end %>
+            </div>
+            <div class='col s3'>
+              <span class="small-right-margin"><%=session.game_time.strftime("%A %l%P")%></span>
+            </div>
+          </h6>
           </div>
-          <div class='col s5 center'>
-            <% if session.sheet_template %>
-              <span class='session-border'><%= session.sheet_template.game_name %></span>
-              <% end %>
-          </div>
-          <div class='col s4'>
-            <span class="right small-right-margin"><%=session.game_time.strftime("%A %l%P")%></span>
-          </div>
-        </h6>
         </div>
       </div>
     <% end %>

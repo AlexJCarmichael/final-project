@@ -95,9 +95,7 @@ a.btn.delete {
 }
 
 .session-border {
-  border-top: 1px solid $secondary-color;
-  border-left: 1px solid $secondary-color;
-  border-right: 1px solid $secondary-color;
+  border: 1px solid $secondary-color;
   padding: 0 .25em;
 }
 
@@ -173,7 +171,7 @@ a.btn {
 }
 
 .push-up {
-  margin-top: 4em;
+  margin: 2em 0 0 0;
 }
 
 #flash {
