@@ -27,7 +27,7 @@ class CharactersController < ApplicationController
   end
 
   def create
-    character = current_user.characters.build(char_params)
+    character = current_user.characters.build(form_params)
       if character.save!
         assign_defaults(character)
         redirect_to game_session_path(character.player.game_session_id)
@@ -43,6 +43,10 @@ class CharactersController < ApplicationController
 
   def char_params
     params.require(:characters).permit(:name, :sheet_template_id, :bio, :player_id, :npc, :level, :currency)
+  end
+
+  def form_params
+    params.require(:character).permit(:name, :sheet_template_id, :bio, :player_id, :npc, :level, :currency)
   end
 
   def assign_defaults(character)
