@@ -10,6 +10,7 @@ class GameSessionsController < ApplicationController
     @npcs = @game.npcs
     @character = Character.new
     @equip = Equipment.new
+    @equipment = Equipment.all
   end
 
   def new

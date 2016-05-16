@@ -5,8 +5,8 @@ class EquipmentController < ApplicationController
   end
 
   def create
-    equip = Equipment.create(equip_params)
-    if equip.id
+    equip = Equipment.new(equip_params)
+    if equip.save
       SessionItem.create(game_session_id: params.fetch(:equipment).fetch(:game_id), equipment_id: equip.id)
       respond_to do |format|
         format.json do

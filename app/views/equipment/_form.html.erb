@@ -1,6 +1,6 @@
 <%= form_for @equip, remote: true do |f| %>
   <p>Name(required): <%= f.text_field :name %></p>
-  <p>Category(required): <%= f.text_field :category %></p>
+  <p>Category(required): <%= collection_select(:equipment, :category, Equipment.all, :category, :name) %>
   <p>Sub Category(required):<%= f.text_field :sub_category %></p>
   <p>Armor: <%= f.text_field :armor %></p>
   <p>Damage: <%= f.text_field :damage %></p>
