@@ -1,6 +1,6 @@
 var Equipment = React.createClass({
   ableToAdd: function () {
-    var url = "/equipment/" + this.props.equip.id +  "/gameequip?game_id=" + this.props.game_id
+    var url = "/equipment/" + this.props.equip.id +  "/game_equip?game_id=" + this.props.game_id
     if (this.props.otherEq.includes(this.props.equip.id)){
       return (<p>
                 <a rel="nofollow" data-method="POST" href={url}>
@@ -36,7 +36,7 @@ var Equipment = React.createClass({
 
   render: function () {
     return (
-      <div>
+      <div className="plain">
         {this.properDisplay()}
       </div>
     );
