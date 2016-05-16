@@ -5,6 +5,7 @@ class EquipmentController < ApplicationController
   end
 
   def create
+    binding.pry
     equip = Equipment.new(equip_params)
     if equip.save
       SessionItem.create(game_session_id: params.fetch(:equipment).fetch(:game_id), equipment_id: equip.id)
@@ -17,7 +18,7 @@ class EquipmentController < ApplicationController
         end
       end
     else
-      render json: "Failed to create equipment", status: :unprocessable_entity
+      render json: { message: "Failed to create equipment", errors: equip.errors }, status: :unprocessable_entity
     end
   end
 

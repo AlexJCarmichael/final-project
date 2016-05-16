@@ -1,4 +1,4 @@
-<h4><%= current_user.name %>'s Tavern </h4>
+<h4 class='center'><%= current_user.name %>'s Tavern </h4>
 
 <div class='row'>
   <div class='col s12 m7'>
@@ -7,7 +7,7 @@
         <h5>Games</h5>
       </div>
       <div class='col s6'>
-        <a class="opens-modal btn" href="#to-be-opened-modal">Make a new Game</a>
+        <h5><a class="opens-modal btn" id="main-page-button" href="#to-be-opened-modal">New Game</a></h5>
           <div class="to-be-opened-modal modal">
             <%= react_component('NewGame') %>
           </div>

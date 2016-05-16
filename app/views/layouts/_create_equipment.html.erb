@@ -9,7 +9,7 @@
           </div>
           <div>
             <%= f.label :category %>
-            <%= select_tag(:category, options_for_select([["Armor", "Armor"], ["Weapon", "Weapon"]]), include_blank: true) %>
+            <%= f.select(:category, options_for_select([["Armor", "Armor"], ["Weapon", "Weapon"]]), include_blank: true) %>
           </div>
           <div>
             <%= f.label :sub_category %>
