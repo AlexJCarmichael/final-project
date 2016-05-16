@@ -132,8 +132,18 @@ a.btn.delete {
   }
 }
 
+label {
+  font-size: 1em;
+}
+
 .padding-bottom {
   padding-bottom: 1em;
+}
+
+a.btn.color-stay {
+  &:hover {
+    color: white;
+  }
 }
 
 a.center.btn.clicky-button {

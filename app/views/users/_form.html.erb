@@ -1,10 +1,28 @@
-<div class='card dash-display'>
+<div class='card'>
   <%= form_for @user do |f| %>
-    <p>Username: <%= f.text_field :user_name %></p>
-    <p>Email address: <%= f.text_field :email %></p>
-    <p>Name: <%= f.text_field :name %></p>
-    <p>Password: <%= f.password_field :password %></p>
-    <p>Confirm Password: <%= f.password_field :password_confirmation %></p>
-    <%= f.submit %>
+    <div>
+      <%= f.label :user_name %>
+      <%= f.text_field :user_name %>
+    </div>
+    <div>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
+    <div>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+    <div>
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
+    </div>
+    <div>
+      <%= f.submit class: "btn" %>
+      <%= link_to "Sign in", sign_in_path, class: "btn color-stay" %>
+    </div>
   <% end %>
 </div>

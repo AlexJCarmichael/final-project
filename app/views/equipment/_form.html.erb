@@ -1,12 +1,44 @@
-<%= form_for @equip, remote: true do |f| %>
-  <p>Name(required): <%= f.text_field :name %></p>
-  <p>Category(required): <%= collection_select(:equipment, :category, Equipment.all, :category, :name) %>
-  <p>Sub Category(required):<%= f.text_field :sub_category %></p>
-  <p>Armor: <%= f.text_field :armor %></p>
-  <p>Damage: <%= f.text_field :damage %></p>
-  <p>Weight: <%= f.text_field :weight %></p>
-  <p>Reach: <%= f.text_field :reach %></p>
-  <p>Effects: <%= f.text_field :effects %></p>
-  <%= f.hidden_field :game_id, value: @game %>
-  <%= f.submit "Create Equipment"%>
-<% end %>
+<div class='body-color'>
+  <div class='in-a-modal card'>
+    <%= form_for @equip, remote: true do |f| %>
+      <div>
+        <div>
+          <%= f.label :name %>
+          <%= f.text_field :name, placeholder: "Broadsword or Sword of the Mourning" %>
+        </div>
+        <div>
+          <%= f.label :category %>
+          <%= f.text_field :category, placeholder: "Weapon or Armor only" %>
+        </div>
+        <div>
+          <%= f.label :sub_category %>
+          <%= f.text_field :sub_category, placeholder: "Sword, Dagger, Boots" %>
+        </div>
+        <div>
+          <%= f.label :armor %>
+          <%= f.text_field :armor, placeholder: "Provides +2 defense" %>
+        </div>
+        <div>
+          <%= f.label :damage %>
+          <%= f.text_field :damage, placeholder: "2d6" %>
+        </div>
+        <div>
+          <%= f.label :weight %>
+          <%= f.text_field :weight, placeholder: "2lbs or 1kg" %>
+        </div>
+        <div>
+          <%= f.label :reach %>
+          <%= f.text_field :reach, placeholder: "10 feet, 3 meters" %>
+        </div>
+        <div>
+          <%= f.label :effects %>
+          <%= f.text_field :effects, placeholder: "Allows character to swim without breathing" %>
+        </div>
+          <%= f.hidden_field :game_id, value: game_id %>
+        <div class='sm-top-margin'>
+          <%= f.submit %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
