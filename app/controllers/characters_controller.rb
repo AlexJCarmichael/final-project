@@ -36,6 +36,16 @@ class CharactersController < ApplicationController
       end
   end
 
+  def destroy
+    @character = get_character
+    game_id = params.fetch(:game)
+    if @character.destroy
+      redirect_to game_session_path(game_id)
+    else
+      flash[:alert] = "Character could not be deleted"
+    end
+  end
+
   private
   def get_character
     Character.find(params.fetch(:id))
