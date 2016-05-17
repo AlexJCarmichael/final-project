@@ -24,8 +24,8 @@
       <div class='row'>
         <h5 class='col s12 m5 center-text-only-small'>Characters</h5>
         <div class='col s12 m7'>
-          <div>
-            <a class="opens-modal btn right" href="#to-be-opened-modal">Create character</a>
+          <div class='center-text-only-small right-on-medium'>
+            <a class="opens-modal btn" href="#to-be-opened-modal">Create character</a>
             <div class="to-be-opened-modal modal">
               <%= render partial: 'layouts/new_character', object: @charater, :locals => { :npc => false,
                                                                               :sheet_template_id => @game.sheet_template.id,
@@ -72,8 +72,8 @@
         <div class='row'>
           <h5 class='col s12 m5 center-text-only-small'>NPCs</h5>
           <div class='col s12 m7'>
-            <div>
-              <a class="opens-modal btn right" href="#to-be-opened-modal">Create an NPC</a>
+            <div class='center-text-only-small right-on-medium'>
+              <a class="opens-modal btn" href="#to-be-opened-modal">Create an NPC</a>
               <div class="to-be-opened-modal modal">
                 <%= render partial: 'layouts/new_character', object: @charater, :locals => { :npc => true,
                                                                                 :sheet_template_id => @game.sheet_template.id,
