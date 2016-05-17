@@ -35,30 +35,38 @@
         </div>
       </div>
 
-      <% @characters.each do |char|%>
-        <div class='card'>
-          <div class='card-content'>
-            <div class='row plain'>
-              <h5 class='col s4 offset-s1'>
-                <a class="opens-modal" href="#to-be-opened-modal"><%= "#{char.name}" %></a>
-              </h5>
-              <div class="to-be-opened-modal modal">
-                <%= render partial: 'layouts/character_sheet', :locals => { :char => char } %>
-              </div>
-              </h5>
-              <h5 class='col s3 center-text'><%= char.level %></h5>
-              <h5 class='col s3 center-text'><%= char.currency %></h5>
-            </div>
-            <div class='row'>
-              <p class='col s4 offset-s1 plain'><a class="opens-modal" href="#to-be-opened-modal"> Played by: <%= char.user.name %></a></p>
+      <% if @characters.empty? %>
+      <div class='card'>
+        <div class='card-content'>
+          <p>There are no characters in this game. Create one and invite friends to do the same! </p>
+        </div>
+      </div>
+      <% else %>
+        <% @characters.each do |char|%>
+          <div class='card'>
+            <div class='card-content'>
+              <div class='row plain'>
+                <h5 class='col s4 offset-s1'>
+                  <a class="opens-modal" href="#to-be-opened-modal"><%= "#{char.name}" %></a>
+                </h5>
                 <div class="to-be-opened-modal modal">
-                  <%= render partial: 'layouts/user_show', :locals => { :user => char.user } %>
+                  <%= render partial: 'layouts/character_sheet', :locals => { :char => char } %>
                 </div>
-              <p class='col s3 center-text center-text'> Level</p>
-              <p class='col s3 center-text center-text'> Gold</p>
+                </h5>
+                <h5 class='col s3 center-text'><%= char.level %></h5>
+                <h5 class='col s3 center-text'><%= char.currency %></h5>
+              </div>
+              <div class='row'>
+                <p class='col s4 offset-s1 plain'><a class="opens-modal" href="#to-be-opened-modal"> Played by: <%= char.user.name %></a></p>
+                  <div class="to-be-opened-modal modal">
+                    <%= render partial: 'layouts/user_show', :locals => { :user => char.user } %>
+                  </div>
+                <p class='col s3 center-text center-text'> Level</p>
+                <p class='col s3 center-text center-text'> Gold</p>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
       <% if current_user.is_gm_of?(@game) %>
         <div class='row'>
@@ -74,26 +82,34 @@
             </div>
           </div>
         </div>
-          <% @npcs.each do |npc|%>
-            <div class='card plain'>
-              <div class='card-content'>
-                <div class='row'>
-                  <h5 class='col s4 offset-s1'>
-                    <a class="opens-modal" href="#to-be-opened-modal"><%= "#{npc.name}" %></a>
-                  </h5>
-                  <div class="to-be-opened-modal modal">
-                    <%= render partial: 'layouts/character_sheet', :locals => { :char => npc } %>
+          <% if @npcs.empty? %>
+          <div class='card'>
+            <div class='card-content'>
+              <p>There are no non-player characters in this game. </p>
+            </div>
+          </div>
+          <% else %>
+            <% @npcs.each do |npc|%>
+              <div class='card plain'>
+                <div class='card-content'>
+                  <div class='row'>
+                    <h5 class='col s4 offset-s1'>
+                      <a class="opens-modal" href="#to-be-opened-modal"><%= "#{npc.name}" %></a>
+                    </h5>
+                    <div class="to-be-opened-modal modal">
+                      <%= render partial: 'layouts/character_sheet', :locals => { :char => npc } %>
+                    </div>
+                    <h5 class='col s3 center-text'><%= npc.level %></h5>
+                    <h5 class='col s3 center-text'><%= npc.currency %></h5>
                   </div>
-                  <h5 class='col s3 center-text'><%= npc.level %></h5>
-                  <h5 class='col s3 center-text'><%= npc.currency %></h5>
-                </div>
-                <div class='row'>
-                  <p class='col s4 offset-s1'> Played by: <%= npc.user.name %></p>
-                  <p class='col s3 center-text center-text'> Level</p>
-                  <p class='col s3 center-text center-text'> Gold</p>
+                  <div class='row'>
+                    <p class='col s4 offset-s1'> Played by: <%= npc.user.name %></p>
+                    <p class='col s3 center-text center-text'> Level</p>
+                    <p class='col s3 center-text center-text'> Gold</p>
+                  </div>
                 </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
         <% end %>
       </div>
@@ -111,7 +127,15 @@
                    <%= render partial: 'layouts/user_show', :locals => { :user => player.user } %>
                  </div>
                </span>
-               <p><%= player.user.user_name %></p>
+               <p>
+                 <%= player.user.user_name %> <br>
+                 <% if current_user.is_gm_of?(@game) && (player.user.id != current_user.id) %>
+                  <span><%= link_to "Delete", player_character_path(player.id, game: player.game_session_id), method: :delete,
+                                                                                data: { confirm: "Are you sure you want to delete this player?
+                                                                                   Their characters will be deleted as well." },
+                                                                                class: "delete btn" %></span>
+                 <% end %>
+               </p>
              </li>
             <% end %>
           </ul>

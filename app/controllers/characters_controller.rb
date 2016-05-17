@@ -46,6 +46,11 @@ class CharactersController < ApplicationController
     end
   end
 
+  def player
+    Player.find(params.fetch(:id)).destroy
+    redirect_to game_session_path(params.fetch(:game))
+  end
+
   private
   def get_character
     Character.find(params.fetch(:id))
