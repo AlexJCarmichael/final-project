@@ -9,26 +9,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-  <nav>
-    <div class="nav-wrapper">
-      <% if signed_in? %>
-        <div class='right'>
-          <ul>
-            <li><%= link_to 'Home', root_path %></li>
-            <li><a href='/about'>About</a></li>
-            <li><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
-            </ul>
-        </div>
-        <% else %>
-        <div class='right'>
-          <ul>
-            <li><%= link_to 'Sign in', sign_in_path %></li>
-            <li><%= link_to t(".sign_up"), sign_up_path %></li>
-          </ul>
-        </div>
-      <% end %>
-    </div>
-  </nav>
+  <% if signed_in? %>
+    <nav>
+      <div class="nav-wrapper">
+      <a href="/" class="brand-logo">Role Together</a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class='right hide-on-med-and-down'>
+          <li><%= link_to 'Home', root_path %></li>
+          <li><a href='/about'>About</a></li>
+          <li><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <li><%= link_to 'Home', root_path %></li>
+          <li><a href='/about'>About</a></li>
+          <li><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
+        </ul>
+      </div>
+    </nav>
+  <% else %>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="/" class="brand-logo">Role Together</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class='right hide-on-med-and-down'>
+          <li><%= link_to 'Sign in', sign_in_path %></li>
+          <li><%= link_to t(".sign_up"), sign_up_path %></li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <li><%= link_to 'Sign in', sign_in_path %></li>
+          <li><%= link_to t(".sign_up"), sign_up_path %></li>
+        </ul>
+      </div>
+    </nav>
+    <% end %>
+
   <div class='container'>
     <div id='flash'>
       <% flash.each do |key, value| %>

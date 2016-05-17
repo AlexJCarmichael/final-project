@@ -48,6 +48,8 @@ ready = function() {
 
     $(".dropdown-button").dropdown();
 
+    $(".button-collapse").sideNav();
+
     $("#sheet_template").on("click",function(){
         $("#sheet_template_modal").openModal();
     }),
