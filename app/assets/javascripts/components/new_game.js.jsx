@@ -40,7 +40,7 @@ var NewGame = React.createClass({
 
   render: function () {
     return (
-      <div className="body-color">
+      <div>
         <div className="in-a-modal">
           <h6>Name your game</h6>
           <div>
