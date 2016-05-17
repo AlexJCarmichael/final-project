@@ -14,7 +14,7 @@ Feature: Walkthrough
     And I fill in "Email" with "test@test.test"
     And I fill in "Password" with "password"
     And I press "Sign in"
-    And I click "Sign out"
+    And I click "Sign Out"
     Then I should see "Sign in"
 
   @javascript

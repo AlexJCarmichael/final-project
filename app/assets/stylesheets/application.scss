@@ -70,6 +70,13 @@ a.btn.delete {
   }
 }
 
+#mobile-demo {
+  background-color: $primary-color;
+  a {
+    color: white;
+  }
+}
+
 .small-left-margin {
   margin-left: 1.5em;
 }
