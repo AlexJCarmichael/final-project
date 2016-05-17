@@ -140,6 +140,7 @@ a.btn.delete {
 
 label {
   font-size: 1em;
+  color: black;
 }
 
 .padding-bottom {
@@ -354,19 +355,19 @@ input.upper-margin {
 }
 
 ::-webkit-input-placeholder {
-   color: #5E5E5E;
+   color: #C7CCD0;
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: #5E5E5E;
+   color: #C7CCD0;
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: #5E5E5E;
+   color: #C7CCD0;
 }
 
 :-ms-input-placeholder {
-   color: #5E5E5E;
+   color: #C7CCD0;
 }
 
 @media only screen and (min-width: 600px) {
