@@ -65,9 +65,24 @@ strong {
 a.btn.delete {
   background-color: #B03060;
   text-decoration: none;
+  color: white;
   &:hover {
     background-color: darken(#B03060, 20%);
-    color: black;
+    color: white;
+  }
+}
+
+  .dash-display {
+    a.delete {
+      background-color: #B03060;
+      text-decoration: none;
+      color: white;
+      padding: .25em .3em;
+      border-radius: 2px;
+      &:hover {
+        background-color: darken(#B03060, 20%);
+        color: white;
+    }
   }
 }
 
@@ -360,6 +375,12 @@ input[type="text"]{
 
 .collapse {
   display: none;
+}
+
+h6.clicky-button.btn {
+  &:hover {
+    color: white;
+  }
 }
 
 .image-wrapper {
