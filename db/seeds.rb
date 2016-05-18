@@ -17,12 +17,14 @@ Friend.create(user_id: user.id, to_user_id: user4.id, status: "pending")
 
 sheet = SheetTemplate.create(game_name: "Dungeons and Dragons 3.5", user_id: 1)
 
-sheet_stat1 = Stat.create(name: "Strength")
-sheet_stat2 = Stat.create(name: "Dexterity")
-sheet_stat3 = Stat.create(name: "Constitution")
-sheet_stat4 = Stat.create(name: "Intelligence")
-sheet_stat5 = Stat.create(name: "Wisdom")
-sheet_stat6 = Stat.create(name: "Charisma")
+sheet_stats = []
+
+sheet_stats << Stat.create(name: "Strength")
+sheet_stats << Stat.create(name: "Dexterity")
+sheet_stats << Stat.create(name: "Constitution")
+sheet_stats << Stat.create(name: "Intelligence")
+sheet_stats << Stat.create(name: "Wisdom")
+sheet_stats << Stat.create(name: "Charisma")
 
 sheet_skills = []
 
@@ -58,12 +60,8 @@ sheet_skills << Skill.create(name: "Tumble")
 sheet_skills << Skill.create(name: "Use Magic Device")
 sheet_skills << Skill.create(name: "Use Rope")
 
-SheetStat.create(sheet_template_id: sheet.id, stat_id: sheet_stat1.id)
-SheetStat.create(sheet_template_id: sheet.id, stat_id: sheet_stat2.id)
-SheetStat.create(sheet_template_id: sheet.id, stat_id: sheet_stat3.id)
-SheetStat.create(sheet_template_id: sheet.id, stat_id: sheet_stat4.id)
-SheetStat.create(sheet_template_id: sheet.id, stat_id: sheet_stat5.id)
-SheetStat.create(sheet_template_id: sheet.id, stat_id: sheet_stat6.id)
+sheet_stats.each do |stat|
+  SheetStat.create(sheet_template_id: sheet_id, stat_id: stat.id)
 
 sheet_skills.each do |skill|
   SheetSkill.create(sheet_template_id: sheet.id, skill_id: skill.id)
