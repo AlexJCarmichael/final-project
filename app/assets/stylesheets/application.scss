@@ -267,6 +267,10 @@ a.btn {
   margin-top: 1em;
 }
 
+.sm-top-margin-only-small {
+  margin-top: 1em;
+}
+
 .character-form {
   display: inline-block;
   max-width: 3em;
@@ -409,6 +413,10 @@ input.upper-margin {
 
   .right-on-medium {
     float: right;
+  }
+
+  .sm-top-margin-only-small {
+    margin-top: 0;
   }
 }
 
