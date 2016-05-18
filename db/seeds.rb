@@ -15,17 +15,61 @@ Friend.create(user_id: user.id, to_user_id: user2.id, status: "accepted")
 Friend.create(user_id: user.id, to_user_id: user3.id, status: "accepted")
 Friend.create(user_id: user.id, to_user_id: user4.id, status: "pending")
 
-sheet = SheetTemplate.create(game_name: "Danes and Dragons", user_id: 1)
+sheet = SheetTemplate.create(game_name: "Dungeons and Dragons 3.5", user_id: 1)
 
-sheet_skill1 = Skill.create(name: "Acrobatics")
-sheet_skill2 = Skill.create(name: "Sword")
 sheet_stat1 = Stat.create(name: "Strength")
 sheet_stat2 = Stat.create(name: "Dexterity")
+sheet_stat3 = Stat.create(name: "Constitution")
+sheet_stat4 = Stat.create(name: "Intelligence")
+sheet_stat5 = Stat.create(name: "Wisdom")
+sheet_stat6 = Stat.create(name: "Charisma")
 
-SheetSkill.create(sheet_template_id: sheet.id, skill_id: sheet_skill1.id)
-SheetSkill.create(sheet_template_id: sheet.id, skill_id: sheet_skill2.id)
+sheet_skills = []
+
+sheet_skills << Skill.create(name: "Appraise")
+sheet_skills << Skill.create(name: "Balance")
+sheet_skills << Skill.create(name: "Bluff")
+sheet_skills << Skill.create(name: "Climb")
+sheet_skills << Skill.create(name: "Concentration")
+sheet_skills << Skill.create(name: "Decipher Script")
+sheet_skills << Skill.create(name: "Diplomacy")
+sheet_skills << Skill.create(name: "Disable Device")
+sheet_skills << Skill.create(name: "Disguise")
+sheet_skills << Skill.create(name: "Escape Artist")
+sheet_skills << Skill.create(name: "Forgery")
+sheet_skills << Skill.create(name: "Gather Information")
+sheet_skills << Skill.create(name: "Handle Animal")
+sheet_skills << Skill.create(name: "Heal")
+sheet_skills << Skill.create(name: "Hide")
+sheet_skills << Skill.create(name: "Intimidate")
+sheet_skills << Skill.create(name: "Jump")
+sheet_skills << Skill.create(name: "Listen")
+sheet_skills << Skill.create(name: "Move Silently")
+sheet_skills << Skill.create(name: "Open Lock")
+sheet_skills << Skill.create(name: "Ride")
+sheet_skills << Skill.create(name: "Search")
+sheet_skills << Skill.create(name: "Sense Motive")
+sheet_skills << Skill.create(name: "Sleight of Hand")
+sheet_skills << Skill.create(name: "Spellcraft")
+sheet_skills << Skill.create(name: "Spot")
+sheet_skills << Skill.create(name: "Survival")
+sheet_skills << Skill.create(name: "Swim")
+sheet_skills << Skill.create(name: "Tumble")
+sheet_skills << Skill.create(name: "Use Magic Device")
+sheet_skills << Skill.create(name: "Use Rope")
+
 SheetStat.create(sheet_template_id: sheet.id, stat_id: sheet_stat1.id)
 SheetStat.create(sheet_template_id: sheet.id, stat_id: sheet_stat2.id)
+SheetStat.create(sheet_template_id: sheet.id, stat_id: sheet_stat3.id)
+SheetStat.create(sheet_template_id: sheet.id, stat_id: sheet_stat4.id)
+SheetStat.create(sheet_template_id: sheet.id, stat_id: sheet_stat5.id)
+SheetStat.create(sheet_template_id: sheet.id, stat_id: sheet_stat6.id)
+
+sheet_skills.each do |skill|
+  SheetSkill.create(sheet_template_id: sheet.id, skill_id: skill.id)
+end
+
+
 
 session = GameSession.create(session_name: "Dane's Cool Game", user_id: user.id, game_time: Time.new(2016, 5, 20, 20, 0, 0))
 ChatSession.create(game_session_id: session.id)
@@ -54,17 +98,17 @@ dex4 = Stat.create(name: "Dexterity", rank: 18)
 strength = [str1, str2, str3, str4]
 dexterity = [dex1, dex2, dex3, dex4]
 
-acro1 = Skill.create(name: "Acrobatics", rank: 12)
-acro2 = Skill.create(name: "Acrobatics", rank: 18)
-acro3 = Skill.create(name: "Acrobatics", rank: 6)
-acro4 = Skill.create(name: "Acrobatics", rank: 7)
-sword1 = Skill.create(name: "Sword", rank: 2)
-sword2 = Skill.create(name: "Sword", rank: 5)
-sword3 = Skill.create(name: "Sword", rank: 7)
-sword4 = Skill.create(name: "Sword", rank: 8)
+ride1 = Skill.create(name: "Ride", rank: 12)
+ride2 = Skill.create(name: "Ride", rank: 18)
+ride3 = Skill.create(name: "Ride", rank: 6)
+ride4 = Skill.create(name: "Ride", rank: 7)
+hide1 = Skill.create(name: "Hide", rank: 2)
+hide2 = Skill.create(name: "Hide", rank: 5)
+hide3 = Skill.create(name: "Hide", rank: 7)
+hide4 = Skill.create(name: "Hide", rank: 8)
 
-acroArr = [acro1, acro2, acro3, acro4]
-swordArr = [sword1, sword2, sword3, sword4]
+rideArr = [ride1, ride2, ride3, ride4]
+hideArr = [hide1, hide2, hide3, hide4]
 
 weapon1 = Equipment.create(name: "Katana", damage: "2d6", category: "Weapon", sub_category: "Sword", weight: "3lbs")
 weapon2 = Equipment.create(name: "Rapier", damage: "1d6+2", category: "Weapon", sub_category: "Sword", weight: "2lbs")
@@ -86,12 +130,15 @@ armorArr.each do |item|
   SessionItem.create(equipment_id: item.id, game_session_id: 1)
 end
 
+Equipment.create(name: "Sword of the Morning", damage: "3d6", category: "Weapon", sub_category: "Sword", weight: "1lbs")
+Equipment.create(name: "Chainmail Hauberk", category: "Armor", armor: "Provides 3 defense", sub_category: "Boots", weight: "5lb")
+
 characters.each do |char|
   CharStat.create(character_id: char.id, stat_id: strength.sample.id)
   CharStat.create(character_id: char.id, stat_id: dexterity.sample.id)
 
-  CharSkill.create(character_id: char.id, skill_id: acroArr.sample.id)
-  CharSkill.create(character_id: char.id, skill_id: swordArr.sample.id)
+  CharSkill.create(character_id: char.id, skill_id: hideArr.sample.id)
+  CharSkill.create(character_id: char.id, skill_id: rideArr.sample.id)
 
   CharEquip.create(character_id: char.id, equipment_id: weaponArr.sample.id)
   CharEquip.create(character_id: char.id, equipment_id: armorArr.sample.id)
