@@ -2,15 +2,16 @@ var MakeName = React.createClass({
   getInitialState: function (){
     return {
       postText: '',
-      divClass: "hide"
+      divClass: "hide",
+      displayName: this.props.display_name
     };
   },
 
   handleClick: function (){
     if (this.state.divClass === "hide") {
-      this.setState({divClass: ""});
+      this.setState({divClass: "", displayName: "Close"});
     }else {
-      this.setState({divClass: "hide"});
+      this.setState({divClass: "hide", displayName: this.props.display_name});
     }
   },
 
@@ -46,11 +47,10 @@ var MakeName = React.createClass({
   },
 
   render: function () {
-    var header = this.props.display_name;
     var place = this.props.placeholder;
     return (
       <div>
-        <h6 onClick={this.handleClick} className="clicky-button btn">{header}</h6>
+        <h6 onClick={this.handleClick} className="clicky-button btn">{this.state.displayName}</h6>
         <div className={this.state.divClass}>
           <input className="center"
             placeholder={place}
