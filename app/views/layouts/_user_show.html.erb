@@ -1,5 +1,5 @@
 <div>
-  <div class='in-a-modal'>
+  <div class=''>
     <div class='card-content'>
       <h4><%= user.name %></h4>
       <h5>Games</h5>
@@ -12,12 +12,12 @@
               <%= session.actors.count %>
               <i class="person-icon material-icons">portrait</i>
             </div>
-            <div class='col s5 center'>
+            <div class='col s6 center'>
               <% if session.sheet_template %>
                 <span class='border-me'><%= session.sheet_template.game_name %></span>
                 <% end %>
             </div>
-            <div class='col s4'>
+            <div class='col s3'>
               <span class="right small-right-margin"><%=session.game_time.strftime("%A %l%P")%></span>
             </div>
           </h6>
