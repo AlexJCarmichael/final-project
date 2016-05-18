@@ -99,7 +99,7 @@ var CharacterSheet = React.createClass({
               })}
               </div>
           </div>
-          <h6>Equipment</h6>
+          <h6 className="center">Equipment</h6>
           <EquipmentSearch
             alingment="center"
             gameId={this.props.game_id}
