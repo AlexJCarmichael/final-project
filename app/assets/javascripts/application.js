@@ -26,25 +26,25 @@ ready = function() {
 
     $(".clicky-button").on("click", function () {
         $(this).parent().find(".expand-me").toggleClass("hide-on-small-only");
-    }),
+    });
 
     $("#clicky-button").on("click", function () {
         $("#collapse-me").toggleClass("collapse");
-    }),
+    });
 
     $(".click-me").on("click", function () {
         $(this).parent().find(".hidden").toggleClass("hide");
-    }),
+    });
 
     $("select").material_select();
 
     $("#flash").on("click", function () {
         $(this).addClass("hide");
-    }),
+    });
 
     $(".opens-modal").on("click",function(){
         $(this).parent().parent().find(".to-be-opened-modal").openModal();
-    }),
+    });
 
     $(".dropdown-button").dropdown();
 
@@ -52,11 +52,13 @@ ready = function() {
 
     $("#sheet_template").on("click",function(){
         $("#sheet_template_modal").openModal();
-    }),
+    });
 
     $("#opens-modal").on("click",function(){
         $("#within-modal").openModal();
-    }),
+    });
+
+    Materialize.updateTextFields();
 
     newEquipment.on("ajax:complete", function() {
         newEquipment.children().find("input[type=text]").val("");

@@ -41,7 +41,7 @@ var CharacterSheet = React.createClass({
     var that = this;
     return (
       <div>
-        <h4>{charName}</h4>
+        <h4 className="center-text-only-small">{charName} {this.toggleEdit()}</h4>
         <p>{charBio}</p>
         <div className="row">
         <MakeRank
@@ -65,39 +65,44 @@ var CharacterSheet = React.createClass({
             changeCharacter="true"
             />
         </div>
-        <h6>Atributes</h6>
-        {this.props.stats.map(function(stat) {
-          return (
-          <MakeRank
-            subject="stats"
-            key={stat.id}
-            id={stat.id}
-            name={stat.name}
-            rank={stat.rank}
-            canEdit={that.state.editable}
-            />
-          );
-        })}
-        <h6>Skills</h6>
-        {this.props.skills.map(function(skill) {
-          return (
-          <MakeRank
-            subject="skills"
-            key={skill.id}
-            id={skill.id}
-            name={skill.name}
-            rank={skill.rank}
-            canEdit={that.state.editable}
-            />
-          );
-        })}
-        <h6>Equipment</h6>
-        <EquipmentSearch
-          gameId={this.props.game_id}
-          searchFor={this.props.searchFor}
-          characterId={this.props.character_id} />
-          {this.showEquipment()}
-          {this.toggleEdit()}
+        <div>
+          <div className="row">
+            <h6>Atributes</h6>
+            {this.props.stats.map(function(stat) {
+              return (
+              <MakeRank
+                subject="stats"
+                key={stat.id}
+                id={stat.id}
+                name={stat.name}
+                rank={stat.rank}
+                canEdit={that.state.editable}
+                />
+              );
+            })}
+            </div>
+            <div className="row">
+            <h6>Skills</h6>
+            {this.props.skills.map(function(skill) {
+              return (
+              <MakeRank
+                subject="skills"
+                key={skill.id}
+                id={skill.id}
+                name={skill.name}
+                rank={skill.rank}
+                canEdit={that.state.editable}
+                />
+              );
+            })}
+          </div>
+          <h6>Equipment</h6>
+          <EquipmentSearch
+            gameId={this.props.game_id}
+            searchFor={this.props.searchFor}
+            characterId={this.props.character_id} />
+            {this.showEquipment()}
+        </div>
       </div>
     );
   },

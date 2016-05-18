@@ -61,7 +61,8 @@ sheet_skills << Skill.create(name: "Use Magic Device")
 sheet_skills << Skill.create(name: "Use Rope")
 
 sheet_stats.each do |stat|
-  SheetStat.create(sheet_template_id: sheet_id, stat_id: stat.id)
+  SheetStat.create(sheet_template_id: sheet.id, stat_id: stat.id)
+end
 
 sheet_skills.each do |skill|
   SheetSkill.create(sheet_template_id: sheet.id, skill_id: skill.id)
@@ -83,30 +84,6 @@ a_random_hero = Character.create(name: "A Random Hero", bio: "You know A Random 
 morales = Character.create(name: "Morales", bio: "You know Morales", player_id: player3.id, sheet_template_id: sheet.id, level: "5", currency: "500", npc: false)
 
 characters = [jaxom, a_random_hero, morales]
-
-str1 = Stat.create(name: "Strength", rank: 6)
-str2 = Stat.create(name: "Strength", rank: 3)
-str3 = Stat.create(name: "Strength", rank: 12)
-str4 = Stat.create(name: "Strength", rank: 9)
-dex1 = Stat.create(name: "Dexterity", rank: 1)
-dex2 = Stat.create(name: "Dexterity", rank: 12)
-dex3 = Stat.create(name: "Dexterity", rank: 15)
-dex4 = Stat.create(name: "Dexterity", rank: 18)
-
-strength = [str1, str2, str3, str4]
-dexterity = [dex1, dex2, dex3, dex4]
-
-ride1 = Skill.create(name: "Ride", rank: 12)
-ride2 = Skill.create(name: "Ride", rank: 18)
-ride3 = Skill.create(name: "Ride", rank: 6)
-ride4 = Skill.create(name: "Ride", rank: 7)
-hide1 = Skill.create(name: "Hide", rank: 2)
-hide2 = Skill.create(name: "Hide", rank: 5)
-hide3 = Skill.create(name: "Hide", rank: 7)
-hide4 = Skill.create(name: "Hide", rank: 8)
-
-rideArr = [ride1, ride2, ride3, ride4]
-hideArr = [hide1, hide2, hide3, hide4]
 
 weapon1 = Equipment.create(name: "Katana", damage: "2d6", category: "Weapon", sub_category: "Sword", weight: "3lbs")
 weapon2 = Equipment.create(name: "Rapier", damage: "1d6+2", category: "Weapon", sub_category: "Sword", weight: "2lbs")
@@ -131,12 +108,18 @@ end
 Equipment.create(name: "Sword of the Morning", damage: "3d6", category: "Weapon", sub_category: "Sword", weight: "1lbs")
 Equipment.create(name: "Chainmail Hauberk", category: "Armor", armor: "Provides 3 defense", sub_category: "Boots", weight: "5lb")
 
-characters.each do |char|
-  CharStat.create(character_id: char.id, stat_id: strength.sample.id)
-  CharStat.create(character_id: char.id, stat_id: dexterity.sample.id)
+skill_ranks = [0, 0, 0, 0, 1, 2, 3, 4, 5]
 
-  CharSkill.create(character_id: char.id, skill_id: hideArr.sample.id)
-  CharSkill.create(character_id: char.id, skill_id: rideArr.sample.id)
+characters.each do |char|
+  sheet.stats.each do |stat|
+    char_stat = Stat.create(name: stat.name, rank: rand(8..18))
+    CharStat.create(character_id: char.id, stat_id: char_stat.id) if char_stat
+  end
+
+  sheet.skills.each do |skill|
+    char_skill = Skill.create(name: skill.name, rank: skill_ranks.sample)
+    CharSkill.create(character_id: char.id, skill_id: char_skill.id) if char_skill
+  end
 
   CharEquip.create(character_id: char.id, equipment_id: weaponArr.sample.id)
   CharEquip.create(character_id: char.id, equipment_id: armorArr.sample.id)

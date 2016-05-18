@@ -32,29 +32,37 @@ var MakeRank = React.createClass({
     });
   },
 
-  changeRender: function (){
-    if (this.props.canEdit === true) {
+  hideZeroRank: function (){
+    if (this.state.rank === 0) {
       return (
-        <div className="sm-margin row">
-            <div className="input-field col s12 m6 l6">
-              <span className="in-line col s6 m5 l4">{this.props.name}: </span>
-              <input type="text" className="character-form col s6 m5 l4" value={this.state.rank}
-                                                                          onKeyDown={this.handleDown}
-                                                                          onChange={this.handleChange}/>
-            </div>
-        </div>
+        <span></span>
       );
     } else {
       return (
-        <div className="sm-margin row">
-            <div className="input-field col s12 m6 l6">
-              <span className="in-line col s6 m5 l5">{this.props.name}: </span>
-              <input type="text" className="character-form col s6 m5 l5" value={this.state.rank}
+            <div>
+              <label className="in-line col s6 m6 l5">{this.props.name}: </label>
+              <input type="text" className="character-form col s4 m4 l5" value={this.state.rank}
                                                                           onKeyDown={this.handleDown}
                                                                           disabled='true'
                                                                           onChange={this.handleChange}/>
             </div>
-        </div>
+      );
+    }
+  },
+
+  changeRender: function (){
+    if (this.props.canEdit === true) {
+      return (
+            <div className="">
+              <label htmlFor={this.props.name + this.props.id} className="in-line col s6 m6 l5">{this.props.name}: </label>
+              <input  id={this.props.name + this.props.id} type="text" className="character-form col s4 m4 l5" value={this.state.rank}
+                                                                          onKeyDown={this.handleDown}
+                                                                          onChange={this.handleChange}/>
+            </div>
+      );
+    } else {
+      return (
+        this.hideZeroRank()
       );
     }
   },
