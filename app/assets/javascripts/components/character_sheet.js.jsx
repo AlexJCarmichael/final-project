@@ -29,7 +29,7 @@ var CharacterSheet = React.createClass({
   },
 
   toggleEdit: function (){
-    return (<h6 onClick={this.handleClick} className="clicky-button btn">Edit this character</h6>)
+    return (<h6 onClick={this.handleClick} className="clicky-button btn right">Edit</h6>)
   },
 
   render: function() {
@@ -44,30 +44,32 @@ var CharacterSheet = React.createClass({
         <h4 className="center-text-only-small">{charName} {this.toggleEdit()}</h4>
         <p>{charBio}</p>
         <div className="row">
-        <MakeRank
-          className='col s6'
-          subject="characters"
-          id={charId}
-          name="Level"
-          rank={charLevel}
-          charAttr="level"
-          canEdit={that.state.editable}
-          changeCharacter="true"
-          />
-          <MakeRank
-            className='col s6'
-            subject="characters"
-            id={charId}
-            name="Currency"
-            rank={charCurrency}
-            charAttr="currency"
-            canEdit={that.state.editable}
-            changeCharacter="true"
-            />
+          <div className="col s12 m6 l6">
+            <MakeRank
+              subject="characters"
+              id={charId}
+              name="Level"
+              rank={charLevel}
+              charAttr="level"
+              canEdit={that.state.editable}
+              changeCharacter="true"
+              />
+            </div>
+            <div className="col s12 m6 l6">
+              <MakeRank
+                subject="characters"
+                id={charId}
+                name="Currency"
+                rank={charCurrency}
+                charAttr="currency"
+                canEdit={that.state.editable}
+                changeCharacter="true"
+                />
+            </div>
         </div>
-        <div>
-          <div className="row">
-            <h6>Atributes</h6>
+        <div className="row">
+          <div className="col s12 m6 l6">
+            <h6>Attributes</h6>
             {this.props.stats.map(function(stat) {
               return (
               <MakeRank
@@ -81,29 +83,30 @@ var CharacterSheet = React.createClass({
               );
             })}
             </div>
-            <div className="row">
-            <h6>Skills</h6>
-            {this.props.skills.map(function(skill) {
-              return (
-              <MakeRank
-                subject="skills"
-                key={skill.id}
-                id={skill.id}
-                name={skill.name}
-                rank={skill.rank}
-                canEdit={that.state.editable}
-                />
-              );
-            })}
+            <div className="col s12 m6 l6">
+              <h6>Skills</h6>
+              {this.props.skills.map(function(skill) {
+                return (
+                <MakeRank
+                  subject="skills"
+                  key={skill.id}
+                  id={skill.id}
+                  name={skill.name}
+                  rank={skill.rank}
+                  canEdit={that.state.editable}
+                  />
+                );
+              })}
+              </div>
           </div>
           <h6>Equipment</h6>
           <EquipmentSearch
+            alingment="center"
             gameId={this.props.game_id}
             searchFor={this.props.searchFor}
             characterId={this.props.character_id} />
             {this.showEquipment()}
         </div>
-      </div>
     );
   },
 });

@@ -12,8 +12,10 @@
             game_id: char.player.game_session_id,
             searchFor: "character_equipment",
             character_id: char.id) %>
-    <%= link_to "Delete", character_path(char.id, game: char.player.game_session_id), method: :delete,
-                                                    data: { confirm: "Are you sure you want to delete this character?" },
-                                                    class: "delete btn" %>
+    <div class="overflow-hidden">
+      <%= link_to "Delete", character_path(char.id, game: char.player.game_session_id), method: :delete,
+                                                      data: { confirm: "Are you sure you want to delete this character?" },
+                                                      class: "delete btn right" %>
+    </div>
   </div>
 </div>

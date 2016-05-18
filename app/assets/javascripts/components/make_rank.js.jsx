@@ -40,8 +40,8 @@ var MakeRank = React.createClass({
     } else {
       return (
             <div>
-              <label className="in-line col s6 m6 l5">{this.props.name}: </label>
-              <input type="text" className="character-form col s4 m4 l5" value={this.state.rank}
+              <label className="in-line col s6 m6 l6">{this.props.name}: </label>
+              <input type="text" className="character-form col s6 m3 l3" value={this.state.rank}
                                                                           onKeyDown={this.handleDown}
                                                                           disabled='true'
                                                                           onChange={this.handleChange}/>
@@ -53,7 +53,7 @@ var MakeRank = React.createClass({
   changeRender: function (){
     if (this.props.canEdit === true) {
       return (
-            <div className="">
+            <div className="row">
               <label htmlFor={this.props.name + this.props.id} className="in-line col s6 m6 l5">{this.props.name}: </label>
               <input  id={this.props.name + this.props.id} type="text" className="character-form col s4 m4 l5" value={this.state.rank}
                                                                           onKeyDown={this.handleDown}
