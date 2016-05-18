@@ -67,6 +67,7 @@ a.btn.delete {
   text-decoration: none;
   &:hover {
     background-color: darken(#B03060, 20%);
+    color: black;
   }
 }
 
@@ -129,6 +130,9 @@ a.btn.delete {
       .btn {
         color: white;
         text-decoration: none;
+        &:hover {
+          color: white;
+        }
       }
     }
   strong {
@@ -168,7 +172,7 @@ a.center.btn.clicky-button {
   color: white;
   text-decoration: none;
   &:hover {
-    color: black;
+    color: white;
   }
 }
 
@@ -176,13 +180,13 @@ a.center-text.btn {
   color: white;
   text-decoration: none;
   &:hover {
-    color: black;
+    color: white;
   }
 }
 
 a.btn {
   &:hover {
-    color: black;
+    color: white;
   }
 }
 
