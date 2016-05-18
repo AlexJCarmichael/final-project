@@ -4,15 +4,16 @@ var EquipmentSearch = React.createClass({
       equipment: [],
       filteredEquipment: [],
       search: "",
-      divClass: "hide"
+      divClass: "hide",
+      headerText: this.headerText()
     };
   },
 
   handleClick: function (){
     if (this.state.divClass === "hide") {
-      this.setState({divClass: ""});
+      this.setState({divClass: "", headerText: "Close"});
     }else {
-      this.setState({divClass: "hide"});
+      this.setState({divClass: "hide", headerText: this.headerText()});
     }
   },
 
@@ -90,7 +91,7 @@ var EquipmentSearch = React.createClass({
     return (
       <div>
         <div className={this.props.alingment}>
-          <h6 onClick={this.handleClick} className="clicky-button btn">{this.headerText()}</h6>
+          <h6 onClick={this.handleClick} className="clicky-button btn">{this.state.headerText}</h6>
         </div>
         <div className={this.state.divClass}>
           <input className= "upper-margin" type="text"
