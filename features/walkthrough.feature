@@ -78,3 +78,12 @@ Feature: Walkthrough
     And I click "Dane's Cool Game"
     And I click "Create character"
     Then I should see "Bio"
+
+  Scenario: A User Visits the About Page
+    Given I have an existing test environment
+    When I go to the root path
+    And I fill in "Email" with "test@test.test"
+    And I fill in "Password" with "password"
+    And I press "Sign in"
+    And I click "About"
+    Then I should see "Janina Hartley"
