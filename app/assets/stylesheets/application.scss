@@ -62,6 +62,15 @@ strong {
   }
 }
 
+.clicky-this {
+  text-align: center;
+  text-decoration: underline;
+  &:hover {
+      cursor: pointer;
+      color: inherit;
+    }
+}
+
 a.btn.delete {
   background-color: #B03060;
   text-decoration: none;

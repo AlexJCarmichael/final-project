@@ -18,7 +18,7 @@ var CreateGameSheet = React.createClass ({
 
   render: function () {
     return (
-      <p className="clicky-button" onClick={this.handlePost}>{this.props.sheet.game_name}</p>
+      <p className="clicky-this" onClick={this.handlePost}>{this.props.sheet.game_name}</p>
     );
   },
 });

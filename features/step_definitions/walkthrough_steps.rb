@@ -103,7 +103,11 @@ When(/^I click "([^"]*)"$/) do |name|
 end
 
 When(/^I find "([^"]*)"$/) do |id|
-  page.find("##{id}").click
+  page.find(id).click
+end
+
+When(/^I wait for (\d+) seconds$/) do |time|
+  sleep(time.to_i)
 end
 
 Then(/^I should see "([^"]*)"$/) do |header|

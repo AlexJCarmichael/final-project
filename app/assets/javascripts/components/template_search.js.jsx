@@ -50,13 +50,16 @@ var TemplateSearch = React.createClass({
         <div>
           <div>
             <input type="text"
+             id="template-field"
             onChange={this.filterList} value={this.state.search}
             placeholder="Sheet Template name" />
           </div>
           <div>
             {this.sheetNames()}
           </div>
-          <strong className="center-text">Click on a template to select it</strong>
+          <div className="center-text">
+            <strong className="center-text">Click on a template to select it</strong>
+          </div>
         </div>
       );
     },
