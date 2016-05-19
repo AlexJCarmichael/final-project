@@ -36,12 +36,45 @@ Feature: Walkthrough
     And I press "Sign in"
     Then I should see "Awaiting approval"
 
-    @javascript
-    Scenario: A User Goes To a Game session
-      Given I have an existing test environment
-      When I go to the root path
-      And I fill in "Email" with "test@test.test"
-      And I fill in "Password" with "password"
-      And I press "Sign in"
-      And I click "Dane's Cool Game"
-      Then I should see "Dane's Cool Game"
+  @javascript
+  Scenario: A User Goes To a Game Session
+    Given I have an existing test environment
+    When I go to the root path
+    And I fill in "Email" with "test@test.test"
+    And I fill in "Password" with "password"
+    And I press "Sign in"
+    And I click "Dane's Cool Game"
+    Then I should see "Dane's Cool Game"
+
+  @javascript
+  Scenario: A Game Session Has a Sheet Template
+    Given I have an existing test environment
+    When I go to the root path
+    And I fill in "Email" with "test@test.test"
+    And I fill in "Password" with "password"
+    And I press "Sign in"
+    And I click "Dane's Cool Game"
+    And I click "Template"
+    Then I should see "Stats"
+
+  @javascript
+  Scenario: A Game Session Has an Armory
+    Given I have an existing test environment
+    When I go to the root path
+    And I fill in "Email" with "test@test.test"
+    And I fill in "Password" with "password"
+    And I press "Sign in"
+    And I click "Dane's Cool Game"
+    And I click "Armory"
+    Then I should see "Weapons"
+
+  @javascript
+  Scenario: A Game Session Can Make New Characters
+    Given I have an existing test environment
+    When I go to the root path
+    And I fill in "Email" with "test@test.test"
+    And I fill in "Password" with "password"
+    And I press "Sign in"
+    And I click "Dane's Cool Game"
+    And I click "Create character"
+    Then I should see "Bio"
