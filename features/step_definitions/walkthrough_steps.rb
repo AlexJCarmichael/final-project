@@ -110,6 +110,11 @@ When(/^I wait for (\d+) seconds$/) do |time|
   sleep(time.to_i)
 end
 
+When(/^I Press Enter in "([^"]*)"$/) do |id|
+  binding.pry
+  find(id).native.send_keys :return
+end
+
 Then(/^I should see "([^"]*)"$/) do |header|
   assert page.has_content?(header)
 end

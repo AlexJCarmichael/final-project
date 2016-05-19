@@ -58,6 +58,7 @@ var AssignSheet = React.createClass ({
       <p onClick={this.handleClick} className="click-me" id="template-create"><strong>Do you want to create your own sheet for this game?</strong></p>
       <div className={this.state.divClass}>
         <input className="center"
+          id="new-template-field"
           placeholder="Name the Sheet Template"
           value={this.state.postText}
           onKeyDown={this.handleDown}
