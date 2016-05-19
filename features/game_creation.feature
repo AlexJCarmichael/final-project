@@ -30,7 +30,7 @@ Feature: Create a Game
   Then I should see "Danes and Dragons"
 
   @javascript
-  Scenario: A User Chooses a Sheet Template
+  Scenario: A User Creates a Sheet Template
   Given I have an existing test environment
   When I go to the root path
   And I fill in "Email" with "test@test.test"
@@ -44,3 +44,22 @@ Feature: Create a Game
   And I fill in "new-template-field" with "New Sheet"
   And I Press Enter in "#new-template-field"
   Then I should see "New Sheet"
+
+  @javascript
+  Scenario: A User Adds to a Sheet Template
+  Given I have an existing test environment
+  When I go to the root path
+  And I fill in "Email" with "test@test.test"
+  And I fill in "Password" with "password"
+  And I press "Sign in"
+  And I click "New Game"
+  And I fill in "Name" with "The Peril of Xanderfall"
+  And I fill in "Time" with "Monday 7pm"
+  And I find "#Create-Game"
+  And I find "#template-create"
+  And I fill in "new-template-field" with "New Sheet"
+  And I Press Enter in "#new-template-field"
+  And I find "#stat"
+  And I fill in "add-stat" with "Agility"
+  And I Press Enter in "#add-stat"
+  Then I should see "Agility"

@@ -48,11 +48,14 @@ var MakeName = React.createClass({
 
   render: function () {
     var place = this.props.placeholder;
+    var inputId = this.props.inputId;
+    var divId = this.props.divId;
     return (
       <div>
-        <h6 onClick={this.handleClick} className="clicky-button btn">{this.state.displayName}</h6>
+        <h6 onClick={this.handleClick} className="clicky-button btn" id={divId}>{this.state.displayName}</h6>
         <div className={this.state.divClass}>
           <input className="center"
+            id={inputId}
             placeholder={place}
             value={this.state.postText}
             onKeyDown={this.handleDown}

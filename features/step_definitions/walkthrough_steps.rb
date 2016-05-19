@@ -111,7 +111,6 @@ When(/^I wait for (\d+) seconds$/) do |time|
 end
 
 When(/^I Press Enter in "([^"]*)"$/) do |id|
-  binding.pry
   find(id).native.send_keys :return
 end
 
