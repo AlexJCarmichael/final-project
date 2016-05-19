@@ -102,6 +102,10 @@ When(/^I click "([^"]*)"$/) do |name|
   click_link(name)
 end
 
+When(/^I find "([^"]*)"$/) do |id|
+  page.find("##{id}").click
+end
+
 Then(/^I should see "([^"]*)"$/) do |header|
   assert page.has_content?(header)
 end
