@@ -11,7 +11,7 @@ var MakeRank = React.createClass({
     });
   },
 
-  handleDown: function (event) {
+  handleUp: function (event) {
     {
       this.handlePutRank();
     }
@@ -56,7 +56,7 @@ var MakeRank = React.createClass({
             <div className="row">
               <label htmlFor={this.props.name + this.props.id} className="in-line col s6 m6 l5">{this.props.name}: </label>
               <input  id={this.props.name + this.props.id} type="text" className="character-form col s4 m4 l5" value={this.state.rank}
-                                                                          onKeyDown={this.handleDown}
+                                                                          onKeyUp={this.handleUp}
                                                                           onChange={this.handleChange}/>
             </div>
       );
