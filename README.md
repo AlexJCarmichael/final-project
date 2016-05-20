@@ -2,5 +2,6 @@
 
 [![Test Coverage](https://codeclimate.com/github/DaneCarmichael/final-project/badges/coverage.svg)](https://codeclimate.com/github/DaneCarmichael/final-project/coverage)
 
-###UML
+###UML and Wireframes
 ![](./erd.pdf)
+![](./doc/final_project.bmpr)
