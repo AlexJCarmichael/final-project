@@ -26,7 +26,6 @@ class MessagesController < ApplicationController
   end
 
   def create
-    binding.pry
     chat_session = ChatSession.find(params.fetch(:message).fetch(:chat_session_id))
     message = chat_session.messages.build(message_params)
     message.user_id = current_user.id

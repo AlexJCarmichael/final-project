@@ -340,6 +340,7 @@ ALTER SEQUENCE game_sheets_id_seq OWNED BY game_sheets.id;
 CREATE TABLE messages (
     id integer NOT NULL,
     body character varying,
+    user_id integer,
     chatable_id integer,
     chatable_type character varying,
     created_at timestamp without time zone NOT NULL,
@@ -1057,6 +1058,13 @@ CREATE INDEX index_messages_on_chatable_type_and_chatable_id ON messages USING b
 
 
 --
+-- Name: index_messages_on_user_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_messages_on_user_id ON messages USING btree (user_id);
+
+
+--
 -- Name: index_players_on_game_session_id; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -1161,6 +1169,14 @@ ALTER TABLE ONLY char_equips
 
 ALTER TABLE ONLY players
     ADD CONSTRAINT fk_rails_224cac07ce FOREIGN KEY (user_id) REFERENCES users(id);
+
+
+--
+-- Name: fk_rails_273a25a7a6; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY messages
+    ADD CONSTRAINT fk_rails_273a25a7a6 FOREIGN KEY (user_id) REFERENCES users(id);
 
 
 --
