@@ -3,7 +3,7 @@ class Message < ActiveRecord::Base
   before_save :strip_body
 
   belongs_to :user
-  belongs_to :chat_session
+  belongs_to :chatable, polymorphic: true
 
   def roll_dice
     if self.body.match(/\d{1,3}d\d{1,3}/)
