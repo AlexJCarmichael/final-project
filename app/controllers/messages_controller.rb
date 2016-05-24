@@ -15,7 +15,7 @@ class MessagesController < ApplicationController
   end
 
   def update
-    message = Message.find(params[:id])
+    message = get_message
     if message.update(message_params)
       respond_to do |format|
         format.json do
@@ -26,7 +26,10 @@ class MessagesController < ApplicationController
   end
 
   def create
-    message = current_user.messages.build(message_params)
+    binding.pry
+    chat_session = ChatSession.find(params.fetch(:message).fetch(:chat_session_id))
+    message = chat_session.messages.build(message_params)
+    message.user_id = current_user.id
     if message.body[0..4] == "/roll"
       message.roll_dice
     end
@@ -51,6 +54,6 @@ class MessagesController < ApplicationController
   end
 
   def message_params
-    params.require(:message).permit(:body, :user_id, :chat_session_id)
+    params.require(:message).permit(:body, :user_id, :chatable_id, :chatable_type)
   end
 end

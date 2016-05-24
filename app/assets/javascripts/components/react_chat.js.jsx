@@ -20,7 +20,7 @@ var ReactChat = React.createClass({
   },
 
   componentDidMount: function() {
-    this.interval = setInterval(this.tick, 1000);
+    this.interval = setInterval(this.tick, 10000);
   },
 
   componentWillUnmount: function() {

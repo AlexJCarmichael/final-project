@@ -340,8 +340,8 @@ ALTER SEQUENCE game_sheets_id_seq OWNED BY game_sheets.id;
 CREATE TABLE messages (
     id integer NOT NULL,
     body character varying,
-    user_id integer,
-    chat_session_id integer,
+    chatable_id integer,
+    chatable_type character varying,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
 );
@@ -1050,17 +1050,10 @@ CREATE INDEX index_game_sheets_on_sheet_template_id ON game_sheets USING btree (
 
 
 --
--- Name: index_messages_on_chat_session_id; Type: INDEX; Schema: public; Owner: -
+-- Name: index_messages_on_chatable_type_and_chatable_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_messages_on_chat_session_id ON messages USING btree (chat_session_id);
-
-
---
--- Name: index_messages_on_user_id; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE INDEX index_messages_on_user_id ON messages USING btree (user_id);
+CREATE INDEX index_messages_on_chatable_type_and_chatable_id ON messages USING btree (chatable_type, chatable_id);
 
 
 --
@@ -1168,14 +1161,6 @@ ALTER TABLE ONLY char_equips
 
 ALTER TABLE ONLY players
     ADD CONSTRAINT fk_rails_224cac07ce FOREIGN KEY (user_id) REFERENCES users(id);
-
-
---
--- Name: fk_rails_273a25a7a6; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY messages
-    ADD CONSTRAINT fk_rails_273a25a7a6 FOREIGN KEY (user_id) REFERENCES users(id);
 
 
 --
@@ -1296,14 +1281,6 @@ ALTER TABLE ONLY char_stats
 
 ALTER TABLE ONLY sheet_skills
     ADD CONSTRAINT fk_rails_ccabe069b6 FOREIGN KEY (sheet_template_id) REFERENCES sheet_templates(id);
-
-
---
--- Name: fk_rails_d8b20f6e1f; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY messages
-    ADD CONSTRAINT fk_rails_d8b20f6e1f FOREIGN KEY (chat_session_id) REFERENCES chat_sessions(id);
 
 
 --
