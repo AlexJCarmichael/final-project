@@ -1,8 +1,9 @@
 class MessagesController < ApplicationController
   def index
-    id = params.fetch(:chat_session_id)
+    id = params.fetch(:chatable_id)
+    chat = params.fetch(:chatable_type)
     if id
-      @messages = Message.limit(1000).order("created_at desc").where("chat_session_id =?", id).includes(:user)
+      @messages = Message.limit(1000).order("created_at desc").where("chatable_id =? and chatable_type =?", id, chat).includes(:user)
       respond_to do |format|
         format.json do
           render json: @messages.reverse

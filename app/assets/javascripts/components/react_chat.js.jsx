@@ -7,7 +7,7 @@ var ReactChat = React.createClass({
 
   tick: function() {
     var that = this;
-    var url = "/messages/?chat_session_id=" + this.props.chatId;
+    var url = "/messages/?chatable_id=" + this.props.chatId + "&chatable_type=" + this.props.chatType;
     var chatWindow = document.getElementById("chat-window");
     var isScrolledToBottom = chatWindow.scrollHeight - chatWindow.clientHeight <= chatWindow.scrollTop + 5;
     $.getJSON(url, function(response){
