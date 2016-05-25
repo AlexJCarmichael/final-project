@@ -630,6 +630,37 @@ ALTER SEQUENCE stats_id_seq OWNED BY stats.id;
 
 
 --
+-- Name: user_chats; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE user_chats (
+    id integer NOT NULL,
+    user_id integer,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: user_chats_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE user_chats_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: user_chats_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE user_chats_id_seq OWNED BY user_chats.id;
+
+
+--
 -- Name: users; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -797,6 +828,13 @@ ALTER TABLE ONLY stats ALTER COLUMN id SET DEFAULT nextval('stats_id_seq'::regcl
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
+ALTER TABLE ONLY user_chats ALTER COLUMN id SET DEFAULT nextval('user_chats_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
 
 
@@ -942,6 +980,14 @@ ALTER TABLE ONLY skills
 
 ALTER TABLE ONLY stats
     ADD CONSTRAINT stats_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: user_chats_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY user_chats
+    ADD CONSTRAINT user_chats_pkey PRIMARY KEY (id);
 
 
 --
@@ -1135,6 +1181,13 @@ CREATE INDEX index_sheet_templates_on_user_id ON sheet_templates USING btree (us
 
 
 --
+-- Name: index_user_chats_on_user_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_user_chats_on_user_id ON user_chats USING btree (user_id);
+
+
+--
 -- Name: index_users_on_email; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -1284,6 +1337,14 @@ ALTER TABLE ONLY chat_sessions
 
 
 --
+-- Name: fk_rails_c35635d776; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY user_chats
+    ADD CONSTRAINT fk_rails_c35635d776 FOREIGN KEY (user_id) REFERENCES users(id);
+
+
+--
 -- Name: fk_rails_cb5e2c529b; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1380,4 +1441,6 @@ INSERT INTO schema_migrations (version) VALUES ('20160513230108');
 INSERT INTO schema_migrations (version) VALUES ('20160514184948');
 
 INSERT INTO schema_migrations (version) VALUES ('20160515020856');
+
+INSERT INTO schema_migrations (version) VALUES ('20160525132544');
 

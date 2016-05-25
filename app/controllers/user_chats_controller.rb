@@ -1,0 +1,2 @@
+class UserChatsController < ApplicationController
+end
