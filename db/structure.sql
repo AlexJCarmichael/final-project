@@ -635,7 +635,8 @@ ALTER SEQUENCE stats_id_seq OWNED BY stats.id;
 
 CREATE TABLE user_chats (
     id integer NOT NULL,
-    user_id integer,
+    user_id integer NOT NULL,
+    recipient integer NOT NULL,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
 );
@@ -1181,6 +1182,13 @@ CREATE INDEX index_sheet_templates_on_user_id ON sheet_templates USING btree (us
 
 
 --
+-- Name: index_user_chats_on_recipient; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_user_chats_on_recipient ON user_chats USING btree (recipient);
+
+
+--
 -- Name: index_user_chats_on_user_id; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -1334,14 +1342,6 @@ ALTER TABLE ONLY players
 
 ALTER TABLE ONLY chat_sessions
     ADD CONSTRAINT fk_rails_af97cd1c1f FOREIGN KEY (game_session_id) REFERENCES game_sessions(id);
-
-
---
--- Name: fk_rails_c35635d776; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY user_chats
-    ADD CONSTRAINT fk_rails_c35635d776 FOREIGN KEY (user_id) REFERENCES users(id);
 
 
 --
