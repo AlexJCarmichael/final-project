@@ -21,6 +21,6 @@ Role Together is intended to serve as a way to play pen and paper role-playing g
 * [gravatarify](https://github.com/lwe/gravatarify) for user avatars.
 
 ## UML and Wireframes
-![](./erd.pdf)
+![](./erd.png)
 ![](./doc/dashboard_desktop.png)
 ![](./doc/games_index_page.png)
