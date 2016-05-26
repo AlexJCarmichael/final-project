@@ -34,11 +34,7 @@ class User < ActiveRecord::Base
   end
 
   def has_chat?
-    if self.user_chats.empty?
-      false
-    else
-      true
-    end
+    self.user_chats.present?
   end
 
   def player_id(game_id)
