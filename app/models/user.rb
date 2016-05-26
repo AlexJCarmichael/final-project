@@ -33,6 +33,14 @@ class User < ActiveRecord::Base
     game.user_id == self.id
   end
 
+  def has_chat?
+    if self.user_chats.empty?
+      false
+    else
+      true
+    end
+  end
+
   def player_id(game_id)
     self.players.find_by(game_session_id: game_id).id
   end
