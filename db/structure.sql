@@ -636,7 +636,7 @@ ALTER SEQUENCE stats_id_seq OWNED BY stats.id;
 CREATE TABLE user_chats (
     id integer NOT NULL,
     user_id integer NOT NULL,
-    recipient integer NOT NULL,
+    recipient_id integer NOT NULL,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
 );
@@ -1182,10 +1182,10 @@ CREATE INDEX index_sheet_templates_on_user_id ON sheet_templates USING btree (us
 
 
 --
--- Name: index_user_chats_on_recipient; Type: INDEX; Schema: public; Owner: -
+-- Name: index_user_chats_on_recipient_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_user_chats_on_recipient ON user_chats USING btree (recipient);
+CREATE INDEX index_user_chats_on_recipient_id ON user_chats USING btree (recipient_id);
 
 
 --

@@ -57,7 +57,11 @@
                   <%= render partial: 'layouts/user_show', :locals => { :user => friend } %>
                 </div>
               </span>
-              <p><%= friend.user_name %></p>
+              <p>
+                <%= friend.user_name %> <br>
+                <%= link_to "Chat", chat_users_path(user_id: current_user.id, recipient_id: friend.id ), method: :post %>
+              </p>
+
             </li>
         <% end %>
         </ul>

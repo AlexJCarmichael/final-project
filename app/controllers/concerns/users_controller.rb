@@ -79,6 +79,14 @@ class UsersController < Clearance::UsersController
     redirect_to :back
   end
 
+  def chat
+    if UserChat.create(recipient_id: params.fetch(:recipient_id), user_id: current_user.id)
+      redirect_to :back
+    else
+      flash[:alert] = 'Unable to create chat'
+    end
+  end
+
   private
   def user_params
     params.require(:user).permit(:user_name, :email, :password, :name, :phone_number, :profile_image)
