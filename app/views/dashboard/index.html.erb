@@ -102,7 +102,7 @@
 </div>
 
 <% if current_user.has_chat? %>
-  <% chat = current_user.user_chats.first %>
+  <% chat = current_user.my_user_chats.first %>
   <div class='chat-position'>
     <h6 class='limiter' id='clicky-button'>Chat collapse or expand</h6>
     <div class='chat-container' id='collapse-me'>

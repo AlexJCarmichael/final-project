@@ -34,7 +34,11 @@ class User < ActiveRecord::Base
   end
 
   def has_chat?
-    self.user_chats.present?
+    self.my_user_chats.present?
+  end
+
+  def my_user_chats
+    self.user_chats | UserChat.where(recipient_id:  self.id)
   end
 
   def player_id(game_id)
