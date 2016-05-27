@@ -29,7 +29,8 @@ var MessagesSender = React.createClass({
       data: {
         message: {
           body: this.state.messageText,
-          chat_session_id: this.props.chatId
+          chat_session_id: this.props.chatId,
+          chat_type: this.props.chatType
         }
       }
     }).done(function(response) {

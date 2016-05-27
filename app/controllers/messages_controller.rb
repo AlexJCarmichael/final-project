@@ -27,8 +27,8 @@ class MessagesController < ApplicationController
   end
 
   def create
-    chat_session = ChatSession.find(params.fetch(:message).fetch(:chat_session_id))
-    message = chat_session.messages.build(message_params)
+    chat_type = get_chat_type.find(params.fetch(:message).fetch(:chat_session_id))
+    message = chat_type.messages.build(message_params)
     message.user_id = current_user.id
     if message.body[0..4] == "/roll"
       message.roll_dice
@@ -55,5 +55,13 @@ class MessagesController < ApplicationController
 
   def message_params
     params.require(:message).permit(:body, :user_id, :chatable_id, :chatable_type)
+  end
+
+  def get_chat_type
+    if params.fetch(:message).fetch(:chat_type) == "UserChat"
+      UserChat
+    elsif params.fetch(:message).fetch(:chat_type) == "ChatSession"
+      ChatSession
+    end
   end
 end
