@@ -637,6 +637,7 @@ CREATE TABLE user_chats (
     id integer NOT NULL,
     user_id integer NOT NULL,
     recipient_id integer NOT NULL,
+    visable boolean DEFAULT true,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
 );
