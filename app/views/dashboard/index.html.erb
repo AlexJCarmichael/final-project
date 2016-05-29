@@ -104,18 +104,20 @@
 <% if current_user.has_chat? %>
   <div class='chat-position'>
     <h6 class='limiter' id='clicky-button'>Chat collapse or expand</h6>
-    <h6>
+    <h6 class='chat-background'>
       <% current_user.my_user_chats.each do |chat| %>
         <% if chat.visable? %>
-          <span><%= chat.recipient.name %></span>
+          <span><%= chat.recipient.name %> <i class='material-icons person-icon'>close</i></span>
         <% end %>
       <% end %>
     </h6>
       <div class='chat-container' id='collapse-me'>
         <% current_user.my_user_chats.each do |chat| %>
           <% if chat.visable? %>
-            <%= react_component('ReactChat', chatId: chat.id, chatType: "UserChat") %>
-            <%= react_component('MessagesSender', chatId: chat.id, chatType: "UserChat") %>
+            <div>
+              <%= react_component('ReactChat', chatId: chat.id, chatType: "UserChat") %>
+              <%= react_component('MessagesSender', chatId: chat.id, chatType: "UserChat") %>
+            </div>
           <% end %>
         <% end %>
       </div>

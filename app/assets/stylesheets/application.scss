@@ -354,6 +354,12 @@ input[type="text"]{
   background-color: white;
 }
 
+.chat-background {
+  background-color: white;
+  margin: 0;
+  padding: .25em;
+}
+
 #chat-window {
   height: 20em;
   overflow: auto;
@@ -435,6 +441,9 @@ input.upper-margin {
   }
   .chat-container {
     width: 30em;
+    opacity: .90;
+  }
+  .chat-background {
     opacity: .90;
   }
   .center-text-only-small {
