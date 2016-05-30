@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       put "acceptance"
       put "denial"
       post "chat"
+      put "display_chat"
     end
     resource :password,
       controller: "clearance/passwords",

@@ -87,6 +87,18 @@ class UsersController < Clearance::UsersController
     end
   end
 
+  def display_chat
+    chat = UserChat.find(params.fetch(:chat))
+    if chat.visable?
+      chat.visable = false
+      chat.save!
+      redirect_to :back
+    else
+      chat.visable = true
+      redirect_to :back
+    end
+  end
+
   private
   def user_params
     params.require(:user).permit(:user_name, :email, :password, :name, :phone_number, :profile_image)
