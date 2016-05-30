@@ -2,25 +2,7 @@ var AssignSheet = React.createClass ({
   getInitialState: function (){
     return {
       postText: '',
-      divClass: "hide",
-      secondHidden: "hide"
     };
-  },
-
-  handleClick: function (){
-    if (this.state.divClass === "hide") {
-      this.setState({divClass: ""});
-    }else {
-      this.setState({divClass: "hide"});
-    }
-  },
-
-  handleClick2: function (){
-    if (this.state.secondHidden === "hide") {
-      this.setState({secondHidden: ""});
-    }else {
-      this.setState({secondHidden: "hide"});
-    }
   },
 
   handleChange: function (event) {
@@ -55,8 +37,8 @@ var AssignSheet = React.createClass ({
   render: function () {
     return (
     <div>
-      <p onClick={this.handleClick} className="click-me" id="template-create"><strong>Do you want to create your own sheet for this game?</strong></p>
-      <div className={this.state.divClass}>
+      <p id="template-create"><strong>Do you want to create your own sheet for this game?</strong></p>
+      <div>
         <input className="center"
           id="new-template-field"
           placeholder="Name the Sheet Template"
@@ -65,8 +47,8 @@ var AssignSheet = React.createClass ({
           onChange={this.handleChange}/>
           <h6 className="center">Press enter to create a sheet</h6>
       </div>
-      <p onClick={this.handleClick2} className="click-me" id="template-search"><strong>Do you want to use a sheet that already exists?</strong></p>
-      <div className={this.state.secondHidden}>
+      <p id="template-search"><strong>Do you want to use a sheet that already exists?</strong></p>
+      <div>
         <TemplateSearch
           gameId={this.props.gameId}
         />
