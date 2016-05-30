@@ -3,8 +3,8 @@
 one:
   name: MyString
   damage: MyString
-  type: 
-  sub_type: MyString
+  category: MyString
+  sub_category: MyString
   armor: MyString
   weight: MyString
   reach: MyString
@@ -13,8 +13,8 @@ one:
 two:
   name: MyString
   damage: MyString
-  type: 
-  sub_type: MyString
+  category: MyString
+  sub_category: MyString
   armor: MyString
   weight: MyString
   reach: MyString

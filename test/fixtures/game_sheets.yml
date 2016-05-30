@@ -1,9 +1,5 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  SheetTemplate_id: 
-  GameSession_id: 
-
-two:
-  SheetTemplate_id: 
-  GameSession_id: 
+  sheet_template_id: 1
+  game_session_id: 1
