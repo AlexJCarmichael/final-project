@@ -12,7 +12,7 @@ var CharacterSheet = React.createClass({
     } else {
       return this.props.equipment.map(function(equip) {
         return (
-          <ShowEquip key={equip.id} name={equip.name} category={equip.category} />
+          <ShowEquip key={equip.id} category={equip.category} name={equip.name}  />
         );
       });
     }
