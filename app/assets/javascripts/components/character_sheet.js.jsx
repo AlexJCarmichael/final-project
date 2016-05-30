@@ -69,10 +69,10 @@ var CharacterSheet = React.createClass({
         </div>
         <div className="row">
           <CharacterRankDisplay
-            headerName="Stats"
             charAttributes={this.props.stats}
-            canEdit={that.state.editable}
             subject="stats"
+            headerName="Stats"
+            canEdit={that.state.editable}
             />
           <CharacterRankDisplay
             headerName="Skills"
