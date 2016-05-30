@@ -45,6 +45,14 @@ class User < ActiveRecord::Base
     self.user_chats | UserChat.where(recipient_id:  self.id)
   end
 
+  def has_chat_with?(user)
+    self.user_chats.where("user_id =? or recipient_id =?", user.id, user.id).present?
+  end
+
+  def chat_with_id(user)
+    self.user_chats.find_by("user_id =? or recipient_id =?", user.id, user.id).id
+  end
+
   def player_id(game_id)
     self.players.find_by(game_session_id: game_id).id
   end

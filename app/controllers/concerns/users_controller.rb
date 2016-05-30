@@ -95,6 +95,7 @@ class UsersController < Clearance::UsersController
       redirect_to :back
     else
       chat.visable = true
+      chat.save!
       redirect_to :back
     end
   end

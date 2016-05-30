@@ -59,7 +59,11 @@
               </span>
               <p>
                 <%= friend.user_name %> <br>
-                <%= link_to "Chat", chat_users_path(user_id: current_user.id, recipient_id: friend.id ), method: :post %>
+                <% if current_user.has_chat_with?(friend) %>
+                  <a rel="nofollow" data-method="put" href="/users/display_chat?chat=<%= current_user.chat_with_id(friend) %>">Resume Chat</a>
+                <% else %>
+                  <%= link_to "Chat", chat_users_path(user_id: current_user.id, recipient_id: friend.id ), method: :post %>
+                <% end %>
               </p>
 
             </li>
