@@ -68,21 +68,12 @@ var CharacterSheet = React.createClass({
             </div>
         </div>
         <div className="row">
-          <div className="col s12 m6 l6">
-            <h6>Attributes</h6>
-            {this.props.stats.map(function(stat) {
-              return (
-              <MakeRank
-                subject="stats"
-                key={stat.id}
-                id={stat.id}
-                name={stat.name}
-                rank={stat.rank}
-                canEdit={that.state.editable}
-                />
-              );
-            })}
-            </div>
+          <CharacterRankDisplay
+            headerName="Stats"
+            charAttributes={this.props.stats}
+            canEdit={that.state.editable}
+            subject="stats"
+            />
             <div className="col s12 m6 l6">
               <h6>Skills</h6>
               {this.props.skills.map(function(skill) {
