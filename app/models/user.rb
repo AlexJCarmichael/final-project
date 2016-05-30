@@ -37,6 +37,10 @@ class User < ActiveRecord::Base
     self.my_user_chats.present?
   end
 
+  def has_visable_chats?
+    self.user_chats.where(visable: true).present?
+  end
+
   def my_user_chats
     self.user_chats | UserChat.where(recipient_id:  self.id)
   end
