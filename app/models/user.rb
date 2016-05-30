@@ -88,17 +88,4 @@ class User < ActiveRecord::Base
     super(only: [:name, :user_name, :email, :profile_image_id, :id],
           methods: [:photo_url])
   end
-
-  private
-  def haters
-    self.declined_friendships
-  end
-
-  def scrubs
-    self.declined_requests
-  end
-
-  def taylor_left_eye_chilli
-    self.declined_requests | self.declined_friendships
-  end
 end
