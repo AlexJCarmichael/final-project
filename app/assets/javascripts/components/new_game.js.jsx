@@ -45,18 +45,18 @@ var NewGame = React.createClass({
           <h6>Name your game</h6>
           <div>
             <input className="center"
-              id="Name"
               placeholder="The Peril of Xanderfall"
+              id="Name"
               value={this.state.gameName}
               onChange={this.handleChange}/>
           </div>
           <h6>When will you play?</h6>
           <div>
             <input className="center"
+              onChange={this.handleChange2}/>
               id="Time"
               placeholder="Monday 7pm"
               value={this.state.startTime}
-              onChange={this.handleChange2}/>
           </div>
           <div id="game-error">
           </div>
