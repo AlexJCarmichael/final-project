@@ -48,11 +48,11 @@ ActiveRecord::Schema.define(version: 20160511233927) do
 
   create_table "characters", force: :cascade do |t|
     t.string   "name",              null: false
-    t.integer  "sheet_template_id"
+    t.integer  "sheet_template_id", null:false
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.text     "bio"
-    t.integer  "player_id"
+    t.integer  "player_id",         null: false
   end
 
   add_index "characters", ["player_id"], name: "index_characters_on_player_id", using: :btree

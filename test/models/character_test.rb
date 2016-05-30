@@ -8,4 +8,19 @@ class CharacterTest < ActiveSupport::TestCase
   test "should be valid" do
     assert @character.valid?
   end
+
+  test "name should be present" do
+    @character.name = ""
+    assert_not @character.valid?
+  end
+
+  test "player_id should be present" do
+    @character.player_id = nil
+    assert_not @character.valid?
+  end
+
+  test "sheet_template_id should be present" do
+    @character.sheet_template_id = nil
+    assert_not @character.valid?
+  end
 end

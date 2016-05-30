@@ -13,6 +13,8 @@ class Character < ActiveRecord::Base
   has_many :equipment, through: :char_equips
 
   validates :name, presence: true
+  validates :sheet_template_id, presence: true
+  validates :player_id, presence: true
 
   def as_json(_ = nil)
     super(include: { user: { only: [:name, :user_name, :email, :profile_image_id, :id]} } )
