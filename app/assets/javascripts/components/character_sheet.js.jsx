@@ -12,11 +12,7 @@ var CharacterSheet = React.createClass({
     } else {
       return this.props.equipment.map(function(equip) {
         return (
-          <ShowEquip
-            key={equip.id}
-            name={equip.name}
-            category={equip.category}
-            />
+          <ShowEquip key={equip.id} name={equip.name} category={equip.category} />
         );
       });
     }
@@ -46,13 +42,13 @@ var CharacterSheet = React.createClass({
         <div className="row">
           <div className="col s12 m6 l6">
             <MakeRank
+              rank={charLevel}
+              canEdit={that.state.editable}
+              changeCharacter="true"
               subject="characters"
               id={charId}
               name="Level"
-              rank={charLevel}
               charAttr="level"
-              canEdit={that.state.editable}
-              changeCharacter="true"
               />
             </div>
             <div className="col s12 m6 l6">
