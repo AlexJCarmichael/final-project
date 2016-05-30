@@ -74,29 +74,20 @@ var CharacterSheet = React.createClass({
             canEdit={that.state.editable}
             subject="stats"
             />
-            <div className="col s12 m6 l6">
-              <h6>Skills</h6>
-              {this.props.skills.map(function(skill) {
-                return (
-                <MakeRank
-                  subject="skills"
-                  key={skill.id}
-                  id={skill.id}
-                  name={skill.name}
-                  rank={skill.rank}
-                  canEdit={that.state.editable}
-                  />
-                );
-              })}
-              </div>
-          </div>
-          <h6 className="center">Equipment</h6>
-          <EquipmentSearch
-            alingment="center"
-            gameId={this.props.game_id}
-            searchFor={this.props.searchFor}
-            characterId={this.props.character_id} />
-            {this.showEquipment()}
+          <CharacterRankDisplay
+            headerName="Skills"
+            charAttributes={this.props.skills}
+            canEdit={that.state.editable}
+            subject="skills"
+            />
+        </div>
+        <h6 className="center">Equipment</h6>
+        <EquipmentSearch
+          alingment="center"
+          gameId={this.props.game_id}
+          searchFor={this.props.searchFor}
+          characterId={this.props.character_id} />
+          {this.showEquipment()}
         </div>
     );
   },
