@@ -20,13 +20,13 @@ var TemplateSearch = React.createClass({
     componentDidMount: function () {
       var that = this
       $.ajax({
-        url: "/sheet_templates/",
         dataType: "JSON",
-        method: "get"
+        method: "get",
+        url: "/sheet_templates/"
       }).done(function (response) {
         that.setState({
-          allTemplates: response,
-          filteredTemplates: []
+          filteredTemplates: [],
+          allTemplates: response
         });
       })
     },
@@ -36,9 +36,9 @@ var TemplateSearch = React.createClass({
       if (this.state.search.length > 1) {
         return this.state.filteredTemplates.map(function (sheet){
             return (<CreateGameSheet
-                      key={sheet.id}
                       sheet={sheet}
-                      gameId={that.props.gameId}/>);
+                      gameId={that.props.gameId}
+                      key={sheet.id}/>);
           });
       } else {
         return (<span></span>);
@@ -50,9 +50,9 @@ var TemplateSearch = React.createClass({
         <div>
           <div>
             <input type="text"
-             id="template-field"
             onChange={this.filterList} value={this.state.search}
-            placeholder="Sheet Template name" />
+            placeholder="Sheet Template name"
+            id="template-field" />
           </div>
           <div>
             {this.sheetNames()}
