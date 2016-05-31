@@ -27,9 +27,9 @@ var UserCard = React.createClass({
             console.log(npc)
             return (
               <IndividualNPC
-                characterId={npc.id}
-                key={npc.id}
                 name={npc.name}
+                key={npc.id}
+                characterId={npc.id}
                 />
             )
           })}
@@ -51,10 +51,10 @@ var UserCard = React.createClass({
             {this.props.characters.map(function(character) {
               return (
                 <IndividualUser
-                  characterId={character.id}
-                  key={character.id}
-                  name={character.name}
                   user={character.user}
+                  characterId={character.id}
+                  name={character.name}
+                  key={character.id}
                   />
               );
             })}
