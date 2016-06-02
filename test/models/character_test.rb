@@ -29,7 +29,6 @@ class CharacterTest < ActiveSupport::TestCase
   end
 
   test "character JSON does not return all its Users info" do
-    binding.pry
     assert_equal(@character.as_json.fetch("user").keys, ["id", "user_name", "name", "email", "profile_image_id"])
   end
 end
