@@ -26,11 +26,7 @@ var UserCard = React.createClass({
           {that.props.npcs.map(function(npc) {
             console.log(npc)
             return (
-              <IndividualNPC
-                name={npc.name}
-                key={npc.id}
-                characterId={npc.id}
-                />
+              <IndividualNPC name={npc.name} key={npc.id} characterId={npc.id} />
             )
           })}
         </div>
