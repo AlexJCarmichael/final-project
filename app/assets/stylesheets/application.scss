@@ -95,6 +95,18 @@ a.btn.delete {
   }
 }
 
+a.create {
+  background-color: #008080;
+  text-decoration: none;
+  color: white;
+  padding: .25em, .3em;
+  border-radius: 2px;
+  &:hover {
+    background-color: darken(#008080, 10%);
+    color: white;
+  }
+}
+
 #mobile-demo {
   background-color: $primary-color;
   a {
@@ -112,6 +124,10 @@ a.btn.delete {
 
 .sml-left-margin {
   margin-left: .25em;
+}
+
+.sml-right-padding {
+  padding-right: .3em;
 }
 
 .border-me {
