@@ -81,16 +81,28 @@ a.btn.delete {
   }
 }
 
-  .dash-display {
-    a.delete {
-      background-color: #B03060;
-      text-decoration: none;
+p {
+  a.delete {
+    background-color: #B03060;
+    text-decoration: none;
+    color: white;
+    &:hover {
+      background-color: darken(#B03060, 20%);
       color: white;
-      padding: .25em .3em;
-      border-radius: 2px;
-      &:hover {
-        background-color: darken(#B03060, 20%);
-        color: white;
+    }
+  }
+}
+
+.dash-display {
+  a.delete {
+    background-color: #B03060;
+    text-decoration: none;
+    color: white;
+    padding: .25em .3em;
+    border-radius: 2px;
+    &:hover {
+      background-color: darken(#B03060, 20%);
+      color: white;
     }
   }
 }
@@ -104,6 +116,20 @@ a.create {
   &:hover {
     background-color: darken(#008080, 10%);
     color: white;
+  }
+}
+
+p {
+    a.create {
+    background-color: #008080;
+    text-decoration: none;
+    color: white;
+    padding: .25em, .3em;
+    border-radius: 2px;
+    &:hover {
+      background-color: darken(#008080, 10%);
+      color: white;
+    }
   }
 }
 
@@ -136,6 +162,10 @@ a.create {
 
 .small-right-margin {
   margin-right: 1.5em;
+}
+
+.sml-side-padding {
+  padding: 0 .3em;
 }
 
 .plain {

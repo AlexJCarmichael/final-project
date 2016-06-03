@@ -60,7 +60,7 @@
               <p>
                 <%= friend.user_name %> <br>
                 <% if current_user.has_chat_with?(friend) %>
-                  <a rel="nofollow" data-method="put" href="/users/display_chat?chat=<%= current_user.chat_with_id(friend) %>">Resume Chat</a>
+                  <a class="create sml-side-padding" rel="nofollow" data-method="put" href="/users/display_chat?chat=<%= current_user.chat_with_id(friend) %>">Resume Chat</a>
                 <% else %>
                   <%= link_to "Chat", chat_users_path(user_id: current_user.id, recipient_id: friend.id ), method: :post %>
                 <% end %>
@@ -93,9 +93,9 @@
                   </div>
                 </span>
                 <p><%= pend.user.user_name %> <br>
-                  <%= link_to "Accept", acceptance_users_path(from: pend.user_id, to: current_user.id), method: :put %>
+                  <%= link_to "Accept", acceptance_users_path(from: pend.user_id, to: current_user.id), method: :put, class: "create sml-side-padding" %>
                   <span> or </span>
-                  <%= link_to "Decline", denial_users_path(from: pend.user_id, to: current_user.id), method: :put %>
+                  <%= link_to "Decline", denial_users_path(from: pend.user_id, to: current_user.id), method: :put, class: "delete sml-side-padding" %>
                 </p>
               </li>
               <% end %>
