@@ -4,3 +4,8 @@
 require File.expand_path('../config/application', __FILE__)
 
 Rails.application.load_tasks
+
+require "codeclimate-test-reporter"
+CodeClimate::TestReporter.start
+
+task default: [:test, :cucumber]
