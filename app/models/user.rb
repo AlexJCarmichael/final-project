@@ -46,11 +46,11 @@ class User < ActiveRecord::Base
   end
 
   def has_chat_with?(user)
-    (self.user_chats.where("recipient_id =?", user.id) | UserChat.where("recipient_id =?", self.id)).present?
+    (self.user_chats.where("recipient_id =?", user.id) | UserChat.where("user_id =? AND recipient_id =?", user.id, self.id)).present?
   end
 
   def chat_with_id(user)
-    (self.user_chats.where("recipient_id =?", user.id) | UserChat.where("recipient_id =?", self.id)).id
+    (self.user_chats.where("recipient_id =?", user.id) | UserChat.where("user_id =? AND recipient_id =?", user.id, self.id)).first.id
   end
 
   def player_id(game_id)
