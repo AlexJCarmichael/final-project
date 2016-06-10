@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
   end
 
   def has_visable_chats?
-    self.user_chats.where(visable: true).present?
+    (self.user_chats.where(visable: true) | UserChat.where("recipient_id =? AND visable=?", self.id, true)).present?
   end
 
   def my_user_chats
