@@ -42,15 +42,15 @@ class User < ActiveRecord::Base
   end
 
   def my_user_chats
-    self.user_chats | UserChat.where(recipient_id:  self.id)
+    self.user_chats | UserChat.where(recipient_id: self.id)
   end
 
   def has_chat_with?(user)
-    self.user_chats.where("user_id =? or recipient_id =?", user.id, user.id).present?
+    (self.user_chats.where("recipient_id =?", user.id) | UserChat.where("recipient_id =?", self.id)).present?
   end
 
   def chat_with_id(user)
-    self.user_chats.find_by("user_id =? or recipient_id =?", user.id, user.id).id
+    (self.user_chats.where("recipient_id =?", user.id) | UserChat.where("recipient_id =?", self.id)).id
   end
 
   def player_id(game_id)

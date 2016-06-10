@@ -111,14 +111,14 @@
     <h6 class='chat-background'>
       <% current_user.my_user_chats.each do |chat| %>
         <% if chat.visable? %>
-          <span class="<%= chat.recipient.id %>"><%= chat.recipient.name %>   <a rel="nofollow" data-method="put" href="/users/display_chat?chat=<%= chat.id %>"><i class='material-icons person-icon'>close</i></a></span>
+          <span id="<%= chat.recipient.id %>"><%= chat.recipient.name %>   <a rel="nofollow" data-method="put" href="/users/display_chat?chat=<%= chat.id %>"><i class='material-icons person-icon'>close</i></a></span>
         <% end %>
       <% end %>
     </h6>
       <div class='chat-container' id='collapse-me'>
         <% current_user.my_user_chats.each do |chat| %>
           <% if chat.visable? %>
-            <div class="actual-chat-<%= chat.recipient.id %>">
+            <div id="actual-chat-<%= chat.recipient.id %>">
               <%= react_component('ReactChat', chatId: chat.id, chatType: "UserChat") %>
               <%= react_component('MessagesSender', chatId: chat.id, chatType: "UserChat") %>
             </div>
