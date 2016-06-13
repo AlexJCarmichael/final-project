@@ -111,7 +111,7 @@
     <h6 class='chat-background'>
       <% current_user.my_user_chats.each do |chat| %>
         <% if chat.visable? %>
-          <span id="<%= chat.recipient.id %>"><%= chat.recipient.name %>   <a rel="nofollow" data-method="put" href="/users/display_chat?chat=<%= chat.id %>"><i class='material-icons person-icon'>close</i></a></span>
+          <span id="<%= chat.recipient.id %>"><%= chat.display_name(current_user) %>   <a rel="nofollow" data-method="put" href="/users/display_chat?chat=<%= chat.id %>"><i class='material-icons person-icon'>close</i></a></span>
         <% end %>
       <% end %>
     </h6>
